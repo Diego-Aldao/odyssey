@@ -4,13 +4,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        "bg-main-color": "#e6e4d5",
+        "main-color-background": "#e6e4d5",
         "main-black": "#23210f",
-        "main-white": "#e5e5e5",
-        "main-color": "#fbff5a",
+        "main-white": "#efefef",
+        "main-color": "#fcff60",
       },
       fontFamily: {
         chivo: ["Chivo", "sans-serif"],
+      },
+      screens: {
+        xl: "1240px",
       },
     },
   },
