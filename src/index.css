@@ -1,5 +1,132 @@
 @import url('https://fonts.googleapis.com/css2?family=Chivo:wght@700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Epilogue:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #23210f;
+}
+p::selection,
+span::selection,
+h1::selection,
+h2::selection,
+h3::selection,
+h4::selection,
+li::selection,
+a::selection{
+    color: #fcff60;
+    background: #23210f;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.main_section {
+    @apply bg-main-color-background w-full rounded-b-2xl px-4 md:px-6 lg:px-10 py-8 lg:py-10 lg:pt-20 grid gap-7 md:gap-4 md:gap-y-7 md:grid-cols-7 md:grid-rows-[250px_100px_220px] lg:grid-rows-[minmax(0,_1fr)_100px_220px] xs:grid-cols-2
+}
+
+.main_titulo{
+    @apply font-chivo text-[42px] text-4xl uppercase max-w-lg md:col-span-5 md:max-w-full md:text-7xl lg:text-8xl -tracking-[1px] lg:-tracking-[5px] xl:text-[112px] xl:-tracking-[10px] xl:leading-[0.85] xs:col-span-2 xs:text-5xl
+}
+.main_button_random{
+    @apply rounded-full  mx-auto flex items-center justify-center xs:row-start-2 md:col-start-3 md:col-span-3 md:self-center md:-top-12 lg:col-start-4 lg:col-span-2 relative
+}
+
+.main_card_anime{
+    @apply relative w-full md:col-span-4 md:max-w-[90%] border-[1.5px] border-main-black md:h-full md:-top-8 lg:-top-20 lg:col-span-3 lg:max-w-full lg:h-[300px] rounded-2xl xs:col-span-2 max-w-[480px] min-h-[250px] justify-self-center md:justify-self-start lg:row-start-3
+}
+.main_card_personaje{
+    @apply relative w-[250px] h-[350px] bg-secondary-color-background flex mx-auto md:mx-0  border-[1.5px] border-[#3e3c2e] rounded-[20px] rounded-ss-[96px] md:w-[220px] md:justify-self-end md:col-span-2 md:row-span-2 md:h-full md:max-h-[320px] lg:max-h-[400px] max-w-[280px] lg:w-full lg:justify-self-end xs:col-start-2
+}
+
+.main_info_app{
+    @apply w-full bg-main-white border-[1.5px] border-main-black md:col-span-3 md:col-start-5 md:self-end lg:col-start-4 lg:col-span-4 lg:max-w-[90%] lg:justify-self-end rounded-[20px] xs:col-span-2 justify-self-center p-4 flex justify-between gap-3 flex-wrap max-w-[600px] relative
+}
+
+.main_info_app_corner{
+    @apply absolute w-1/2 h-10 bg-main-color-background -top-[1.5px] -right-[1px] rounded-b-[20px] rounded-br-none border-b-[1.5px] border-l-[1.5px] border-main-black hidden xs:flex md:hidden lg:flex justify-end items-end
+}
+
+.custom-border{
+    border-radius: 20px 96px 20px 96px;
+}
+
+.nav_principal:after {
+    content: "";
+    position: absolute;
+    left: -30px;
+    top: 0px;
+    border-top: 48px solid #23210f;
+    border-left: 34px solid transparent;
+    width: 0px;
+    height: 0px;
+
+}
+
+@media (min-width:768px) {
+    .nav_principal:before {
+        content: "";
+        position: absolute;
+        right: -30px;
+        top: 0px;
+        border-top: 48px solid #23210f;
+        border-right: 34px solid transparent;
+        width: 0px;
+        height: 0px;
+    }
+}
+
+.main_card_anime:after {
+    content: "";
+    right: 25px;
+    top: -7px;
+    background: #e6e4d5;
+    border-left: 1.5px solid #23210f;
+    width: 10px;
+    height: 68px;
+    position: absolute;
+    transform: rotate(314deg);
+}
+
+.main_card_anime:before {
+    content: "";
+    left: 26px;
+    bottom: -8px;
+    background: #e6e4d5;
+    border-right: 1.5px solid #23210f;
+    width: 10px;
+    height: 68px;
+    position: absolute;
+    transform: rotate(313deg);
+}
+
+.main_card_personaje:after {
+    content: "";
+    left: -6px;
+    top: 25px;
+    background: #e6e4d5;
+    border-bottom: 1.5px solid #23210f;
+    width: 70px;
+    height: 9px;
+    position: absolute;
+    transform: rotate(315deg);
+}
+
+.main_info_app_corner:after {
+    content: "";
+    position: absolute;
+    width: 46px;
+    height: 29px;
+    border-bottom: 1.5px solid #23210f;
+    left: -26px;
+    top: -8px;
+    rotate: 44deg;
+    background: #e6e4d5;
+
+}
