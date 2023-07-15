@@ -27,6 +27,9 @@ img {
     object-fit: cover;
 }
 
+.navegacion_principal{
+    @apply text-white bg-main-black px-4 md:px-0 h-full nav_principal relative md:w-4/6 rounded-bl-[20px] md:rounded-b-[20px] lg:w-3/5
+}
 .main_section {
     @apply bg-main-color-background w-full rounded-b-2xl px-4 md:px-6 lg:px-10 py-8 lg:py-10 lg:pt-20 grid gap-7 md:gap-4 md:gap-y-7 md:grid-cols-7 md:grid-rows-[250px_100px_220px] lg:grid-rows-[minmax(0,_1fr)_100px_220px] xs:grid-cols-2
 }
@@ -51,6 +54,25 @@ img {
 
 .main_info_app_corner{
     @apply absolute w-1/2 h-10 bg-main-color-background -top-[1.5px] -right-[1px] rounded-b-[20px] rounded-br-none border-b-[1.5px] border-l-[1.5px] border-main-black hidden xs:flex md:hidden lg:flex justify-end items-end
+}
+
+.sub_header_interaction:after{
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: -32px;
+    height: 20px;
+    width: 57px;
+    transform: rotate(60deg);
+    background: #23210f;
+}
+
+@media (min-width: 1024px){
+    .sub_header_interaction:after{
+        left: -40px;
+        height: 38px;
+        width: 77px;
+    }
 }
 
 .custom-border{
