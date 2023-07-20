@@ -4,23 +4,28 @@ type Props = {
   titulo: string;
   nombreInteraccion: string;
   nombreIcono?: string;
+  noBackground?: boolean;
 };
 
 const SubHeader: React.FC<Props> = ({
   titulo,
   nombreInteraccion,
   nombreIcono,
+  noBackground,
 }) => {
   return (
-    <header className="w-full h-14 lg:h-20 bg-main-color-background  pl-4 md:pl-6 lg:pl-10 rounded-xl rounded-b-none flex items-center justify-between">
+    <header
+      className={`w-full h-14 lg:h-20 ${
+        noBackground
+          ? "bg-main-black text-main-color-background"
+          : "bg-main-color-background text-main-black"
+      }  pl-4 md:pl-6 lg:pl-10 rounded-xl rounded-b-none flex items-center justify-between`}
+    >
       <h3 className="uppercase font-semibold font-chivo text-sm xs:text-lg sm:text-xl md:text-2xl lg:text-4xl flex gap-2 sm:gap-4 lg:gap-6 items-center">
         {titulo}
         {nombreIcono && (
           <span className="">
-            <Icon
-              icon={nombreIcono}
-              className="h-[20px] xs:h-full text-main-black"
-            />
+            <Icon icon={nombreIcono} className="h-[20px] xs:h-full " />
           </span>
         )}
       </h3>
