@@ -56,6 +56,80 @@ img {
     @apply absolute w-1/2 h-10 bg-main-color-background -top-[1.5px] -right-[1px] rounded-b-[20px] rounded-br-none border-b-[1.5px] border-l-[1.5px] border-main-black hidden xs:flex md:hidden lg:flex justify-end items-end
 }
 
+/*secciones*/
+.sub_section{
+    @apply w-full mt-20 rounded-2xl overflow-hidden
+}
+
+
+.sub_header_interaction{
+    @apply relative bg-main-black text-main-color-background px-4 md:px-6 lg:px-10  h-full items-center justify-center rounded-bl-[20px] text-sm md:text-base lg:text-lg capitalize w-24
+}
+
+.submenu-section:after{
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: -25px;
+    width: 45px;
+    height: 80px;
+    background: #e6e4d5;
+    transform: rotate(29deg);
+}
+
+.card-section:after{
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: -6px;
+    width: 13px;
+    height: 50px;
+    background: #e6e4d5;
+    transform: rotate(43deg);
+    border-right: 1.8px solid black;
+}
+
+.card_episodios{
+    background: linear-gradient(to top, #000, #ffffff00);
+}
+
+.section_card_video:after{
+    position: absolute;
+    content: "";
+    top: 10px;
+    right: -2px;
+    width: 36px;
+    height: 10px;
+    background: #23210f;
+    border-bottom: 2px solid #e6e4d5;
+    transform: rotate(45deg);
+}
+.section_card_video:before{
+    position: absolute;
+    content: "";
+    bottom: 10px;
+    left: -2px;
+    width: 36px;
+    height: 10px;
+    background: #23210f;
+    border-top: 2px solid #e6e4d5;
+    transform: rotate(45deg)
+}
+.section_card_video_text_black:after{
+    background: #e6e4d5;
+    border-bottom: 2px solid #23210f;
+}
+.section_card_video_text_black:before{
+    background: #e6e4d5;
+    border-top: 2px solid #23210f;
+}
+
+
+.btn-play{
+    left: calc(50% - 20px);
+    top: calc(50% - 20px);
+}
+
 .sub_header_interaction:after{
     content: "";
     position: absolute;
@@ -151,4 +225,39 @@ img {
     rotate: 44deg;
     background: #e6e4d5;
 
+}
+
+
+/* subpaginas */
+
+.filtros-sub-paginas:after{
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: -25px;
+    width: 45px;
+    height: 80px;
+    background: #e6e4d5;
+    transform: rotate(29deg);
+}
+
+.btn-ver-mas-seccion:after{
+    content: "";
+    position: absolute;
+    left: -25px;
+    top: 4px;
+    border-bottom: 36px solid #23210f;
+    border-left: 26px solid transparent;
+    width: 0px;
+    height: 0px;
+}
+.btn-ver-mas-seccion:before{
+    content: "";
+    position: absolute;
+    right: -25px;
+    top: 4px;
+    border-bottom: 36px solid #23210f;
+    border-right: 26px solid transparent;
+    width: 0px;
+    height: 0px;
 }
