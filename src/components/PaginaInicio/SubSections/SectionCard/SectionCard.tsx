@@ -15,6 +15,7 @@ type Props = {
     imagenUrl: string;
     episodios?: Episodio[];
     subtitulo?: string;
+    textBlack?: boolean;
   };
   noBackground?: boolean;
 };
@@ -27,6 +28,7 @@ const SectionCard: React.FC<Props> = ({ infoSection, noBackground }) => {
           imagen={infoSection.imagenUrl}
           titulo={infoSection.titulo}
           subtitulo={infoSection.subtitulo}
+          textBlack={infoSection.textBlack}
         />
       ) : (
         <CardImagen
