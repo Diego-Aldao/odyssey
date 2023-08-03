@@ -38,7 +38,7 @@ const Episodios: React.FC<PropsEpisodio> = ({ info }) => {
 
 const CardImagen: React.FC<Props> = ({ infoImagen }) => {
   return (
-    <article className="card-section rounded-lg overflow-hidden border-2 border-main-black  rounded-tl-[60px] cursor-pointer">
+    <article className="card-section w-full rounded-lg overflow-hidden border-2 border-main-black  rounded-tl-[60px] cursor-pointer">
       <img
         src={infoImagen.imagen}
         alt="imagen de portada de un anime de temporada"
