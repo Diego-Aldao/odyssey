@@ -1,12 +1,6 @@
 import React from "react";
 import { Icon } from "@iconify/react";
-
-type Episodio = {
-  mal_id: number;
-  url: string;
-  title: string;
-  premium: boolean;
-};
+import { Episodio } from "../../../../types";
 
 type PropsEpisodio = {
   info: Episodio[];

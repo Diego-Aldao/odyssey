@@ -1,13 +1,7 @@
 import React from "react";
 import CardImagen from "./CardImagen";
 import CardVideo from "./CardVideo";
-
-type Episodio = {
-  mal_id: number;
-  url: string;
-  title: string;
-  premium: boolean;
-};
+import { Episodio } from "../../../../types";
 
 type Props = {
   infoSection: {
