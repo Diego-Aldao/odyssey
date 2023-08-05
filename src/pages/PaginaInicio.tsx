@@ -26,6 +26,13 @@ const PaginaInicio = () => {
           <MainCardAnime animeWallpaper={animeWallpaper} />
           <MainInfoApp />
         </section>
+        <SectionEpisodiosRecientes>
+          <SectionHeader
+            titulo="episodios recientes"
+            nombreIcono="streamline:interface-time-alarm-notification-alert-bell-wake-clock-alarm"
+            nombreInteraccion="ver mas episodios"
+          />
+        </SectionEpisodiosRecientes>
         <SectionAnimeTemporada>
           <SectionHeader
             titulo="anime de temporada"
@@ -33,6 +40,14 @@ const PaginaInicio = () => {
             nombreInteraccion="ver más temporadas"
           />
         </SectionAnimeTemporada>
+        <SectionTrailersPopulares>
+          <SectionHeader
+            titulo="trailers populares"
+            nombreIcono="streamline:computer-logo-youtube-youtube-clip-social-video"
+            nombreInteraccion="ver mas trailers"
+            noBackground={true}
+          />
+        </SectionTrailersPopulares>
         <SectionTops>
           <>
             <SectionHeader
@@ -45,21 +60,6 @@ const PaginaInicio = () => {
             <PersonajesTop />
           </>
         </SectionTops>
-        <SectionEpisodiosRecientes>
-          <SectionHeader
-            titulo="episodios recientes"
-            nombreIcono="streamline:interface-time-alarm-notification-alert-bell-wake-clock-alarm"
-            nombreInteraccion="ver mas episodios"
-          />
-        </SectionEpisodiosRecientes>
-        <SectionTrailersPopulares>
-          <SectionHeader
-            titulo="trailers populares"
-            nombreIcono="streamline:computer-logo-youtube-youtube-clip-social-video"
-            nombreInteraccion="ver mas episodios"
-            noBackground={true}
-          />
-        </SectionTrailersPopulares>
       </>
     </MainLayout>
   );
