@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import PaginaTemporadas from "./pages/PaginaTemporadas";
 import PaginaTrailers from "./pages/PaginaTrailers";
 import PaginaTops from "./pages/PaginaTops";
+import PaginaDetalles from "./pages/PaginaDetalles";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: "/tops",
     element: <PaginaTops />,
+  },
+  {
+    path: "/detalle/:tipo/:id",
+    element: <PaginaDetalles />,
   },
 ]);
 
