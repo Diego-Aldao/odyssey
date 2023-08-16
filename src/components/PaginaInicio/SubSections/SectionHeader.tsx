@@ -16,9 +16,7 @@ const SubHeader: React.FC<Props> = ({
   return (
     <header
       className={`w-full h-14 lg:h-20 ${
-        noBackground
-          ? "bg-main-black text-main-color-background"
-          : "bg-main-color-background text-main-black"
+        noBackground ? "bg-main-black text-main-color-background" : ""
       }  pl-4 md:pl-6 lg:pl-10 rounded-xl rounded-b-none flex items-center justify-between`}
     >
       <h3 className="uppercase font-semibold font-chivo text-sm xs:text-lg sm:text-xl md:text-2xl lg:text-4xl flex gap-2 sm:gap-4 lg:gap-6 items-center">

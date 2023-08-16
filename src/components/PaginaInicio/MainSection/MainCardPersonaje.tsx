@@ -7,11 +7,11 @@ type Props = {
 const MainCardPersonaje: React.FC<Props> = ({ personaje }) => {
   return (
     <div className="main_card_personaje">
-      <div className=" w-10/12 h-full pl-5 pt-5">
+      <div className="w-10/12 h-full overflow-hidden rounded-bl-[20px] rounded-tl-[96px]">
         <img
           src={personaje}
           alt="imagen de un personaje de anime"
-          className="object-fill"
+          className="w-full h-full object-cover"
         />
       </div>
       <div className="h-full w-2/12 bg-main-color flex flex-col justify-between py-4 items-center border-l-[1.5px] border-main-black overflow-hidden  rounded-r-[20px]">

@@ -13,7 +13,7 @@ const SubContent: React.FC<Props> = ({ children, subtitulo, noBackground }) => {
   return (
     <div
       className={`${
-        noBackground ? "bg-main-black" : "bg-main-color-background"
+        noBackground ? "bg-main-black" : ""
       } px-4 md:px-6 lg:px-10 py-10 flex flex-wrap gap-10`}
     >
       {subtitulo && (

@@ -20,7 +20,7 @@ const MainInfoApp = () => {
         <Icon icon="ion:logo-apple-appstore" className="h-8 w-8" />
         <Icon icon="bi:google-play" className="h-6 w-6" />
       </div>
-      <button className="flex gap-2 items-center border-[1px] rounded-full pl-4  border-main-black">
+      <button className="flex gap-2 items-center border-2 rounded-full pl-4  border-main-black">
         <span className="capitalize text-sm font-semibold">descargar</span>
         <div className="bg-main-color rounded-full p-2">
           <Icon icon="fe:download" className="h-5 w-5" />
