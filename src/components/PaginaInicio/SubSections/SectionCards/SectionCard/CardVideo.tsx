@@ -1,10 +1,12 @@
 import { Icon } from "@iconify/react";
+import { Link } from "react-router-dom";
 
 type Props = {
   imagen: string;
   titulo: string;
   subtitulo: string | undefined;
   textBlack?: boolean;
+  id: number;
 };
 
 const CardVideo: React.FC<Props> = ({
@@ -12,6 +14,7 @@ const CardVideo: React.FC<Props> = ({
   titulo,
   subtitulo,
   textBlack,
+  id,
 }) => {
   return (
     <div
@@ -42,7 +45,9 @@ const CardVideo: React.FC<Props> = ({
           textBlack ? "text-main-black" : "text-main-color-background"
         }`}
       >
-        <p className="text-[12px] xl:text-sm">{titulo}</p>
+        <Link to={`/detalle/anime/${id}`}>
+          <p className="text-[12px] xl:text-sm">{titulo}</p>
+        </Link>
       </div>
     </div>
   );
