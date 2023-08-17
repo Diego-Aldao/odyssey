@@ -1,7 +1,7 @@
 import SectionContent from "../SectionContent";
 import jsonEpisodios from "../../../../mocks/EpisodiosRecientes.json";
 import { SwiperSlide } from "swiper/react";
-import SectionCard from "../SectionCard/SectionCard";
+import SectionCard from "../SectionCards/SectionCard/SectionCard";
 
 type Props = {
   children: JSX.Element;
@@ -28,6 +28,7 @@ const SectionEpisodiosRecientes: React.FC<Props> = ({ children }) => {
             <SwiperSlide key={item.entry.mal_id}>
               <SectionCard
                 infoSection={{
+                  id: item.entry.mal_id,
                   titulo: item.entry.title,
                   episodios: item.episodes,
                   imagenUrl: item.entry.images.webp.image_url,

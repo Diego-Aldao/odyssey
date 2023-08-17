@@ -1,7 +1,7 @@
 import SectionContent from "../SectionContent";
 import jsonTopPersonaje from "../../../../mocks/PersonajeTop.json";
 import { SwiperSlide } from "swiper/react";
-import SectionCard from "../SectionCard/SectionCard";
+import SectionCard from "../SectionCards/SectionCard/SectionCard";
 
 const PersonajesTop = () => {
   /*   const { fetchData, data } = useFetch();
@@ -22,6 +22,7 @@ const PersonajesTop = () => {
           <SwiperSlide key={item.mal_id}>
             <SectionCard
               infoSection={{
+                id: item.mal_id,
                 titulo: item.name,
                 imagenUrl: item.images.webp.image_url,
               }}

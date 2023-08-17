@@ -2,7 +2,7 @@ import React from "react";
 import SectionContent from "../SectionContent";
 import jsonTemporada from "../../../../mocks/AnimeTemporada.json";
 import { SwiperSlide } from "swiper/react";
-import SectionCard from "../SectionCard/SectionCard";
+import SectionCard from "../SectionCards/SectionCard/SectionCard";
 
 type Props = {
   children: JSX.Element;
@@ -29,6 +29,7 @@ const SectionAnimeTemporada: React.FC<Props> = ({ children }) => {
             <SwiperSlide key={item.mal_id}>
               <SectionCard
                 infoSection={{
+                  id: item.mal_id,
                   titulo: item.title,
                   imagenUrl: item.images.webp.image_url,
                 }}
