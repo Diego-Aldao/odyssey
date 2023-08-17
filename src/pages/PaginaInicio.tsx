@@ -1,9 +1,9 @@
 import MainLayout from "../layout/MainLayout";
-import personaje from "../assets/personaje.png";
+import personaje from "../assets/personaje.jpg";
 import animeWallpaper from "../assets/anime.jpg";
 import MainTitulo from "../components/PaginaInicio/MainSection/MainTitulo";
-import MainCardPersonaje from "../components/PaginaInicio/MainSection/MainCardPersonaje";
-import MainCardAnime from "../components/PaginaInicio/MainSection/MainCardAnime";
+import SectionCardPersonaje from "../components/PaginaInicio/MainSection/MainCardPersonaje";
+import SectionCardAnime from "../components/PaginaInicio/MainSection/MainCardAnime";
 import MainButtonRandom from "../components/PaginaInicio/MainSection/MainButtonRandom";
 import MainInfoApp from "../components/PaginaInicio/MainSection/MainInfoApp";
 import SectionHeader from "../components/PaginaInicio/SubSections/SectionHeader";
@@ -21,9 +21,9 @@ const PaginaInicio = () => {
       <>
         <section className="main_section">
           <MainTitulo texto={"odyssey: comunidad anime"} />
-          <MainCardPersonaje personaje={personaje} />
+          <SectionCardPersonaje personaje={personaje} />
           <MainButtonRandom />
-          <MainCardAnime animeWallpaper={animeWallpaper} />
+          <SectionCardAnime animeWallpaper={animeWallpaper} />
           <MainInfoApp />
         </section>
         <SectionEpisodiosRecientes>
@@ -40,7 +40,7 @@ const PaginaInicio = () => {
             nombreInteraccion="ver más temporadas"
           />
         </SectionAnimeTemporada>
-        <SectionTrailersPopulares>
+        <SectionTrailersPopulares noBackground={true}>
           <SectionHeader
             titulo="trailers populares"
             nombreIcono="streamline:computer-logo-youtube-youtube-clip-social-video"
