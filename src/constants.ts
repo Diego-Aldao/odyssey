@@ -132,4 +132,4 @@ export const BASE_URL_SEASONS = "https://api.jikan.moe/v4/seasons";
 
 export const BASE_URL_TRAILERS = "https://api.jikan.moe/v4/watch/promos";
 
-export const BASE_URL_DETAILS = "https://api.jikan.moe/v4/anime";
+export const BASE_URL_DETAILS = "https://api.jikan.moe/v4";
