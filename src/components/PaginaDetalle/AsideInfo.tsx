@@ -1,13 +1,8 @@
-import { ObjetoMal } from "../../types";
-
-type Info = {
-  nombre: string;
-  data: string | number | never[] | ObjetoMal[] | undefined;
-};
+import { InfoAside } from "../../types";
 
 type Props = {
-  imagenUrl: string;
-  data: Info[];
+  imagenUrl?: string;
+  data: InfoAside[];
 };
 
 const AsideInfo: React.FC<Props> = ({ imagenUrl, data }) => {
@@ -28,7 +23,7 @@ const AsideInfo: React.FC<Props> = ({ imagenUrl, data }) => {
               {!Array.isArray(item.data) ? (
                 <li>
                   <span className="capitalize">{item.nombre}: </span>
-                  <span>{item.data}</span>
+                  <span>{item.data?.toLocaleString()}</span>
                 </li>
               ) : (
                 <>
