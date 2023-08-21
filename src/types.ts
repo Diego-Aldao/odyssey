@@ -48,7 +48,12 @@ export type APIResult = {
 
 export type SecondaryApiResult = {
   pagination?: Pagination;
-  data: DataPersonaje[] | DataEpisode[] | DataRecomendados[];
+  data:
+    | DataPersonaje[]
+    | DataEpisode[]
+    | DataRecomendados[]
+    | DataPersonaje[]
+    | DataReviews[];
 };
 
 export type DataRecomendados = {
@@ -70,6 +75,38 @@ export type DataEpisode = {
   episode: string;
   url: string;
   images: ImagesSecondary;
+};
+
+export type DataReviews = {
+  mal_id: number;
+  url: string;
+  type: Type;
+  reactions: Reactions;
+  date: Date;
+  review: string;
+  score: number;
+  tags: Tag[];
+  is_spoiler: boolean;
+  is_preliminary: boolean;
+  episodes_watched: null;
+  user: User;
+};
+
+export type DataNews = {
+  mal_id: number;
+  url: string;
+  title: string;
+  date: Date;
+  author_username: string;
+  author_url: string;
+  forum_url: string;
+  images: ImagesNews;
+  comments: number;
+  excerpt: string;
+};
+
+export type ImagesNews = {
+  jpg: Jpg;
 };
 
 export type Entry = {
@@ -259,4 +296,28 @@ export type Person = {
 
 export type PersonImages = {
   jpg: Jpg;
+};
+
+export type Reactions = {
+  overall: number;
+  nice: number;
+  love_it: number;
+  funny: number;
+  confusing: number;
+  informative: number;
+  well_written: number;
+  creative: number;
+};
+
+export enum Tag {
+  Funny = "Funny",
+  MixedFeelings = "Mixed Feelings",
+  NotRecommended = "Not Recommended",
+  Recommended = "Recommended",
+}
+
+export type User = {
+  url: string;
+  username: string;
+  images: { [key: string]: Image };
 };
