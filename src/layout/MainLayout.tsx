@@ -1,3 +1,4 @@
+import FooterPrincipal from "../components/Footer/FooterPrincipal";
 import BotonLogin from "../components/Layout/BotonLogin";
 import IconoHeader from "../components/Layout/IconoHeader";
 import NavegacionPrincipal from "../components/NavegacionPrincipal/NavegacionPrincipal";
@@ -15,6 +16,7 @@ const MainLayout: React.FC<Props> = ({ children }) => {
         <BotonLogin />
       </header>
       <main>{children}</main>
+      <FooterPrincipal />
     </>
   );
 };
