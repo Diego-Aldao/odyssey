@@ -1,3 +1,4 @@
+import React from "react";
 import { InfoAside } from "../../types";
 
 type Props = {
@@ -7,7 +8,7 @@ type Props = {
 
 const AsideInfo: React.FC<Props> = ({ imagenUrl, data }) => {
   return (
-    <aside className="hidden md:flex flex-col gap-10 z-20 relative col-start-1 row-start-1  w-full">
+    <aside className="hidden md:flex flex-col gap-10 z-20 relative col-start-1 w-full">
       <div className="border-2 rounded-xl overflow-hidden border-main-black  w-full">
         <img src={imagenUrl} alt="" />
       </div>
@@ -19,7 +20,7 @@ const AsideInfo: React.FC<Props> = ({ imagenUrl, data }) => {
         </div>
         <ul className="flex flex-col gap-2 my-5">
           {data.map((item) => (
-            <>
+            <React.Fragment key={item.nombre}>
               {!Array.isArray(item.data) ? (
                 <li>
                   <span className="capitalize">{item.nombre}: </span>
@@ -37,7 +38,7 @@ const AsideInfo: React.FC<Props> = ({ imagenUrl, data }) => {
                   )}
                 </>
               )}
-            </>
+            </React.Fragment>
           ))}
         </ul>
       </div>
