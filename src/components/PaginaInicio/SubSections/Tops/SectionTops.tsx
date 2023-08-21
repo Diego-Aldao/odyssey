@@ -5,7 +5,7 @@ type Props = {
 };
 
 const SectionTops: React.FC<Props> = ({ children }) => {
-  return <section className="sub_section">{children}</section>;
+  return <section className="sub_section last_section">{children}</section>;
 };
 
 export default SectionTops;
