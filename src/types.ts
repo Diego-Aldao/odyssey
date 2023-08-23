@@ -51,17 +51,7 @@ export type InfoTags = {
 
 /*TYPES FETCH*/
 
-export type ApiResponseTemporada = {
-  pagination: PaginationTemporada;
-  data: DataTemporada[];
-};
-export type PaginationTemporada = {
-  last_visible_page: number;
-  has_next_page: boolean;
-  current_page: number;
-  items: Items;
-};
-export type DataTemporada = {
+export type MainData = {
   mal_id: number;
   url: string;
   images: { [key: string]: Image };
@@ -73,12 +63,12 @@ export type DataTemporada = {
   title_japanese: string;
   title_synonyms: string[];
   type: DatumType;
-  source: Source;
-  episodes: number | null;
+  source: string;
+  episodes: number;
   status: Status;
   airing: boolean;
   aired: Aired;
-  duration: string;
+  duration: Duration;
   rating: Rating;
   score: number;
   scored_by: number;
@@ -88,16 +78,67 @@ export type DataTemporada = {
   favorites: number;
   synopsis: string;
   background: null | string;
-  season: Season | null;
-  year: number | null;
+  season: Season;
+  year: number;
   broadcast: Broadcast;
-  producers: Demographic[];
-  licensors: Demographic[];
-  studios: Demographic[];
-  genres: Demographic[];
+  producers: Generic[];
+  licensors: Generic[];
+  studios: Generic[];
+  genres: Generic[];
   explicit_genres: [];
-  themes: Demographic[];
-  demographics: Demographic[];
+  themes: Generic[];
+  demographics: Generic[];
+};
+export type MainPaginacion = {
+  last_visible_page: number;
+  has_next_page: boolean;
+  current_page: number;
+  items: Items;
+};
+
+export type ApiResponseTemporada = {
+  pagination: MainPaginacion;
+  data: MainData[];
+};
+
+export type ApiResponseEpisodios = {
+  pagination: Pagination;
+  data: DataEpisodios[];
+};
+export type DataEpisodios = {
+  entry: Entry;
+  episodes: Entry[];
+  region_locked: boolean;
+};
+
+export type ApiResponseTrailers = {
+  pagination: Pagination;
+  data: DataTrailers[];
+};
+export type DataTrailers = {
+  title: string;
+  entry: Entry;
+  trailer: Trailer;
+};
+
+export type ApiResponseTops = {
+  pagination: MainPaginacion;
+  data: MainData[];
+};
+
+export type ApiResponseTopPersonaje = {
+  pagination: Pagination;
+  data: DataPersonajeTop[];
+};
+export type DataPersonajeTop = {
+  mal_id: number;
+  url: string;
+  images: CharacterImages;
+  name: string;
+  name_kanji: string;
+  nicknames: string[];
+  favorites: number;
+  about: string;
 };
 
 /*types fetch pagina detalle */
@@ -219,13 +260,6 @@ export type DataReviews = {
 
 export type ImagesNews = {
   jpg: Jpg;
-};
-
-export type Entry = {
-  mal_id: number;
-  url: string;
-  images: { [key: string]: Image };
-  title: string;
 };
 
 export type Aired = {
@@ -402,10 +436,14 @@ export enum DemographicType {
 export enum Rating {
   PG13Teens13OrOlder = "PG-13 - Teens 13 or older",
   R17ViolenceProfanity = "R - 17+ (violence & profanity)",
+  RMildNudity = "R+ - Mild Nudity",
 }
 
 export enum Season {
+  Fall = "fall",
+  Spring = "spring",
   Summer = "summer",
+  Winter = "winter",
 }
 
 export enum Source {
@@ -447,9 +485,24 @@ export type Items = {
   per_page: number;
 };
 
+export type Entry = {
+  mal_id: number;
+  url: string;
+  images?: { [key: string]: Image };
+  title: string;
+  premium?: boolean;
+};
+
 export type Generic = {
   mal_id: number;
   type: Type;
   name: string;
   url: string;
 };
+
+export enum Duration {
+  The22MinPerEp = "22 min per ep",
+  The23MinPerEp = "23 min per ep",
+  The24MinPerEp = "24 min per ep",
+  The25MinPerEp = "25 min per ep",
+}
