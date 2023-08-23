@@ -1,36 +1,44 @@
 import SectionContent from "../SectionContent";
-import jsonTopEmision from "../../../../mocks/AnimeTopEnEmision.json";
+import { useEffect, useState } from "react";
 import { SwiperSlide } from "swiper/react";
 import SectionCard from "../SectionCards/SectionCard/SectionCard";
+import useFetch from "../../../../hooks/useFetch";
+import { ApiResponseTops, MainData } from "../../../../types";
+import { BASE_URL_TOPS } from "../../../../constants";
 
 const AnimesTopEmision = () => {
-  /*   const { fetchData, data } = useFetch();
+  const { fetchData, data, loading } = useFetch<ApiResponseTops>();
+  const [currentData, setCurrentData] = useState<MainData[]>();
 
   useEffect(() => {
-    void fetchData("https://api.jikan.moe/v4/top/anime?type=tv&filter=airing");
+    void fetchData(`${BASE_URL_TOPS}/anime?type=tv&filter=airing`);
   }, []);
 
   useEffect(() => {
     if (!data) return;
-    console.log(data);
-  }, [data]); */
+    setCurrentData(data.data.slice(0, 20));
+  }, [data]);
 
   return (
-    <SectionContent subtitulo="top en emision">
-      <>
-        {jsonTopEmision.data.map((item) => (
-          <SwiperSlide key={item.mal_id}>
-            <SectionCard
-              infoSection={{
-                id: item.mal_id,
-                titulo: item.title,
-                imagenUrl: item.images.webp.image_url,
-              }}
-            />
-          </SwiperSlide>
-        ))}
-      </>
-    </SectionContent>
+    <>
+      {loading || !currentData ? (
+        <>cargando</>
+      ) : (
+        <SectionContent subtitulo="top en emision">
+          <>
+            {currentData.map((item) => (
+              <SwiperSlide key={item.mal_id}>
+                <SectionCard
+                  id={item.mal_id}
+                  titulo={item.title}
+                  imagenUrl={item.images.webp.image_url}
+                />
+              </SwiperSlide>
+            ))}
+          </>
+        </SectionContent>
+      )}
+    </>
   );
 };
 export default AnimesTopEmision;

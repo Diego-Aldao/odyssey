@@ -1,7 +1,10 @@
+import { useEffect, useState } from "react";
 import SectionContent from "../SectionContent";
-import jsonTrailers from "../../../../mocks/TrailersPopulares.json";
 import { SwiperSlide } from "swiper/react";
 import SectionCard from "../SectionCards/SectionCard/SectionCard";
+import useFetch from "../../../../hooks/useFetch";
+import { ApiResponseTrailers, DataTrailers } from "../../../../types";
+import { BASE_URL_TRAILERS } from "../../../../constants";
 
 type Props = {
   children: JSX.Element;
@@ -12,38 +15,43 @@ const SectionTrailersPopulares: React.FC<Props> = ({
   noBackground,
   children,
 }) => {
-  /*   const { fetchData, data } = useFetch();
+  const { fetchData, data, loading } = useFetch<ApiResponseTrailers>();
+  const [currentData, setCurrentData] = useState<DataTrailers[]>();
 
   useEffect(() => {
-    void fetchData("https://api.jikan.moe/v4/watch/promos/popular");
+    void fetchData(`${BASE_URL_TRAILERS}/popular`);
   }, []);
 
   useEffect(() => {
     if (!data) return;
-    console.log(data);
-  }, [data]); */
+    setCurrentData(data.data.slice(0, 10));
+  }, [data]);
 
   return (
-    <section className="sub_section">
-      {children}
-      <SectionContent noBackground={noBackground}>
-        <>
-          {jsonTrailers.data.slice(0, 10).map((item) => (
-            <SwiperSlide key={item.entry.mal_id}>
-              <SectionCard
-                noBackground={noBackground}
-                infoSection={{
-                  id: item.entry.mal_id,
-                  titulo: item.entry.title,
-                  imagenUrl: item.trailer.images.medium_image_url,
-                  subtitulo: item.title,
-                }}
-              />
-            </SwiperSlide>
-          ))}
-        </>
-      </SectionContent>
-    </section>
+    <>
+      {loading || !currentData ? (
+        <>cargando</>
+      ) : (
+        <section className="sub_section">
+          {children}
+          <SectionContent noBackground={noBackground}>
+            <>
+              {currentData.map((item) => (
+                <SwiperSlide key={item.entry.mal_id}>
+                  <SectionCard
+                    noBackground={noBackground}
+                    id={item.entry.mal_id}
+                    titulo={item.entry.title}
+                    imagenUrl={item.trailer.images.medium_image_url}
+                    subtitulo={item.title}
+                  />
+                </SwiperSlide>
+              ))}
+            </>
+          </SectionContent>
+        </section>
+      )}
+    </>
   );
 };
 export default SectionTrailersPopulares;
