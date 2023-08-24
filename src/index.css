@@ -5,6 +5,8 @@
 @tailwind utilities;
 
 
+/*GENERALES*/
+
 body {
     font-family: 'Poppins', sans-serif;
     background: #23210f;
@@ -27,9 +29,54 @@ img {
     object-fit: cover;
 }
 
-.navegacion_principal{
-    @apply text-white bg-main-black px-4 md:px-0 h-full nav_principal relative md:w-4/6 rounded-bl-[20px] md:rounded-b-[20px] lg:w-3/5
+.item-skew-izquierda:after{
+    width: 50px;
+    height: 100%;
+    right: -25px;
+    top: 0px;
+    background: #23210f;
+    content: "";
+    position: absolute;
+    transform: skew(331deg);
+    z-index: -1;
+    border-radius: 5px;
 }
+
+.item-skew-x:after{
+    width: 50px;
+    height: 100%;
+    right: -29px;
+    top: 0px;
+    background: #23210f;
+    content: "";
+    position: absolute;
+    transform: skew(331deg);
+    z-index: -1;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.item-skew-x:before{
+    width: 50px;
+    height: 100%;
+    left: -29px;
+    top: 0px;
+    background: #23210f;
+    content: "";
+    position: absolute;
+    transform: skew(-331deg);
+    z-index: -1;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+/*PAGINA PRINCIPAL*/
+
+/*CLASES TAILWIND */
+
+.nav_principal {
+    @apply text-white bg-main-black px-4 md:px-0 h-full item-skew-x z-10 relative md:w-7/12 rounded-bl-[20px] md:rounded-b-[20px] lg:w-3/5 after:hidden after:md:block after:-right-[20px] before:-left-[20px]
+}
+
 .main_section {
     @apply bg-main-color-background w-full rounded-b-2xl px-4 md:px-6 lg:px-10 py-8 lg:py-10 lg:pt-20 grid gap-7 md:gap-4 md:gap-y-7 md:grid-cols-7 md:grid-rows-[250px_100px_220px] lg:grid-rows-[minmax(0,_1fr)_100px_220px] xs:grid-cols-2
 }
@@ -42,42 +89,81 @@ img {
 }
 
 .main_card_anime{
-    @apply relative w-full md:col-span-4 md:max-w-[90%] border-[1.5px] border-main-black md:h-full md:-top-8 lg:-top-20 lg:col-span-3 lg:max-w-full lg:h-[300px] rounded-2xl xs:col-span-2 max-w-[480px] min-h-[250px] justify-self-center md:justify-self-start lg:row-start-3
+    @apply relative w-full md:col-span-4 md:max-w-[90%] border-2 border-main-black md:h-full md:-top-8 lg:-top-20 lg:col-span-3 lg:max-w-full lg:h-[300px] rounded-2xl xs:col-span-2 max-w-[480px] min-h-[250px] justify-self-center md:justify-self-start lg:row-start-3
 }
 .main_card_personaje{
-    @apply relative w-[250px] h-[350px] bg-secondary-color-background flex mx-auto md:mx-0  border-[1.5px] border-[#3e3c2e] rounded-[20px] rounded-ss-[96px] md:w-[220px] md:justify-self-end md:col-span-2 md:row-span-2 md:h-full md:max-h-[320px] lg:max-h-[400px] max-w-[280px] lg:w-full lg:justify-self-end xs:col-start-2
+    @apply relative w-[250px] h-[350px] bg-secondary-color-background flex mx-auto md:mx-0  border-[2px] border-[#3e3c2e] rounded-[20px] rounded-ss-[96px] md:w-[220px] md:justify-self-end md:col-span-2 md:row-span-2 md:h-full md:max-h-[320px] lg:max-h-[400px] max-w-[280px] lg:w-full lg:justify-self-end xs:col-start-2
 }
 
 .main_info_app{
-    @apply w-full bg-main-white border-[1.5px] border-main-black md:col-span-3 md:col-start-5 md:self-end lg:col-start-4 lg:col-span-4 lg:max-w-[90%] lg:justify-self-end rounded-[20px] xs:col-span-2 justify-self-center p-4 flex justify-between gap-3 flex-wrap max-w-[600px] relative
+    @apply w-full bg-main-white border-2 border-main-black md:col-span-3 md:col-start-5 md:self-end lg:col-start-4 lg:col-span-4 lg:max-w-[90%] lg:justify-self-end rounded-[20px] xs:col-span-2 justify-self-center p-4 flex justify-between gap-3 flex-wrap max-w-[600px] relative
 }
 
 .main_info_app_corner{
-    @apply absolute w-1/2 h-10 bg-main-color-background -top-[1.5px] -right-[1px] rounded-b-[20px] rounded-br-none border-b-[1.5px] border-l-[1.5px] border-main-black hidden xs:flex md:hidden lg:flex justify-end items-end
+    @apply absolute w-1/2 h-10 bg-main-color-background -top-[2px] -right-[2px] rounded-b-[20px] rounded-br-none border-b-[2px] border-l-[2px] border-main-black hidden xs:flex md:hidden lg:flex justify-end items-end
 }
 
-/*secciones*/
 .sub_section{
-    @apply w-full mt-20 rounded-2xl overflow-hidden
+    @apply w-full mt-20 rounded-2xl overflow-hidden bg-main-color-background
 }
-
 
 .sub_header_interaction{
-    @apply relative bg-main-black text-main-color-background px-4 md:px-6 lg:px-10  h-full items-center justify-center rounded-bl-[20px] text-sm md:text-base lg:text-lg capitalize w-24
+    @apply relative bg-main-black text-main-color-background px-4 md:px-6 lg:px-10 h-full items-center justify-center capitalize item-skew-x after:hidden before:-left-[17px] before:md:-left-[25px] rounded-bl-[5px] z-10 text-sm sm:text-base lg:text-lg
 }
 
-.submenu-section:after{
+/*MAIN SECTION*/
+
+.main_card_anime:after {
+    content: "";
+    right: 14px;
+    top: -8px;
+    background: #e6e4d5;
+    border-left: 2px solid #23210f;
+    width: 15px;
+    height: 59px;
+    position: absolute;
+    transform: rotate(315deg);
+}
+
+.main_card_anime:before {
+    content: "";
+    left: 14px;
+    bottom: -8px;
+    background: #e6e4d5;
+    border-right: 2px solid #23210f;
+    width: 15px;
+    height: 59px;
+    position: absolute;
+    transform: rotate(315deg);
+}
+
+.main_card_personaje:after {
+    content: "";
+    left: -8px;
+    top: 24px;
+    background: #e6e4d5;
+    border-bottom: 2px solid #23210f;
+    width: 70px;
+    height: 11px;
+    position: absolute;
+    transform: rotate(314deg);
+}
+
+.main_info_app_corner:after {
     content: "";
     position: absolute;
-    top: 0px;
-    right: -25px;
-    width: 45px;
-    height: 80px;
+    width: 46px;
+    height: 29px;
+    border-bottom: 2px solid #23210f;
+    left: -23px;
+    top: -6px;
+    rotate: 47deg;
     background: #e6e4d5;
-    transform: rotate(29deg);
 }
 
-.card-section:after{
+/*SUB SECTIONS*/
+
+.section_card:after{
     content: "";
     position: absolute;
     left: 10px;
@@ -89,7 +175,7 @@ img {
     border-right: 1.8px solid black;
 }
 
-.card_episodios{
+.section_card_episodios{
     background: linear-gradient(to top, #000, #ffffff00);
 }
 
@@ -115,149 +201,97 @@ img {
     border-top: 2px solid #e6e4d5;
     transform: rotate(45deg)
 }
-.section_card_video_text_black:after{
-    background: #e6e4d5;
-    border-bottom: 2px solid #23210f;
-}
-.section_card_video_text_black:before{
-    background: #e6e4d5;
-    border-top: 2px solid #23210f;
-}
-
-
-.btn-play{
-    left: calc(50% - 20px);
-    top: calc(50% - 20px);
-}
-
-.sub_header_interaction:after{
-    content: "";
-    position: absolute;
-    top: 5px;
-    left: -32px;
-    height: 20px;
-    width: 57px;
-    transform: rotate(60deg);
-    background: #23210f;
-}
-
-@media (min-width: 1024px){
-    .sub_header_interaction:after{
-        left: -40px;
-        height: 38px;
-        width: 77px;
-    }
-}
 
 .custom-border{
-    border-radius: 20px 96px 20px 96px;
+    border-radius: 20px 80px 20px 80px;
 }
 
-.nav_principal:after {
+.last_section{
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.main_section, .sub_section{
+    background-image: 
+    url("./assets/asd222.png");
+    background-position: -10% center;
+    background-size: 72%;
+    background-blend-mode: overlay;
+}
+
+/*PAGINAS SECUNDARIAS*/
+
+/*grids*/
+
+.grid-detalle{
+    @apply xs:grid-cols-[repeat(auto-fill,minmax(160px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(280px,1fr))] xl:grid-cols-[repeat(auto-fill,minmax(350px,1fr))] grid-cols-2
+}
+
+.grid-videos{
+    @apply sm:grid-cols-[repeat(auto-fill,minmax(280px,1fr))] xl:grid-cols-[repeat(auto-fill,minmax(350px,1fr))] grid-cols-1
+}
+
+.grid-comun{
+    @apply sm:grid-cols-[repeat(auto-fill,minmax(170px,1fr))] grid-cols-2
+}
+
+.grid-tabla{
+    @apply justify-items-start
+}
+
+/*PAGINA DETALLE */
+
+.main_detalle{
+    @apply px-4 md:px-6 lg:px-10 relative bg-main-color-background  pb-10 md:grid md:grid-cols-3 lg:grid-cols-4 md:pt-10 lg:pt-0 gap-2 md:gap-7 lg:gap-10 border-4 border-main-color-background border-t-[10px] md:border-t-[20px]
+}
+
+.subtitulo-detalle{
+    @apply capitalize bg-main-black text-xl text-main-color-background inline-block relative -left-5 md:-left-4 lg:-left-[21px] px-12 pl-5 py-1 mb-3
+}
+
+.imagen-detalle:after {
     content: "";
+    width: 100%;
+    height: 100%;
     position: absolute;
-    left: -30px;
-    top: 0px;
-    border-top: 48px solid #23210f;
-    border-left: 34px solid transparent;
-    width: 0px;
-    height: 0px;
-
+    top: 0;
+    left: 0;
+    background: linear-gradient(to top, #e6e4d5, #ffffff00);
 }
 
-@media (min-width:768px) {
-    .nav_principal:before {
-        content: "";
-        position: absolute;
-        right: -30px;
-        top: 0px;
-        border-top: 48px solid #23210f;
-        border-right: 34px solid transparent;
-        width: 0px;
-        height: 0px;
+@media (min-width: 768px){
+    .imagen-detalle:after {
+      backdrop-filter: blur(10px);
+
     }
 }
 
-.main_card_anime:after {
-    content: "";
-    right: 25px;
-    top: -7px;
-    background: #e6e4d5;
-    border-left: 1.5px solid #23210f;
-    width: 10px;
-    height: 68px;
-    position: absolute;
-    transform: rotate(314deg);
+@media(min-width: 768px){
+    .section-detalle:after{
+        position: absolute;
+        content: "";
+        top: 0;
+        left: -16px;
+        width: 2px;
+        height: 100%;
+        background: #23210f;
+    }
 }
 
-.main_card_anime:before {
-    content: "";
-    left: 26px;
-    bottom: -8px;
-    background: #e6e4d5;
-    border-right: 1.5px solid #23210f;
-    width: 10px;
-    height: 68px;
-    position: absolute;
-    transform: rotate(313deg);
+@media(min-width: 1024px){
+    .section-detalle:after{
+        left: -23px;
+    }
 }
 
-.main_card_personaje:after {
+/*MAIN FOOTER*/
+
+.footer-border:after{
     content: "";
-    left: -6px;
-    top: 25px;
-    background: #e6e4d5;
-    border-bottom: 1.5px solid #23210f;
-    width: 70px;
-    height: 9px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to left, #ffffff00 10%, #23210f , #ffffff00 90%);
     position: absolute;
-    transform: rotate(315deg);
-}
-
-.main_info_app_corner:after {
-    content: "";
-    position: absolute;
-    width: 46px;
-    height: 29px;
-    border-bottom: 1.5px solid #23210f;
-    left: -26px;
-    top: -8px;
-    rotate: 44deg;
-    background: #e6e4d5;
-
-}
-
-
-/* subpaginas */
-
-.filtros-sub-paginas:after{
-    content: "";
-    position: absolute;
+    left: 0px;
     top: 0px;
-    right: -25px;
-    width: 45px;
-    height: 80px;
-    background: #e6e4d5;
-    transform: rotate(29deg);
-}
-
-.btn-ver-mas-seccion:after{
-    content: "";
-    position: absolute;
-    left: -25px;
-    top: 4px;
-    border-bottom: 36px solid #23210f;
-    border-left: 26px solid transparent;
-    width: 0px;
-    height: 0px;
-}
-.btn-ver-mas-seccion:before{
-    content: "";
-    position: absolute;
-    right: -25px;
-    top: 4px;
-    border-bottom: 36px solid #23210f;
-    border-right: 26px solid transparent;
-    width: 0px;
-    height: 0px;
 }
