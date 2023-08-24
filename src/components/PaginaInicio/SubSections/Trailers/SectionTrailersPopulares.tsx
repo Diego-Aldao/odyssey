@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
 import SectionContent from "../SectionContent";
 import { SwiperSlide } from "swiper/react";
 import SectionCard from "../SectionCards/SectionCard/SectionCard";
 import useFetch from "../../../../hooks/useFetch";
-import { ApiResponseTrailers, DataTrailers } from "../../../../types";
+import { ApiResponseTrailers } from "../../../../types";
 import { BASE_URL_TRAILERS } from "../../../../constants";
 
 type Props = {
@@ -15,28 +14,20 @@ const SectionTrailersPopulares: React.FC<Props> = ({
   noBackground,
   children,
 }) => {
-  const { fetchData, data, loading } = useFetch<ApiResponseTrailers>();
-  const [currentData, setCurrentData] = useState<DataTrailers[]>();
-
-  useEffect(() => {
-    void fetchData(`${BASE_URL_TRAILERS}/popular`);
-  }, []);
-
-  useEffect(() => {
-    if (!data) return;
-    setCurrentData(data.data.slice(0, 10));
-  }, [data]);
+  const { respuestaApi, loading } = useFetch<ApiResponseTrailers>(
+    `${BASE_URL_TRAILERS}/popular`
+  );
 
   return (
     <>
-      {loading || !currentData ? (
+      {loading || !respuestaApi ? (
         <>cargando</>
       ) : (
         <section className="sub_section">
           {children}
           <SectionContent noBackground={noBackground}>
             <>
-              {currentData.map((item) => (
+              {respuestaApi.data.map((item) => (
                 <SwiperSlide key={item.entry.mal_id}>
                   <SectionCard
                     noBackground={noBackground}

@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
 import SectionContent from "../SectionContent";
 import { SwiperSlide } from "swiper/react";
 import SectionCard from "../SectionCards/SectionCard/SectionCard";
 import useFetch from "../../../../hooks/useFetch";
-import { ApiResponseEpisodios, DataEpisodios } from "../../../../types";
+import { ApiResponseEpisodios } from "../../../../types";
 import { BASE_URL_EPISODES } from "../../../../constants";
 
 type Props = {
@@ -11,28 +10,19 @@ type Props = {
 };
 
 const SectionEpisodiosRecientes: React.FC<Props> = ({ children }) => {
-  const { fetchData, data, loading } = useFetch<ApiResponseEpisodios>();
-  const [currentData, setCurrentData] = useState<DataEpisodios[]>();
-
-  useEffect(() => {
-    void fetchData(BASE_URL_EPISODES);
-  }, []);
-
-  useEffect(() => {
-    if (!data) return;
-    setCurrentData(data.data.slice(0, 20));
-  }, [data]);
+  const { respuestaApi, loading } =
+    useFetch<ApiResponseEpisodios>(BASE_URL_EPISODES);
 
   return (
     <>
-      {loading || !currentData ? (
+      {loading || !respuestaApi ? (
         <>cargando</>
       ) : (
         <section className="sub_section">
           {children}
           <SectionContent subtitulo="los ultimos capítulos">
             <>
-              {currentData.map((item) => (
+              {respuestaApi.data.map((item) => (
                 <SwiperSlide key={item.entry.mal_id}>
                   <SectionCard
                     id={item.entry.mal_id}
