@@ -13,89 +13,82 @@ import RecomendadosDetalle from "../components/PaginaDetalle/Recomendados/Recome
 import PersonajesDetalle from "../components/PaginaDetalle/Personajes/PersonajesDetalle";
 import ReviewsDetalle from "../components/PaginaDetalle/Reviews/ReviewsDetalle";
 import NoticiasDetalle from "../components/PaginaDetalle/Noticias/NoticiasDetalle";
-import { ApiResponseDetalle, DataDetalle, InfoAside, InfoTags } from "../types";
-import Filtros from "../components/PaginaDetalle/Filtros";
+import { ApiResponseDetalle, InfoAside, InfoTags } from "../types";
 import ModalVideo from "../components/Generales/ModalVideo";
 import Trailer from "../components/PaginaDetalle/MainInfo/Trailer";
-import MainInfo from "../components/PaginaDetalle/MainInfo/MainInfo";
+import FiltrosDetalle from "../components/PaginaDetalle/FiltrosDetalle";
+import MainInfoDetalle from "../components/PaginaDetalle/MainInfo/MainInfoDetalle";
 
 const PaginaDetalles = () => {
+  const { id } = useParams();
   const [visibleContent, setVisibleContent] = useState<string>("general");
   const [tituloEsp, setTituloEsp] = useState<string | undefined>();
-  const { fetchData, data, loading } = useFetch<ApiResponseDetalle>();
+  const { respuestaApi, loading } = useFetch<ApiResponseDetalle>(
+    `${BASE_URL_DETAILS}/anime/${id || "54842"}/full`
+  );
   const [modalVisibility, setModalVisibility] = useState<boolean>(false);
-  const [currentData, setCurrentData] = useState<DataDetalle>();
-
-  const { id } = useParams();
 
   useEffect(() => {
-    if (!id) return;
-    void fetchData(`${BASE_URL_DETAILS}/anime/${id}/full`);
-  }, [id]);
+    if (!respuestaApi) return;
 
-  useEffect(() => {
-    if (!data) return;
-
-    setCurrentData(data.data);
-
-    const currentTituloEsp = data.data.titles.filter(
+    const currentTituloEsp = respuestaApi.data.titles.filter(
       (title) => title.type === "Spanish"
     );
     setTituloEsp(currentTituloEsp[0]?.title);
-  }, [data]);
+  }, [respuestaApi]);
 
   const dataAside: InfoAside[] = [
     {
       nombre: "tipo",
-      data: currentData?.type,
+      data: respuestaApi?.data.type,
     },
     {
       nombre: "episodios",
-      data: currentData?.episodes,
+      data: respuestaApi?.data.episodes,
     },
     {
       nombre: "estado",
-      data: currentData?.status,
+      data: respuestaApi?.data.status,
     },
     {
       nombre: "estreno",
-      data: currentData?.aired.from,
+      data: respuestaApi?.data.aired.string,
     },
     {
       nombre: "transmisión",
-      data: currentData?.broadcast.string,
+      data: respuestaApi?.data.broadcast.string,
     },
     {
       nombre: "productores",
-      data: currentData?.producers,
+      data: respuestaApi?.data.producers,
     },
     {
       nombre: "estudios",
-      data: currentData?.studios,
+      data: respuestaApi?.data.studios,
     },
     {
       nombre: "origen",
-      data: currentData?.source,
+      data: respuestaApi?.data.source,
     },
     {
       nombre: "géneros",
-      data: currentData?.genres,
+      data: respuestaApi?.data.genres,
     },
     {
       nombre: "temática",
-      data: currentData?.themes,
+      data: respuestaApi?.data.themes,
     },
     {
       nombre: "demografía",
-      data: currentData?.demographics,
+      data: respuestaApi?.data.demographics,
     },
     {
       nombre: "duración",
-      data: currentData?.duration,
+      data: respuestaApi?.data.duration,
     },
     {
       nombre: "clasificación",
-      data: currentData?.rating,
+      data: respuestaApi?.data.rating,
     },
   ];
 
@@ -103,38 +96,39 @@ const PaginaDetalles = () => {
     {
       id: 1,
       nombre: "score",
-      data: currentData?.score,
+      data: respuestaApi?.data.score,
       icono: <Icon icon="ph:star-bold" className="h-[14px] w-[14px]" />,
       primerItem: true,
     },
     {
       id: 2,
       nombre: "estudios",
-      data: currentData?.studios,
+      data: respuestaApi?.data.studios,
     },
     {
       id: 3,
       nombre: "rank",
-      data: currentData?.rank,
+      data: respuestaApi?.data.rank,
       esRankeable: true,
     },
     {
       id: 4,
       nombre: "popularidad",
-      data: currentData?.popularity,
+      data: respuestaApi?.data.popularity,
       ocultoMovile: true,
       esRankeable: true,
     },
     {
       id: 5,
       nombre: "miembros",
-      data: currentData?.members.toLocaleString(),
+      data: respuestaApi?.data.members.toLocaleString(),
       ocultoMovile: true,
     },
     {
       id: 6,
       nombre: "temporada",
-      data: data && `${data.data.season} ${data.data.year}`,
+      data:
+        respuestaApi && `${respuestaApi.data.season} ${respuestaApi.data.year}`,
       ocultoMovile: true,
     },
   ];
@@ -154,65 +148,70 @@ const PaginaDetalles = () => {
 
   return (
     <>
-      {modalVisibility && currentData && (
+      {modalVisibility && respuestaApi && (
         <ModalVideo
           modalVisibility={modalVisibility}
-          titulo={currentData.title}
-          url={currentData.trailer.embed_url}
+          titulo={respuestaApi.data.title}
+          url={respuestaApi.data.trailer.embed_url}
           handleClick={handleClick}
         />
       )}
       <MainLayout>
-        {loading || !currentData ? (
-          <>cargando</>
-        ) : (
-          <main className="main_detalle">
-            <Filtros
-              listaFiltros={listaFiltros}
-              setVisibleContent={setVisibleContent}
-            />
-            <ImagenBackground
-              imagenUrl={currentData.images.webp.large_image_url}
-            />
-            <AsideInfo
-              imagenUrl={currentData.images.webp.image_url}
-              data={dataAside}
-            />
-            <MainInfo
-              titulo={currentData.title}
-              tituloEspañol={tituloEsp}
-              score={currentData.score}
-              personasScore={currentData.scored_by.toLocaleString()}
-              dataHeader={
+        <>
+          {loading || !respuestaApi ? (
+            <>cargando</>
+          ) : (
+            <main className="main_detalle">
+              <FiltrosDetalle
+                listaFiltros={listaFiltros}
+                setVisibleContent={setVisibleContent}
+              />
+              <ImagenBackground
+                imagenUrl={respuestaApi.data.images.webp.large_image_url}
+              />
+              <AsideInfo
+                imagenUrl={respuestaApi.data.images.webp.image_url}
+                data={dataAside}
+              />
+              <MainInfoDetalle
+                titulo={respuestaApi.data.title}
+                tituloEspañol={tituloEsp}
+                score={respuestaApi.data.score}
+                personasScore={respuestaApi.data.scored_by.toLocaleString()}
+                dataHeader={
+                  <>
+                    <ListaTags mainInfo={dataTags} />
+                    <Trailer
+                      handleClick={handleClick}
+                      imagen={respuestaApi.data.trailer.images.medium_image_url}
+                    />
+                  </>
+                }
+              >
                 <>
-                  <ListaTags mainInfo={dataTags} />
-                  <Trailer
-                    handleClick={handleClick}
-                    imagen={currentData.trailer.images.medium_image_url}
-                  />
-                </>
-              }
-            >
-              <>
-                <Descripcion
-                  titulo="sinopsis"
-                  descripcion={currentData.synopsis}
-                />
-                {currentData.background && (
                   <Descripcion
-                    titulo="background"
-                    descripcion={currentData.background}
+                    titulo="sinopsis"
+                    descripcion={respuestaApi.data.synopsis}
                   />
-                )}
-                <EpisodiosDetalle visibleContent={visibleContent} />
-                <RecomendadosDetalle visibleContent={visibleContent} />
-                <PersonajesDetalle visibleContent={visibleContent} />
-                <ReviewsDetalle visibleContent={visibleContent} />
-                <NoticiasDetalle visibleContent={visibleContent} />
-              </>
-            </MainInfo>
-          </main>
-        )}
+                  {respuestaApi.data.background && (
+                    <Descripcion
+                      titulo="background"
+                      descripcion={respuestaApi.data.background}
+                    />
+                  )}
+                  <EpisodiosDetalle visibleContent={visibleContent} id={id} />
+                  <PersonajesDetalle visibleContent={visibleContent} id={id} />
+                  <RecomendadosDetalle
+                    visibleContent={visibleContent}
+                    id={id}
+                  />
+                  <ReviewsDetalle visibleContent={visibleContent} id={id} />
+                  <NoticiasDetalle visibleContent={visibleContent} id={id} />
+                </>
+              </MainInfoDetalle>
+            </main>
+          )}
+        </>
       </MainLayout>
     </>
   );
