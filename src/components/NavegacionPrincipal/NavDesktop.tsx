@@ -21,7 +21,7 @@ const LinkNavegacion: React.FC<Props> = ({ texto, destino }) => {
 
 const NavDesktop = () => {
   return (
-    <ul className="hidden md:flex h-full items-center justify-center gap-4 lg:gap-3 xl:gap-6">
+    <ul className="hidden md:flex h-full items-center justify-center gap-4 xl:gap-6">
       <LinkNavegacion destino="/" texto="inicio" />
       <LinkNavegacion destino="/episodios" texto="ultimos episodios" />
       <LinkNavegacion destino="/temporadas" texto="anime de temporada" />

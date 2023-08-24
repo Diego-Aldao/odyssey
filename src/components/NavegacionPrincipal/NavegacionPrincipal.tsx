@@ -4,14 +4,14 @@ import NavDesktop from "./NavDesktop";
 const BotonNavMobile = () => {
   return (
     <div className="h-full flex items-center md:hidden">
-      <Icon icon="jam:menu" className="h-9 w-9" />
+      <Icon icon="jam:menu" className="h-12 w-12" />
     </div>
   );
 };
 
 const NavegacionPrincipal = () => {
   return (
-    <nav className="navegacion_principal">
+    <nav className="nav_principal">
       <BotonNavMobile />
       <NavDesktop />
     </nav>
