@@ -2,32 +2,28 @@ import SectionDetalle from "../SectionDetalle";
 import { useEffect, useState } from "react";
 import { ApiResponseDetalleReviews, DataReviews } from "../../../types";
 import { BASE_URL_DETAILS } from "../../../constants";
-import { useParams } from "react-router-dom";
 import useFetch from "../../../hooks/useFetch";
 
 type Props = {
   visibleContent?: string;
+  id?: string;
 };
 
-const ReviewsDetalle = ({ visibleContent }: Props) => {
+const ReviewsDetalle = ({ visibleContent, id }: Props) => {
   const [currentData, setCurrentData] = useState<DataReviews[]>();
-  const { fetchData, data, loading } = useFetch<ApiResponseDetalleReviews>();
-  const { id } = useParams();
+  const { respuestaApi, loading } = useFetch<ApiResponseDetalleReviews>(
+    `${BASE_URL_DETAILS}/anime/${id || "54842"}/reviews`
+  );
 
   useEffect(() => {
-    if (!id) return;
-    void fetchData(`${BASE_URL_DETAILS}/anime/${id}/reviews`);
-  }, [id]);
-
-  useEffect(() => {
-    if (!data) return;
-    const newData = data?.data.slice(0, 5);
+    if (!respuestaApi) return;
+    const newData = respuestaApi.data.slice(0, 5);
     if (visibleContent === "reviews") {
-      setCurrentData(data.data);
+      setCurrentData(respuestaApi.data);
     } else {
       setCurrentData(newData);
     }
-  }, [data, visibleContent]);
+  }, [respuestaApi, visibleContent]);
 
   return (
     <>

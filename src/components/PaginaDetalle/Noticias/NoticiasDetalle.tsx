@@ -1,5 +1,4 @@
 import SectionDetalle from "../SectionDetalle";
-import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { BASE_URL_DETAILS } from "../../../constants";
 import { DataNews, ApiResponseDetalleNoticias } from "../../../types";
@@ -7,27 +6,24 @@ import useFetch from "../../../hooks/useFetch";
 
 type Props = {
   visibleContent?: string;
+  id?: string;
 };
 
-const NoticiasDetalle = ({ visibleContent }: Props) => {
+const NoticiasDetalle = ({ visibleContent, id }: Props) => {
   const [currentData, setCurrentData] = useState<DataNews[]>();
-  const { fetchData, data, loading } = useFetch<ApiResponseDetalleNoticias>();
-  const { id } = useParams();
+  const { respuestaApi, loading } = useFetch<ApiResponseDetalleNoticias>(
+    `${BASE_URL_DETAILS}/anime/${id || "54842"}/news`
+  );
 
   useEffect(() => {
-    if (!id) return;
-    void fetchData(`${BASE_URL_DETAILS}/anime/${id}/news`);
-  }, [id]);
-
-  useEffect(() => {
-    if (!data) return;
-    const newData = data?.data.slice(0, 6);
+    if (!respuestaApi) return;
+    const newData = respuestaApi.data.slice(0, 6);
     if (visibleContent === "noticias") {
-      setCurrentData(data.data);
+      setCurrentData(respuestaApi.data);
     } else {
       setCurrentData(newData);
     }
-  }, [data, visibleContent]);
+  }, [respuestaApi, visibleContent]);
 
   return (
     <>

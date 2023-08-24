@@ -1,5 +1,4 @@
 import SectionDetalle from "../SectionDetalle";
-import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { BASE_URL_DETAILS } from "../../../constants";
 import { ApiResponseDetallePersonajes, DataPersonaje } from "../../../types";
@@ -7,27 +6,24 @@ import useFetch from "../../../hooks/useFetch";
 
 type Props = {
   visibleContent?: string;
+  id?: string;
 };
 
-const PersonajesDetalle = ({ visibleContent }: Props) => {
+const PersonajesDetalle = ({ visibleContent, id }: Props) => {
   const [currentData, setCurrentData] = useState<DataPersonaje[]>();
-  const { fetchData, data, loading } = useFetch<ApiResponseDetallePersonajes>();
-  const { id } = useParams();
+  const { respuestaApi, loading } = useFetch<ApiResponseDetallePersonajes>(
+    `${BASE_URL_DETAILS}/anime/${id || "54842"}/characters`
+  );
 
   useEffect(() => {
-    if (!id) return;
-    void fetchData(`${BASE_URL_DETAILS}/anime/${id}/characters`);
-  }, [id]);
-
-  useEffect(() => {
-    if (!data) return;
-    const newData = data?.data.slice(0, 10);
+    if (!respuestaApi) return;
+    const newData = respuestaApi.data.slice(0, 10);
     if (visibleContent === "personajes") {
-      setCurrentData(data.data);
+      setCurrentData(respuestaApi.data);
     } else {
       setCurrentData(newData);
     }
-  }, [data, visibleContent]);
+  }, [respuestaApi, visibleContent]);
 
   return (
     <>

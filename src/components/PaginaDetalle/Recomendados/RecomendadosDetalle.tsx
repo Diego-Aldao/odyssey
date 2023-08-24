@@ -3,44 +3,29 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/free-mode";
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
 import { BASE_URL_DETAILS } from "../../../constants";
-import {
-  ApiResponseDetalleRecomendado,
-  DataRecomendados,
-} from "../../../types";
+import { ApiResponseDetalleRecomendado } from "../../../types";
 import useFetch from "../../../hooks/useFetch";
 
 type Props = {
   visibleContent?: string;
+  id?: string;
 };
 
-const RecomendadosDetalle = ({ visibleContent }: Props) => {
-  const [currentData, setCurrentData] = useState<DataRecomendados[]>();
-  const { fetchData, data, loading } =
-    useFetch<ApiResponseDetalleRecomendado>();
-  const { id } = useParams();
-
-  useEffect(() => {
-    if (!id) return;
-    void fetchData(`${BASE_URL_DETAILS}/anime/${id}/recommendations`);
-  }, [id]);
-
-  useEffect(() => {
-    if (!data) return;
-    setCurrentData(data.data);
-  }, [data]);
+const RecomendadosDetalle = ({ visibleContent, id }: Props) => {
+  const { respuestaApi, loading } = useFetch<ApiResponseDetalleRecomendado>(
+    `${BASE_URL_DETAILS}/anime/${id || "54842"}/recommendations`
+  );
 
   return (
     <>
-      {loading || !currentData ? (
+      {loading || !respuestaApi ? (
         <>CARGANDO</>
       ) : (
         <>
-          {currentData.length >= 1 &&
+          {respuestaApi.data.length >= 1 &&
             (visibleContent === "general" ||
-              visibleContent === "recomendados") && (
+              visibleContent === "recomendaciones") && (
               <SectionDetalle titulo="recomendados">
                 <Swiper
                   spaceBetween={7}
@@ -59,7 +44,7 @@ const RecomendadosDetalle = ({ visibleContent }: Props) => {
                   }}
                 >
                   <>
-                    {currentData.map((recomendacion) => (
+                    {respuestaApi.data.map((recomendacion) => (
                       <SwiperSlide key={recomendacion.entry.mal_id}>
                         <article className="flex flex-col mb-5">
                           <p className="text-xs capitalize">
@@ -67,7 +52,7 @@ const RecomendadosDetalle = ({ visibleContent }: Props) => {
                           </p>
                           <div className="rounded-xl border-2 border-main-black overflow-hidden h-full my-1">
                             <img
-                              src={recomendacion.entry.images.webp.image_url}
+                              src={recomendacion.entry.images?.webp.image_url}
                               alt=""
                             />
                           </div>

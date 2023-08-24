@@ -1,33 +1,29 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import SectionDetalle from "../SectionDetalle";
 import { BASE_URL_DETAILS } from "../../../constants";
 import { ApiResponseDetalleEpisodios, DataEpisode } from "../../../types";
-import { useParams } from "react-router-dom";
 import useFetch from "../../../hooks/useFetch";
 
 type Props = {
   visibleContent?: string;
+  id?: string;
 };
 
-const EpisodiosDetalle = ({ visibleContent }: Props) => {
+const EpisodiosDetalle = ({ visibleContent, id }: Props) => {
+  const { respuestaApi, loading } = useFetch<ApiResponseDetalleEpisodios>(
+    `${BASE_URL_DETAILS}/anime/${id || "54842"}/videos/episodes`
+  );
   const [currentData, setCurrentData] = useState<DataEpisode[]>();
-  const { fetchData, data, loading } = useFetch<ApiResponseDetalleEpisodios>();
-  const { id } = useParams();
 
   useEffect(() => {
-    if (!id) return;
-    void fetchData(`${BASE_URL_DETAILS}/anime/${id}/videos/episodes`);
-  }, [id]);
-
-  useEffect(() => {
-    if (!data) return;
-    const newData = data?.data.slice(0, 4);
+    if (!respuestaApi) return;
+    const newData = respuestaApi.data.slice(0, 4);
     if (visibleContent === "episodios") {
-      setCurrentData(data.data);
+      setCurrentData(respuestaApi.data);
     } else {
       setCurrentData(newData);
     }
-  }, [data, visibleContent]);
+  }, [respuestaApi, visibleContent]);
 
   return (
     <>
@@ -40,16 +36,20 @@ const EpisodiosDetalle = ({ visibleContent }: Props) => {
               visibleContent === "episodios") && (
               <SectionDetalle titulo="episodios">
                 <div className="grid sm:grid-cols-2 gap-2 lg:grid-cols-4">
-                  {currentData?.map((episodio) => (
+                  {currentData.map((episodio) => (
                     <article
                       key={episodio.mal_id}
                       className="mb-5 flex flex-col max-w-sm mx-auto w-full"
                     >
-                      <p className="capitalize">episodio {episodio.mal_id}</p>
+                      <p className="capitalize font-semibold">
+                        episodio {episodio.mal_id}
+                      </p>
                       <div className="rounded-xl overflow-hidden border-2 border-main-black my-1">
                         <img src={episodio.images.jpg.image_url} alt="" />
                       </div>
-                      <p className="self-end">{episodio.title}</p>
+                      <p className="self-end text-sm text-end">
+                        {episodio.title}
+                      </p>
                     </article>
                   ))}
                 </div>
