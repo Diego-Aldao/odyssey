@@ -1,35 +1,40 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-type Data = {
-  pagination: object;
-  data: object[];
-};
-
-type Error = {
-  status: number;
-  type: string;
-  message?: string;
-  messages?: object;
-  error: string | null;
-};
-
-const useFetch = () => {
-  const [data, setData] = useState<Data>();
+const useFetch = <T,>(url: string) => {
+  const [respuestaApi, setRespuestaApi] = useState<T>();
   const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<Error>();
+  const [error, setError] = useState<string>();
 
   const fetchData = (url: string) => {
     setLoading(true);
+    setError(undefined);
     fetch(url)
-      .then((response) => response.json())
-      .then((data: Data) => {
-        setData(data);
+      .then((response) => {
+        if (!response.ok) throw new Error("El servidor respondio con un error");
+        return response.json();
+      })
+      .then((data: T) => {
+        setRespuestaApi(data);
         setLoading(false);
       })
-      .catch((err: Error) => setError(err));
+      .catch((err: Error) => {
+        setError(err.message);
+      });
   };
 
-  return { fetchData, data, loading, error };
+  useEffect(() => {
+    void fetchData(url);
+  }, [url]);
+
+  useEffect(() => {
+    if (error) {
+      setTimeout(() => {
+        void fetchData(url);
+      }, 3000);
+    }
+  }, [error]);
+
+  return { respuestaApi, loading };
 };
 
 export default useFetch;
