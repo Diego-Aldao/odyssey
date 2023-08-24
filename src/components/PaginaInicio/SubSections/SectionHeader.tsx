@@ -1,10 +1,12 @@
 import { Icon } from "@iconify/react";
+import { Link } from "react-router-dom";
 
 type Props = {
   titulo: string;
   nombreInteraccion: string;
   nombreIcono?: string;
   noBackground?: boolean;
+  destino: string;
 };
 
 const SubHeader: React.FC<Props> = ({
@@ -12,6 +14,7 @@ const SubHeader: React.FC<Props> = ({
   nombreInteraccion,
   nombreIcono,
   noBackground,
+  destino,
 }) => {
   return (
     <header
@@ -27,10 +30,17 @@ const SubHeader: React.FC<Props> = ({
           </span>
         )}
       </h3>
-      <span className="sub_header_interaction flex md:hidden">ver más</span>
-      <span className="sub_header_interaction hidden md:flex md:w-2/6 max-w-xs">
-        {nombreInteraccion}
-      </span>
+      <Link
+        to={`/${destino}`}
+        className="w-1/4 min-w-[90px] md:w-2/6 max-w-xs bg-main-black flex h-full"
+      >
+        <span className="sub_header_interaction flex md:hidden w-full">
+          ver más
+        </span>
+        <span className="sub_header_interaction hidden md:flex w-full">
+          {nombreInteraccion}
+        </span>
+      </Link>
     </header>
   );
 };
