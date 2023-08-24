@@ -15,7 +15,7 @@ const MainLayout: React.FC<Props> = ({ children }) => {
         <NavegacionPrincipal />
         <BotonLogin />
       </header>
-      <main>{children}</main>
+      {children}
       <FooterPrincipal />
     </>
   );
