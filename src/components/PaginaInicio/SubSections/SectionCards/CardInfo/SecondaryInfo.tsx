@@ -1,10 +1,10 @@
-import { FechaMal, ObjetoMal } from "../../../../../types";
+import { From, Generic } from "../../../../../types";
 
 type Props = {
-  fecha: FechaMal;
+  fecha: From;
   episodios: number | null;
   duracion: string;
-  generos: ObjetoMal[];
+  generos: Generic[];
 };
 
 const SecondaryInfo: React.FC<Props> = ({
@@ -19,11 +19,18 @@ const SecondaryInfo: React.FC<Props> = ({
         <p>
           {fecha.month}/{fecha.day}/{fecha.year}
         </p>
-        |
-        <p>
-          {episodios} eps,
-          <span className="inline-block ml-1">{duracion} </span>
-        </p>
+        {episodios ||
+          (duracion !== "Unknown" && (
+            <>
+              |
+              <p>
+                {episodios ? "eps" : ""}
+                <span className="inline-block ml-1">
+                  {duracion !== "Unknown" && duracion}
+                </span>
+              </p>
+            </>
+          ))}
       </div>
       <ul className="info-generos flex gap-2 items-center justify-center text-xs">
         {generos.map((genero) => (
