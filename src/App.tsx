@@ -5,6 +5,7 @@ import PaginaTemporadas from "./pages/PaginaTemporadas";
 import PaginaTrailers from "./pages/PaginaTrailers";
 import PaginaTops from "./pages/PaginaTops";
 import PaginaDetalles from "./pages/PaginaDetalles";
+import TopsPersonajes from "./components/PaginaTops/TopsPersonajes";
 
 const router = createBrowserRouter([
   {
@@ -12,11 +13,11 @@ const router = createBrowserRouter([
     element: <PaginaInicio />,
   },
   {
-    path: "/episodios",
+    path: "/episodios/:filtro?",
     element: <PaginaEpisodios />,
   },
   {
-    path: "/temporadas",
+    path: "/temporadas/:anio/:season?",
     element: <PaginaTemporadas />,
   },
   {
@@ -26,6 +27,12 @@ const router = createBrowserRouter([
   {
     path: "/tops",
     element: <PaginaTops />,
+    children: [
+      {
+        path: "personajes",
+        element: <TopsPersonajes />,
+      },
+    ],
   },
   {
     path: "/detalle/:tipo/:id",
@@ -35,7 +42,7 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <div className="bg-main-black w-full xs:border-4 rounded-xl max-w-screen-2xl mx-auto  border-main-color-background xs:p-3">
+    <div className="bg-main-black w-full xs:border-4 rounded-xl max-w-[1300px] mx-auto border-main-color-background xs:p-3">
       <RouterProvider router={router} />
     </div>
   );
