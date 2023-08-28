@@ -1,17 +1,17 @@
 export const MAIN_FILTERS_SEASONS = [
   {
     nombre: "verano 2023",
-    query: "/now",
+    query: "now",
     id: 1,
   },
   {
     nombre: "otoño 2023",
-    query: "/2023/fall",
+    query: "2023/fall",
     id: 2,
   },
   {
-    nombre: "invierno 2023",
-    query: "/2023/winter",
+    nombre: "invierno 2024",
+    query: "2024/winter",
     id: 3,
   },
 ];
@@ -19,12 +19,12 @@ export const MAIN_FILTERS_SEASONS = [
 export const MAIN_FILTERS_EPISODES = [
   {
     nombre: "recientes",
-    query: "",
+    query: undefined,
     id: 1,
   },
   {
     nombre: "populares",
-    query: "/popular",
+    query: "popular",
     id: 2,
   },
 ];
@@ -65,12 +65,12 @@ export const SECONDARY_FILTERS_SEASONS = [
 export const MAIN_FILTERS_TRAILERS = [
   {
     nombre: "recientes",
-    query: "",
+    query: undefined,
     id: 1,
   },
   {
     nombre: "populares",
-    query: "/popular",
+    query: "popular",
     id: 2,
   },
 ];
@@ -78,17 +78,17 @@ export const MAIN_FILTERS_TRAILERS = [
 export const MAIN_FILTERS_TOPS = [
   {
     nombre: "animes",
-    query: "/anime",
+    query: "anime",
     id: 1,
   },
   {
     nombre: "personajes",
-    query: "/characters",
+    query: "characters",
     id: 2,
   },
   {
     nombre: "personas",
-    query: "/people",
+    query: "people",
     id: 3,
   },
 ];
