@@ -27,11 +27,11 @@ const useFetch = <T,>(url: string) => {
   }, [url]);
 
   useEffect(() => {
-    if (error) {
-      setTimeout(() => {
-        void fetchData(url);
-      }, 3000);
-    }
+    if (!error) return;
+
+    setTimeout(() => {
+      void fetchData(url);
+    }, 3000);
   }, [error]);
 
   return { respuestaApi, loading };
