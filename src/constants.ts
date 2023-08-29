@@ -83,12 +83,12 @@ export const MAIN_FILTERS_TOPS = [
   },
   {
     nombre: "personajes",
-    query: "characters",
+    query: "personajes",
     id: 2,
   },
   {
     nombre: "personas",
-    query: "people",
+    query: "personas",
     id: 3,
   },
 ];
@@ -135,3 +135,5 @@ export const BASE_URL_TRAILERS = "https://api.jikan.moe/v4/watch/promos";
 export const BASE_URL_TOPS = "https://api.jikan.moe/v4/top";
 
 export const BASE_URL_DETAILS = "https://api.jikan.moe/v4";
+
+export const BASE_URL_DETAILS_CHARACTER = "https://api.jikan.moe/v4/characters";
