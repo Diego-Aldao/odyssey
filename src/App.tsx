@@ -10,7 +10,7 @@ import TopsPersonas from "./components/PaginaTops/TopsPersonas";
 import TopsAnime from "./components/PaginaTops/TopsAnime";
 import DetallePersona from "./components/PaginaDetalle/DetallePersona";
 import DetalleAnime from "./components/PaginaDetalle/DetalleAnime";
-import DetallePersonaje from "./components/PaginaDetalle/DetallePersonaje";
+import DetallePersonaje from "./components/PaginaDetalle/DetallePersonaje/DetallePersonaje";
 
 const router = createBrowserRouter([
   {
