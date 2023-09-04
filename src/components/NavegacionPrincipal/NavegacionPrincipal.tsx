@@ -1,19 +1,39 @@
 import { Icon } from "@iconify/react";
 import NavDesktop from "./NavDesktop";
+import NavMobile from "./NavMobile";
+import { useState } from "react";
 
-const BotonNavMobile = () => {
+type Props = {
+  handleVisibility: () => void;
+};
+
+const BotonNavMobile = ({ handleVisibility }: Props) => {
   return (
-    <div className="h-full flex items-center md:hidden">
+    <div
+      onClick={handleVisibility}
+      className="h-full flex items-center md:hidden"
+    >
       <Icon icon="jam:menu" className="h-12 w-12" />
     </div>
   );
 };
 
 const NavegacionPrincipal = () => {
+  const [navVisibility, setNavVisibility] = useState<boolean>(false);
+
+  const handleVisibility = () => {
+    setNavVisibility((prevState) => !prevState);
+  };
+
   return (
     <nav className="nav_principal">
-      <BotonNavMobile />
+      <BotonNavMobile handleVisibility={handleVisibility} />
       <NavDesktop />
+      <NavMobile
+        handleVisibility={handleVisibility}
+        navVisibility={navVisibility}
+        setNavVisibility={setNavVisibility}
+      />
     </nav>
   );
 };
