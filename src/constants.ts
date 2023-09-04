@@ -137,3 +137,5 @@ export const BASE_URL_TOPS = "https://api.jikan.moe/v4/top";
 export const BASE_URL_DETAILS = "https://api.jikan.moe/v4";
 
 export const BASE_URL_DETAILS_CHARACTER = "https://api.jikan.moe/v4/characters";
+
+export const BASE_URL_DETAILS_PEOPLE = "https://api.jikan.moe/v4/people";
