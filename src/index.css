@@ -10,6 +10,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     background: #23210f;
+    overflow-x: hidden;
 }
 p::selection,
 span::selection,
@@ -27,6 +28,9 @@ img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    -webkit-user-drag: none;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .item-skew-izquierda:after{
@@ -78,7 +82,7 @@ img {
 }
 
 .main_section {
-    @apply bg-main-color-background w-full rounded-b-2xl px-4 md:px-6 lg:px-10 py-8 lg:py-10 lg:pt-20 grid gap-7 md:gap-4 md:gap-y-7 md:grid-cols-7 md:grid-rows-[250px_100px_220px] lg:grid-rows-[minmax(0,_1fr)_100px_220px] xs:grid-cols-2
+    @apply grid gap-10 xs:gap-0 bg-main-color-background w-full rounded-b-2xl px-4 md:px-6 lg:px-10 py-8 lg:py-10 lg:pt-20 xs:grid xs:grid-cols-3 relative md:grid-rows-[1fr,100px,200px] lg:grid-rows-[1fr,100px,200px] xl:grid-rows-[1fr,150px,200px]
 }
 
 .main_titulo{
@@ -100,15 +104,15 @@ img {
 }
 
 .main_info_app_corner{
-    @apply absolute w-1/2 h-10 bg-main-color-background -top-[2px] -right-[2px] rounded-b-[20px] rounded-br-none border-b-[2px] border-l-[2px] border-main-black hidden xs:flex md:hidden lg:flex justify-end items-end
+    @apply absolute w-1/2 h-10 bg-main-color-background -top-[2px] -right-[2px] rounded-b-[20px] rounded-br-none border-b-[2px] border-l-[2px] border-main-black hidden xs:flex  lg:flex justify-end items-end
 }
 
 .sub_section{
-    @apply w-full mt-20 rounded-2xl overflow-hidden bg-main-color-background
+    @apply w-full mt-20 rounded-xl overflow-hidden bg-main-color-background
 }
 
 .sub_header_interaction{
-    @apply relative bg-main-black text-main-color-background px-4 md:px-6 lg:px-10 h-full items-center justify-center capitalize item-skew-x after:hidden before:-left-[17px] before:md:-left-[25px] rounded-bl-[5px] z-10 text-sm sm:text-base lg:text-lg
+    @apply relative bg-main-black text-main-color-background px-4 md:px-6 lg:px-10 h-full items-center justify-center capitalize item-skew-x after:hidden before:-left-[17px] before:md:-left-[25px] rounded-bl-[5px] z-[1] text-sm sm:text-base lg:text-lg
 }
 
 /*MAIN SECTION*/
@@ -211,12 +215,16 @@ img {
     border-bottom-right-radius: 0px;
 }
 
-.main_section, .sub_section{
+.main_section, .sub_section, .section_sub_paginas{
     background-image: 
-    url("./assets/asd222.png");
-    background-position: -10% center;
+    url("./assets/PatronBackground.png");
+    background-position: -15% center;
     background-size: 72%;
     background-blend-mode: overlay;
+}
+
+.main_section{
+    background-size: 85%;
 }
 
 /*PAGINAS SECUNDARIAS*/
