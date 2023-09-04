@@ -8,7 +8,7 @@ import PaginaDetalles from "./pages/PaginaDetalles";
 import TopsPersonajes from "./components/PaginaTops/TopsPersonajes";
 import TopsPersonas from "./components/PaginaTops/TopsPersonas";
 import TopsAnime from "./components/PaginaTops/TopsAnime";
-import DetallePersona from "./components/PaginaDetalle/DetallePersona";
+import DetallePersona from "./components/PaginaDetalle/DetallePersona/DetallePersona";
 import DetalleAnime from "./components/PaginaDetalle/DetalleAnime";
 import DetallePersonaje from "./components/PaginaDetalle/DetallePersonaje/DetallePersonaje";
 
@@ -56,7 +56,7 @@ const router = createBrowserRouter([
         element: <DetallePersona />,
       },
       {
-        path: "anime/:id",
+        path: "anime/:id/:seccion?",
         element: <DetalleAnime />,
       },
       {
