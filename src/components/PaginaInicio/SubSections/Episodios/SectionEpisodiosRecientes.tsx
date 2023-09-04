@@ -29,6 +29,8 @@ const SectionEpisodiosRecientes: React.FC<Props> = ({ children }) => {
                     titulo={item.entry.title}
                     episodios={item.episodes}
                     imagenUrl={item.entry.images?.webp.image_url}
+                    tipo="anime"
+                    seccion="episodios"
                   />
                 </SwiperSlide>
               ))}

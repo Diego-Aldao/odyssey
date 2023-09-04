@@ -11,6 +11,8 @@ type Props = {
   episodios?: Entry[];
   subtitulo?: string;
   noBackground?: boolean;
+  tipo: string;
+  seccion?: string;
 };
 
 const SectionCard: React.FC<Props> = ({
@@ -20,6 +22,8 @@ const SectionCard: React.FC<Props> = ({
   episodios,
   subtitulo,
   noBackground,
+  tipo,
+  seccion,
 }) => {
   return (
     <>
@@ -29,9 +33,10 @@ const SectionCard: React.FC<Props> = ({
           titulo={titulo}
           subtitulo={subtitulo}
           id={id}
+          tipo={tipo}
         />
       ) : (
-        <Link to={`/detalle/anime/${id}`}>
+        <Link to={`/detalle/${tipo}/${id}/${seccion || ""}`}>
           <CardImagen
             infoImagen={{
               imagen: imagenUrl,

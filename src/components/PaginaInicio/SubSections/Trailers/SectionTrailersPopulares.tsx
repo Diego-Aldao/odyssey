@@ -35,6 +35,7 @@ const SectionTrailersPopulares: React.FC<Props> = ({
                     titulo={item.entry.title}
                     imagenUrl={item.trailer.images.medium_image_url}
                     subtitulo={item.title}
+                    tipo="anime"
                   />
                 </SwiperSlide>
               ))}

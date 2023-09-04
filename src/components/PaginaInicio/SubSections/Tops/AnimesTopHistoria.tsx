@@ -24,6 +24,7 @@ const AnimesTopHistoria = () => {
                   id={item.mal_id}
                   titulo={item.title}
                   imagenUrl={item.images.webp.image_url}
+                  tipo="anime"
                 />
               </SwiperSlide>
             ))}
