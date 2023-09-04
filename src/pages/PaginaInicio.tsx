@@ -17,7 +17,7 @@ const PaginaInicio = () => {
   return (
     <MainLayout>
       <>
-        <section className="main_section grid gap-10 xs:gap-0 bg-main-color-background w-full rounded-b-2xl px-4 md:px-6 lg:px-10 py-8 lg:py-10 lg:pt-20 xs:grid xs:grid-cols-3 relative md:grid-rows-[1fr,100px,200px] lg:grid-rows-[1fr,100px,200px] xl:grid-rows-[1fr,150px,200px]">
+        <section className="main_section">
           <MainTitulo texto={"odyssey: comunidad anime"} />
           <MainImagen />
           <MainButtonRandom />

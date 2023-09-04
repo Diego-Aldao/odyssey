@@ -2,7 +2,7 @@ import { Icon } from "@iconify/react";
 import IconoHeader from "../Layout/IconoHeader";
 import downloadIos from "../../assets/iOS.png";
 import downloadGoogle from "../../assets/googleplay.png";
-import imagenFooter from "../../assets/bg-svg.png";
+import imagenFooter from "../../assets/ImagenFooterPrincipal.png";
 import topAnimes from "../../mocks/AnimeTopAllTime.json";
 import topAnimesAhora from "../../mocks/AnimeTopEnEmision.json";
 import topPersonajes from "../../mocks/PersonajeTop.json";

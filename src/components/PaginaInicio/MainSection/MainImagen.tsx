@@ -1,4 +1,4 @@
-import mainAnime from "../../../assets/animeMain2.png";
+import mainAnime from "../../../assets/ImagenPrincipal.png";
 
 const MainImagen = () => {
   return (
