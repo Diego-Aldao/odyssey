@@ -19,13 +19,18 @@ import FiltrosDetalle from "../../components/PaginaDetalle/FiltrosDetalle";
 import MainInfoDetalle from "../../components/PaginaDetalle/MainInfo/MainInfoDetalle";
 
 const DetalleAnime = () => {
-  const { id } = useParams();
+  const { id, seccion } = useParams();
   const [visibleContent, setVisibleContent] = useState<string>("general");
   const [tituloEsp, setTituloEsp] = useState<string | undefined>();
   const { respuestaApi, loading } = useFetch<ApiResponseDetalle>(
     `${BASE_URL_DETAILS}/anime/${id || "54842"}/full`
   );
   const [modalVisibility, setModalVisibility] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (seccion === "trailer") setModalVisibility(true);
+    if (seccion !== "trailer" && seccion) setVisibleContent(seccion);
+  }, [seccion]);
 
   useEffect(() => {
     if (!respuestaApi) return;
