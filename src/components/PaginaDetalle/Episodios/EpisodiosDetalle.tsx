@@ -44,7 +44,7 @@ const EpisodiosDetalle = ({ visibleContent, id }: Props) => {
                       <p className="capitalize font-semibold">
                         episodio {episodio.mal_id}
                       </p>
-                      <div className="rounded-xl overflow-hidden border-2 border-main-black my-1">
+                      <div className="rounded-xl overflow-hidden border-2 border-main-black my-1 min-h-[150px] md:min-h-[100px]">
                         <img src={episodio.images.jpg.image_url} alt="" />
                       </div>
                       <p className="self-end text-sm text-end">
