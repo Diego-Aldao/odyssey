@@ -26,7 +26,11 @@ const PaginaEpisodios = () => {
 
   useEffect(() => {
     if (!respuestaApi) return;
-    setCurrentData(respuestaApi.data.slice(0, 20));
+    if (btnVisible) {
+      setCurrentData(respuestaApi.data.slice(0, 20));
+    } else {
+      setCurrentData(respuestaApi.data.slice(0));
+    }
   }, [respuestaApi]);
 
   useEffect(() => {
