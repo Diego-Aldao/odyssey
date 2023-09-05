@@ -1,7 +1,7 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 const MainInfoApp = () => {
   return (
-    <div className="main_info_app relative">
+    <div className="main_info_app">
       <div className="main_info_app_corner">
         <div className="w-14 h-6 bg-main-black rounded-t-xl flex justify-center items-center">
           <Icon
@@ -10,11 +10,12 @@ const MainInfoApp = () => {
           />
         </div>
       </div>
-      <h3 className="uppercase text-lg font-semibold">aplicación movil</h3>
+      <h3 className="uppercase text-base lg:text-xl font-semibold">
+        aplicación movil
+      </h3>
       <p className="text-sm">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-        molestias, corporis consequuntur soluta inventore perspiciatis sunt
-        optio explicabo accusamus atque!
+        molestias, corporis consequuntur
       </p>
       <div className="flex gap-2 items-center">
         <Icon icon="ion:logo-apple-appstore" className="h-8 w-8" />
