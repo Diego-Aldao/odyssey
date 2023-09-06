@@ -1,11 +1,11 @@
-import { ObjetoMal } from "../../../../../types";
+import { Generic } from "../../../../../types";
 type Props = {
   imagen: string;
   sinopsis: string;
   origen: string;
-  mainGeneros: ObjetoMal[];
-  temas: ObjetoMal[];
-  estudios: ObjetoMal[];
+  mainGeneros: Generic[];
+  temas: Generic[];
+  estudios: Generic[];
   titulo: string;
 };
 
@@ -38,14 +38,14 @@ const MainInfo: React.FC<Props> = ({
           <li>
             <span className="font-medium capitalize">tematicas: </span>
             {temas.map((tema) => (
-              <span>{tema.name} </span>
+              <span key={tema.mal_id}>{tema.name} </span>
             ))}
           </li>
           {mainGeneros.length >= 1 && (
             <li>
               <span className="font-medium capitalize">tipo: </span>
               {mainGeneros.map((mainGenero) => (
-                <span>{mainGenero.name} </span>
+                <span key={mainGenero.mal_id}>{mainGenero.name} </span>
               ))}
             </li>
           )}
