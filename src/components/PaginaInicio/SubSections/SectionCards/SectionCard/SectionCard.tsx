@@ -1,7 +1,7 @@
 import React from "react";
 import CardImagen from "./CardImagen";
 import CardVideo from "./CardVideo";
-import { Entry, Episodio } from "../../../../../types";
+import { Entry } from "../../../../../types";
 import { Link } from "react-router-dom";
 
 type Props = {

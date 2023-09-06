@@ -1,6 +1,6 @@
 import React from "react";
 import { Icon } from "@iconify/react";
-import { Entry, Episodio } from "../../../../../types";
+import { Entry } from "../../../../../types";
 
 type PropsEpisodio = {
   info: Entry[];
