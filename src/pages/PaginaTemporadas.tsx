@@ -24,7 +24,7 @@ const PaginaTemporadas = () => {
   const [btnVisible, setBtnVisible] = useState<boolean>(true);
   const [currentData, setCurrentData] = useState<MainData[]>();
   const [currentUrl, setCurrentUrl] = useState<string>(
-    `${BASE_URL_SEASONS}${anio ? anio : ""}${season ? `/${season}` : ""}`
+    `${BASE_URL_SEASONS}${anio ? `/${anio}` : ""}${season ? `/${season}` : ""}`
   );
   const { respuestaApi, loading } = useFetch<ApiResponseTemporada>(currentUrl);
 
