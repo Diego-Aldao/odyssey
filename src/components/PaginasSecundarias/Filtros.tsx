@@ -27,13 +27,12 @@ const Filtros: React.FC<Props> = ({
       ) : (
         <ul className="item-skew-izquierda z-[1] relative px-5 md:px-7 lg:px-11 -left-5 md:-left-6 lg:-left-10 py-3 bg-main-black flex items-center gap-2 xs:gap-4 capitalize max-w-fit my-5 lg:mt-10">
           {filtros.map((filtro) => (
-            <>
+            <React.Fragment key={filtro.id}>
               {isFilterSecondary && setCurrentFiltro ? (
                 <li
                   onClick={() => {
                     setCurrentFiltro(filtro.query);
                   }}
-                  key={filtro.id}
                   className="capitalize text-main-color-background text-[10px] xs:text-xs md:text-sm lg:text-base"
                 >
                   {filtro.nombre}
@@ -48,7 +47,7 @@ const Filtros: React.FC<Props> = ({
                   </Link>
                 </li>
               )}
-            </>
+            </React.Fragment>
           ))}
         </ul>
       )}
