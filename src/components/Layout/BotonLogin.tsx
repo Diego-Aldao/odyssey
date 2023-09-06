@@ -1,9 +1,13 @@
+import { Icon } from "@iconify/react";
+
 const BotonLogin = () => {
   return (
-    <div className="hidden md:flex items-center justify-end h-full w-1/6 lg:w-1/5">
-      <button className="bg-main-white px-6 capitalize py-1 rounded-2xl lg:px-10 border-main-black border-[1px] font-semibold text-sm lg:text-base">
-        login
-      </button>
+    <div className="hidden md:flex items-center justify-center lg:justify-end xl:justify-center gap-2 h-full w-1/12 lg:w-fit lg:pl-3">
+      <p className="capitalize font-bold hidden lg:block text-lg">ingresar</p>
+      <Icon
+        icon="fluent-emoji-high-contrast:bust-in-silhouette"
+        className="h-6 w-6"
+      />
     </div>
   );
 };
