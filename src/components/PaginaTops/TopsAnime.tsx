@@ -5,6 +5,7 @@ import { BASE_URL_TOPS, SECONDARY_FILTERS_TOPS } from "../../constants";
 import CardTable from "../PaginaInicio/SubSections/SectionCards/CardTable/CardTable";
 import Grids from "../PaginasSecundarias/Grids";
 import Filtros from "../PaginasSecundarias/Filtros";
+import MainInfoAnime from "../PaginaInicio/SubSections/SectionCards/CardTable/MainInfoAnime";
 
 const TopsAnime = () => {
   const baseUrlAnime = `${BASE_URL_TOPS}/anime`;
@@ -17,7 +18,6 @@ const TopsAnime = () => {
       `${baseUrlAnime}${currentFiltro ? `?type=${currentFiltro}` : ""}`
     );
   }, [currentFiltro]);
-
   return (
     <>
       <Filtros
@@ -26,7 +26,12 @@ const TopsAnime = () => {
         setCurrentFiltro={setCurrentFiltro}
         filtros={SECONDARY_FILTERS_TOPS}
       />
-      <Grids tipoDeGrid="tabla">
+      <Grids
+        tipoDeGrid="tabla"
+        headerDos="titulo"
+        headerTres="score"
+        headerCuatro="favoritos"
+      >
         {loading || !respuestaApi ? (
           <>cargando</>
         ) : (
@@ -36,15 +41,19 @@ const TopsAnime = () => {
                 <CardTable
                   id={item.mal_id}
                   posicion={index}
-                  rank={item.rank}
                   titulo={item.title}
                   imagen={item.images.webp.image_url}
-                  tipo={item.type}
-                  miembros={item.members}
-                  fecha={item.aired}
-                  episodios={item.episodes}
+                  tipo="anime"
                   score={item.score}
-                />
+                  favoritos={item.favorites}
+                >
+                  <MainInfoAnime
+                    tipo={item.type}
+                    episodios={item.episodes}
+                    fecha={item.aired}
+                    miembros={item.members}
+                  />
+                </CardTable>
               </React.Fragment>
             ))}
           </>
