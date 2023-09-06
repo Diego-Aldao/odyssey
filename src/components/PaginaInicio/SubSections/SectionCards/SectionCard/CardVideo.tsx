@@ -7,6 +7,7 @@ type Props = {
   subtitulo: string | undefined;
   tipo: string;
   id: number;
+  mainPage?: boolean;
 };
 
 const CardVideo: React.FC<Props> = ({
@@ -15,21 +16,28 @@ const CardVideo: React.FC<Props> = ({
   subtitulo,
   id,
   tipo,
+  mainPage,
 }) => {
   return (
-    <div
-      className="border-2 relative section_card_video border-main-color-background
-       rounded-tr-[60px] rounded-bl-[60px] rounded-xl my-8"
-    >
-      <div className="absolute -top-7 left-0 rounded-tl-lg  rounded-br-lg text-main-color-background">
-        <Link to={`/detalle/${tipo}/${id}`}>
-          <p className="text-[12px] xl:text-sm">{titulo}</p>
-        </Link>
-      </div>
-
-      <div className="overflow-hidden rounded-tr-[60px] rounded-bl-[60px] rounded-xl flex items-center justify-center">
+    <article className="relative flex flex-col w-full gap-2 z-[1]">
+      <Link to={`/detalle/${tipo}/${id}`}>
+        <p
+          className={`flex w-fit max-w-[90%] justify-start border-main-black rounded-sm pl-4 relative item-skew-izquierda z-[1] px-1 bg-main-black text-main-color-background ${
+            mainPage ? "" : "pl-0"
+          }`}
+        >
+          <span className="line-clamp-1 md:text-lg lg:text-base xl:text-lg">
+            {titulo}
+          </span>
+        </p>
+      </Link>
+      <div
+        className={`border-2 rounded-xl overflow-hidden flex flex-1 max-h-[250px] items-center justify-center ${
+          mainPage ? "border-main-black" : "border-main-color-background"
+        }`}
+      >
         <Link to={`/detalle/${tipo}/${id}/trailer`} className="absolute">
-          <div className=" bg-main-black text-main-color-background rounded-lg px-5 capitalize flex items-center justify-center gap-4 py-1 border-[1px] border-main-color-background">
+          <div className="play bg-main-black text-main-color-background rounded-lg px-5 capitalize flex items-center justify-center gap-4 py-1 border-[1px] border-main-color-background">
             ver video
             <Icon
               icon="streamline:entertainment-control-button-play-button-television-buttons-movies-play-tv-video-controls"
@@ -39,10 +47,14 @@ const CardVideo: React.FC<Props> = ({
         </Link>
         <img src={imagen} alt="" />
       </div>
-      <div className=" absolute -bottom-7 -right-[2px] rounded-b-lg text-main-color-background">
-        <p className="text-[12px] xl:text-sm">{subtitulo}</p>
-      </div>
-    </div>
+      <p
+        className={`w-fit flex self-end ${
+          mainPage ? "text-main-black" : "text-main-color-background"
+        }`}
+      >
+        {subtitulo}
+      </p>
+    </article>
   );
 };
 
