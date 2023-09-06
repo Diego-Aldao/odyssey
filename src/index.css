@@ -77,8 +77,8 @@ img {
 
 /*CLASES TAILWIND */
 
-.nav_principal {
-    @apply text-white bg-main-black px-4 md:px-0 h-full item-skew-x z-10 relative md:w-7/12 rounded-bl-[20px] md:rounded-b-[20px] lg:w-3/5 after:hidden after:md:block after:-right-[20px] before:-left-[20px]
+.nav_desktop {
+    @apply hidden md:flex h-full items-center justify-center gap-1 item-skew-x z-10 relative after:-right-[20px] before:-left-[20px] mx-[30px] bg-main-black
 }
 
 .main_section {
@@ -86,21 +86,19 @@ img {
 }
 
 .main_titulo{
-    @apply font-chivo text-[42px] text-4xl uppercase max-w-lg md:col-span-5 md:max-w-full md:text-7xl lg:text-8xl -tracking-[1px] lg:-tracking-[5px] xl:text-[112px] xl:-tracking-[10px] xl:leading-[0.85] xs:col-span-2 xs:text-5xl
+    @apply font-chivo text-[42px] text-4xl uppercase md:text-[80px] lg:text-8xl -tracking-[1px] lg:-tracking-[5px] xl:text-[112px] xl:-tracking-[10px] xl:leading-[0.85]  xs:text-5xl  text-left md:text-left
+    md:text-main-color-background md:drop-shadow-[0px_0px_8px_#000000] max-w-[420px] xs:max-w-[300px] md:max-w-[600px] md:[text-shadow:_5px_5px_#23210f]
 }
 .main_button_random{
-    @apply rounded-full  mx-auto flex items-center justify-center xs:row-start-2 md:col-start-3 md:col-span-3 md:self-center md:-top-12 lg:col-start-4 lg:col-span-2 relative
+    @apply rounded-full xs:justify-self-start md:justify-self-center xl:justify-self-end flex items-center justify-center xs:row-start-2 md:col-start-1 md:row-span-2 relative
 }
 
-.main_card_anime{
-    @apply relative w-full md:col-span-4 md:max-w-[90%] border-2 border-main-black md:h-full md:-top-8 lg:-top-20 lg:col-span-3 lg:max-w-full lg:h-[300px] rounded-2xl xs:col-span-2 max-w-[480px] min-h-[250px] justify-self-center md:justify-self-start lg:row-start-3
-}
-.main_card_personaje{
-    @apply relative w-[250px] h-[350px] bg-secondary-color-background flex mx-auto md:mx-0  border-[2px] border-[#3e3c2e] rounded-[20px] rounded-ss-[96px] md:w-[220px] md:justify-self-end md:col-span-2 md:row-span-2 md:h-full md:max-h-[320px] lg:max-h-[400px] max-w-[280px] lg:w-full lg:justify-self-end xs:col-start-2
+.main_imagen{
+    @apply hidden xs:block xs:col-start-2 xs:row-start-1 xs:col-span-2 h-full xs:-top-20 md:-top-28 md:-right-10 lg:-top-40 xl:-top-44 max-h-[350px] relative md:max-h-[550px] lg:max-h-[800px] md:h-[60vw] md:absolute
 }
 
 .main_info_app{
-    @apply w-full bg-main-white border-2 border-main-black md:col-span-3 md:col-start-5 md:self-end lg:col-start-4 lg:col-span-4 lg:max-w-[90%] lg:justify-self-end rounded-[20px] xs:col-span-2 justify-self-center p-4 flex justify-between gap-3 flex-wrap max-w-[600px] relative
+    @apply w-full bg-main-white border-2 border-main-black rounded-[20px] p-4 flex justify-between gap-3  xs:w-[calc(100%_-_180px)] xs:max-w-[450px] xs:absolute xs:bottom-[32px] xs:right-[16px] md:relative md:bottom-0 md:right-0 md:w-full  flex-wrap md:max-w-[600px] relative mx-auto md:row-start-3  md:col-span-2 md:col-start-2 max-h-[180px] lg:mr-0 lg:mt-auto
 }
 
 .main_info_app_corner{
@@ -236,7 +234,7 @@ img {
 }
 
 .grid-videos{
-    @apply sm:grid-cols-[repeat(auto-fill,minmax(280px,1fr))] xl:grid-cols-[repeat(auto-fill,minmax(350px,1fr))] grid-cols-1
+    @apply grid-cols-[repeat(auto-fill,minmax(220px,1fr))] sm:grid-cols-[repeat(auto-fill,minmax(280px,1fr))] xl:grid-cols-[repeat(auto-fill,minmax(350px,1fr))]
 }
 
 .grid-comun{
