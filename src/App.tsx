@@ -11,6 +11,7 @@ import TopsAnime from "./components/PaginaTops/TopsAnime";
 import DetallePersona from "./components/PaginaDetalle/DetallePersona/DetallePersona";
 import DetalleAnime from "./components/PaginaDetalle/DetalleAnime";
 import DetallePersonaje from "./components/PaginaDetalle/DetallePersonaje/DetallePersonaje";
+import PaginaBusqusqueda from "./pages/PaginaBusqusqueda";
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
     element: <PaginaTemporadas />,
   },
   {
-    path: "/trailers",
+    path: "/trailers/:filtro?",
     element: <PaginaTrailers />,
   },
   {
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
         element: <DetallePersonaje />,
       },
     ],
+  },
+  {
+    path: "/busqueda/:query/:tipo?",
+    element: <PaginaBusqusqueda />,
   },
 ]);
 
