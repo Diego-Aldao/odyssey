@@ -2,6 +2,7 @@ import { Icon } from "@iconify/react";
 import IconoHeader from "../Layout/IconoHeader";
 import { useNavigate } from "react-router-dom";
 import imagenNav from "../../assets/imgNavMobile.png";
+import { useState } from "react";
 
 const listadoNav = [
   {
@@ -24,6 +25,11 @@ const listadoNav = [
     nombre: "tops",
     destino: "/tops/anime",
   },
+  {
+    id: 5,
+    nombre: "trailers",
+    destino: "/tops",
+  },
 ];
 
 type Props = {
@@ -38,10 +44,21 @@ const NavMobile = ({
   setNavVisibility,
 }: Props) => {
   const navigate = useNavigate();
+  const [value, setValue] = useState<string | number>("");
 
   const handleDestino = (destino: string) => {
     setNavVisibility((prevState) => !prevState);
     navigate(destino);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!value) return;
+    navigate(`/busqueda/${value}`);
   };
 
   return (
@@ -66,21 +83,26 @@ const NavMobile = ({
           </div>
         </header>
         <div className="contenido relative flex flex-col items-center gap-10 py-10 px-4 bg-main-black h-[calc(100%_-_112px)]">
-          <div className="absolute bottom-0 -right-5 h-[85vw] max-h-[450px] overflow-hidden">
+          <div className="absolute bottom-0 -right-0 h-[65vw] max-h-[370px] overflow-hidden">
             <img src={imagenNav} alt="" />
           </div>
-          <form className="w-full rounded-md overflow-hidden flex items-center  text-main-black h-10 bg-main-color-background pl-2 border-2 border-main-color-background max-w-[500px]">
+          <form
+            onSubmit={handleSubmit}
+            className="w-full rounded-md overflow-hidden flex items-center  text-main-black h-10 bg-main-color-background pl-2 border-2 border-main-color-background max-w-[500px]"
+          >
             <input
+              onChange={handleChange}
+              value={value}
               type="text"
               className="flex-1 h-full placeholder:capitalize bg-transparent border-transparent -outline-offset-2 px-1 outline-main-black "
               placeholder="naruto, shingeki, jujut..."
             />
-            <div className="h-full w-12 flex items-center justify-center bg-main-black">
+            <button className="h-full w-12 flex items-center justify-center bg-main-black">
               <Icon
                 icon="mingcute:search-3-line"
                 className="h-6 w-6 lg:h-5 lg:w-5 text-main-color-background"
               />
-            </div>
+            </button>
           </form>
           <ul className="w-full flex flex-col gap-10 items-start">
             {listadoNav.map(({ id, destino, nombre }) => (
@@ -98,7 +120,7 @@ const NavMobile = ({
         </div>
         <footer className="h-14 xs:rounded-b-xl bg-main-black flex items-center justify-center">
           <p className="capitalize text-sm">
-            odyssey: comunidad anime &copy; 2023{" "}
+            odyssey: comunidad anime &copy; 2023
           </p>
         </footer>
       </div>
