@@ -5,7 +5,7 @@ const MainTitulo: React.FC<Props> = ({ texto }) => {
   return (
     <div className="flex flex-col gap-4 xl:gap-6 xs:col-span-1 xs:min-h-[320px] md:col-span-2 mr-auto md:mx-0 md:max-w-[600px] z-[2] relative md:col-start-1">
       <h1 className="main_titulo">{texto}</h1>
-      <p className="text-left text-sm font-semibold md:text-left md:text-base lg:text-xl flex flex-col">
+      <p className="text-left text-sm font-semibold md:text-left md:text-base lg:text-xl flex flex-col text-main-black">
         <span>Nunca olvides lo que has visto.</span>
         <span>Guarda lo que quieras ver.</span>
         <span>Comienza a rastrear tu anime hoy.</span>

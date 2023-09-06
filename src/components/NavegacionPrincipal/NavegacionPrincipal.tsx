@@ -11,9 +11,9 @@ const BotonNavMobile = ({ handleVisibility }: Props) => {
   return (
     <div
       onClick={handleVisibility}
-      className="h-full flex items-center md:hidden"
+      className="h-full flex items-center md:hidden px-4 md:px-0 item-skew-x z-[1] relative bg-main-black after:hidden"
     >
-      <Icon icon="jam:menu" className="h-12 w-12" />
+      <Icon icon="jam:menu" className="h-12 w-12 text-main-color-background" />
     </div>
   );
 };
@@ -26,7 +26,7 @@ const NavegacionPrincipal = () => {
   };
 
   return (
-    <nav className="nav_principal">
+    <nav className="text-white md:flex-1 h-full">
       <BotonNavMobile handleVisibility={handleVisibility} />
       <NavDesktop />
       <NavMobile
