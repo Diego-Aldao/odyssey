@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { Icon } from "@iconify/react";
+import React, { useEffect, useState } from "react";
 import MainLayout from "../layout/MainLayout";
 import SectionSubPaginas from "../components/PaginasSecundarias/SectionSubPaginas";
 import Filtros from "../components/PaginasSecundarias/Filtros";
@@ -9,6 +8,7 @@ import { ApiResponseTrailers, DataTrailers } from "../types";
 import useFetch from "../hooks/useFetch";
 import { useParams } from "react-router-dom";
 import ImagenHeaderTrailers from "../components/PaginaTrailers/ImagenHeaderTrailers";
+import CardVideo from "../components/PaginaInicio/SubSections/SectionCards/SectionCard/CardVideo";
 
 const PaginaTrailers = () => {
   const { filtro } = useParams();
@@ -55,27 +55,16 @@ const PaginaTrailers = () => {
           ) : (
             <>
               {currentData.map((item) => (
-                <article
-                  key={item.trailer.youtube_id}
-                  className="relative flex flex-col w-full gap-2 z-[1]"
-                >
-                  <p className="flex w-fit max-w-[90%] justify-start border-main-black bg-main-black text-main-color-background px-1 rounded-sm pl-4 relative item-skew-izquierda z-[1]">
-                    <span className="line-clamp-1 md:text-lg lg:text-base xl:text-lg">
-                      {item.entry.title}
-                    </span>
-                  </p>
-                  <div className="border-2 border-main-black rounded-xl overflow-hidden flex flex-1 max-h-[250px] items-center justify-center">
-                    <div className="play absolute bg-main-black text-main-color-background rounded-lg px-5 capitalize flex items-center justify-center gap-4 py-1 border-[1px] border-main-color-background">
-                      ver video
-                      <Icon
-                        icon="streamline:entertainment-control-button-play-button-television-buttons-movies-play-tv-video-controls"
-                        className="stroke-2"
-                      />
-                    </div>
-                    <img src={item.trailer.images.medium_image_url} alt="" />
-                  </div>
-                  <p className="w-fit flex self-end">{item.title}</p>
-                </article>
+                <React.Fragment key={item.entry.mal_id}>
+                  <CardVideo
+                    id={item.entry.mal_id}
+                    imagen={item.trailer.images.medium_image_url}
+                    titulo={item.entry.title}
+                    subtitulo={item.title}
+                    tipo="anime"
+                    mainPage={true}
+                  />
+                </React.Fragment>
               ))}
             </>
           )}
