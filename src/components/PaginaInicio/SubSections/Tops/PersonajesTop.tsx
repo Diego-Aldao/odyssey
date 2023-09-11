@@ -15,7 +15,7 @@ const PersonajesTop = () => {
       {loading || !respuestaApi ? (
         <>cargando</>
       ) : (
-        <SectionContent subtitulo="top personajes">
+        <SectionContent subtitulo="top personajes" destino="tops/personajes">
           <>
             {respuestaApi.data.map((item) => (
               <SwiperSlide key={item.mal_id}>

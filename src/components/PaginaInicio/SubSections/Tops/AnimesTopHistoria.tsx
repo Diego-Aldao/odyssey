@@ -1,5 +1,4 @@
 import SectionContent from "../SectionContent";
-import { useEffect } from "react";
 import { SwiperSlide } from "swiper/react";
 import SectionCard from "../SectionCards/SectionCard/SectionCard";
 import useFetch from "../../../../hooks/useFetch";
@@ -16,7 +15,7 @@ const AnimesTopHistoria = () => {
       {loading || !respuestaApi ? (
         <>cargando</>
       ) : (
-        <SectionContent subtitulo="top de la historia">
+        <SectionContent subtitulo="top de la historia" destino="tops/animes">
           <>
             {respuestaApi.data.map((item) => (
               <SwiperSlide key={item.mal_id}>

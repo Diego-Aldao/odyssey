@@ -20,7 +20,7 @@ const SectionEpisodiosRecientes: React.FC<Props> = ({ children }) => {
       ) : (
         <section className="sub_section">
           {children}
-          <SectionContent subtitulo="los ultimos capítulos">
+          <SectionContent subtitulo="los ultimos capítulos" destino="episodios">
             <>
               {respuestaApi.data.map((item) => (
                 <SwiperSlide key={item.entry.mal_id}>

@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import SectionContent from "../SectionContent";
 import { SwiperSlide } from "swiper/react";
 import SectionCard from "../SectionCards/SectionCard/SectionCard";
@@ -21,7 +20,7 @@ const SectionAnimeTemporada: React.FC<Props> = ({ children }) => {
       {loading || !respuestaApi ? (
         <>cargando</>
       ) : (
-        <SectionContent subtitulo={"verano 2023"}>
+        <SectionContent subtitulo={"verano 2023"} destino="temporadas/now">
           <>
             {respuestaApi.data.map((item) => (
               <SwiperSlide key={item.mal_id}>

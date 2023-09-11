@@ -2,14 +2,21 @@ import { Swiper } from "swiper/react";
 import { FreeMode } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/free-mode";
+import { Link } from "react-router-dom";
 
 type Props = {
   children: JSX.Element;
   subtitulo?: string;
   noBackground?: boolean;
+  destino: string;
 };
 
-const SubContent: React.FC<Props> = ({ children, subtitulo, noBackground }) => {
+const SubContent: React.FC<Props> = ({
+  children,
+  subtitulo,
+  noBackground,
+  destino,
+}) => {
   return (
     <div
       className={`${
@@ -17,11 +24,13 @@ const SubContent: React.FC<Props> = ({ children, subtitulo, noBackground }) => {
       } px-4 md:px-6 lg:px-10 py-10 flex flex-wrap gap-10`}
     >
       {subtitulo && (
-        <ul className="item-skew-izquierda z-[1] relative px-4 md:px-6 lg:px-10 -left-4 md:-left-6 lg:-left-10 py-4 bg-main-black flex items-center capitalize rounded-br-xl">
-          <li className="text-main-color-background text-sm whitespace-nowrap md:text-base">
-            {subtitulo}
-          </li>
-        </ul>
+        <Link to={destino}>
+          <ul className="item-skew-izquierda z-[1] relative px-4 md:px-6 lg:px-10 -left-4 md:-left-6 lg:-left-10 py-4 bg-main-black flex items-center capitalize rounded-br-xl">
+            <li className="text-main-color-background text-sm whitespace-nowrap md:text-base">
+              {subtitulo}
+            </li>
+          </ul>
+        </Link>
       )}
       <Swiper
         spaceBetween={7}

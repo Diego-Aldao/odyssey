@@ -25,7 +25,7 @@ const SectionTrailersPopulares: React.FC<Props> = ({
       ) : (
         <section className="sub_section">
           {children}
-          <SectionContent noBackground={noBackground}>
+          <SectionContent noBackground={noBackground} destino="trailers">
             <>
               {respuestaApi.data.map((item) => (
                 <SwiperSlide key={item.entry.mal_id}>
