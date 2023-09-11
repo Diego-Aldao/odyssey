@@ -82,7 +82,7 @@ img {
 }
 
 .main_section {
-    @apply grid gap-10 xs:gap-0 bg-main-color-background w-full rounded-b-2xl px-4 md:px-6 lg:px-10 py-8 lg:py-10 md:pt-14 lg:pt-20 xs:grid xs:grid-cols-[300px,_1fr,_1fr] relative md:grid-rows-[1fr,100px,200px] lg:grid-rows-[1fr,80px,200px] xl:grid-rows-[1fr,140px,200px]
+    @apply grid gap-10 xs:gap-0 bg-main-color-background w-full rounded-b-2xl px-4 md:px-6 lg:px-10 py-8 lg:py-10 md:pt-14 lg:pt-20 xs:grid xs:grid-cols-[300px,_1fr,_1fr] relative md:grid-rows-[1fr,100px,200px] lg:grid-rows-[1fr,80px,200px] xl:grid-rows-[1fr,140px,200px] overflow-x-hidden
 }
 
 .main_titulo{
@@ -213,17 +213,14 @@ img {
     border-bottom-right-radius: 0px;
 }
 
-.main_section, .sub_section, .section_sub_paginas{
+.main_section, .sub_section, .section_sub_paginas, .footer_principal{
     background-image: 
     url("./assets/PatronBackground.png");
     background-position: -15% center;
-    background-size: 72%;
+    background-size: 40%;
     background-blend-mode: overlay;
 }
 
-.main_section{
-    background-size: 85%;
-}
 
 /*PAGINAS SECUNDARIAS*/
 
@@ -292,7 +289,7 @@ img {
 
 /*MAIN FOOTER*/
 
-.footer-border:after{
+.footer_principal:after{
     content: "";
     width: 100%;
     height: 2px;
