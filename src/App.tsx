@@ -12,8 +12,13 @@ import DetallePersona from "./components/PaginaDetalle/DetallePersona/DetallePer
 import DetalleAnime from "./components/PaginaDetalle/DetalleAnime";
 import DetallePersonaje from "./components/PaginaDetalle/DetallePersonaje/DetallePersonaje";
 import PaginaBusqusqueda from "./pages/PaginaBusqusqueda";
+import PaginaNotFound from "./pages/PaginaNotFound";
 
 const router = createBrowserRouter([
+  {
+    path: "*",
+    element: <PaginaNotFound />,
+  },
   {
     path: "/",
     element: <PaginaInicio />,
@@ -23,7 +28,7 @@ const router = createBrowserRouter([
     element: <PaginaEpisodios />,
   },
   {
-    path: "/temporadas/:anio/:season?",
+    path: "/temporadas/:anio?/:season?",
     element: <PaginaTemporadas />,
   },
   {
