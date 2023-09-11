@@ -42,7 +42,7 @@ const PaginaInicio = () => {
         >
           <SectionAnimeTemporada>
             <SectionHeader
-              destino="temporadas"
+              destino="temporadas/now"
               titulo="anime de temporada"
               nombreIcono="streamline:interface-calendar-favorite-calendar-date-day-favorite-like-month-star"
               nombreInteraccion="ver más temporadas"
@@ -63,7 +63,7 @@ const PaginaInicio = () => {
         <SectionTops>
           <>
             <SectionHeader
-              destino="tops"
+              destino="tops/anime"
               titulo="top anime"
               nombreIcono="streamline:interface-award-crown-reward-social-rating-media-queen-vip-king-crown"
               nombreInteraccion="ver todos los tops"
