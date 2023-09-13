@@ -3,6 +3,11 @@ import { useEffect, useState } from "react";
 import { BASE_URL_DETAILS } from "../../../constants";
 import { ApiResponseDetallePersonajes, DataPersonaje } from "../../../types";
 import useFetch from "../../../hooks/useFetch";
+import { motion } from "framer-motion";
+import {
+  varianteDetalleArticle,
+  transition,
+} from "../../../VariantesFramerMotion";
 
 type Props = {
   visibleContent?: string;
@@ -38,7 +43,12 @@ const PersonajesDetalle = ({ visibleContent, id }: Props) => {
                 <div className="grid gap-2 xs:grid-cols-2 md:gap-3 lg:grid-cols-2 lg:gap-x-5 lg:gap-3">
                   <>
                     {currentData.map((personaje) => (
-                      <article
+                      <motion.article
+                        variants={varianteDetalleArticle}
+                        initial="initial"
+                        whileInView="whileInView"
+                        viewport={{ once: true, margin: "-70px" }}
+                        transition={transition}
                         key={personaje.character.mal_id}
                         className="flex gap-2 justify-between"
                       >
@@ -84,7 +94,7 @@ const PersonajesDetalle = ({ visibleContent, id }: Props) => {
                             </div>
                           </div>
                         )}
-                      </article>
+                      </motion.article>
                     ))}
                   </>
                 </div>

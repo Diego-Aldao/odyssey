@@ -3,6 +3,11 @@ import { useEffect, useState } from "react";
 import { ApiResponseDetalleReviews, DataReviews } from "../../../types";
 import { BASE_URL_DETAILS } from "../../../constants";
 import useFetch from "../../../hooks/useFetch";
+import { motion } from "framer-motion";
+import {
+  varianteDetalleArticle,
+  transition,
+} from "../../../VariantesFramerMotion";
 
 type Props = {
   visibleContent?: string;
@@ -36,7 +41,12 @@ const ReviewsDetalle = ({ visibleContent, id }: Props) => {
               <SectionDetalle titulo="reviews">
                 <>
                   {currentData.map((review) => (
-                    <article
+                    <motion.article
+                      variants={varianteDetalleArticle}
+                      initial="initial"
+                      whileInView="whileInView"
+                      viewport={{ once: true, margin: "-70px" }}
+                      transition={transition}
                       key={review.mal_id}
                       className="flex gap-2 mb-5 max-w-[600px] lg:max-w-[700px] items-start"
                     >
@@ -70,7 +80,7 @@ const ReviewsDetalle = ({ visibleContent, id }: Props) => {
                           <span> {review.reactions.overall}</span>
                         </p>
                       </div>
-                    </article>
+                    </motion.article>
                   ))}
                 </>
               </SectionDetalle>

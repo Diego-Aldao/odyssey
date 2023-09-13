@@ -6,6 +6,11 @@ import "swiper/css/free-mode";
 import { BASE_URL_DETAILS } from "../../../constants";
 import { ApiResponseDetalleRecomendado } from "../../../types";
 import useFetch from "../../../hooks/useFetch";
+import { motion } from "framer-motion";
+import {
+  varianteDetalleArticle,
+  transition,
+} from "../../../VariantesFramerMotion";
 
 type Props = {
   visibleContent?: string;
@@ -46,7 +51,14 @@ const RecomendadosDetalle = ({ visibleContent, id }: Props) => {
                   <>
                     {respuestaApi.data.map((recomendacion) => (
                       <SwiperSlide key={recomendacion.entry.mal_id}>
-                        <article className="flex flex-col mb-5">
+                        <motion.article
+                          variants={varianteDetalleArticle}
+                          initial="initial"
+                          whileInView="whileInView"
+                          viewport={{ once: true, margin: "-70px" }}
+                          transition={transition}
+                          className="flex flex-col mb-5"
+                        >
                           <p className="text-xs capitalize">
                             recomiendan: <br /> {recomendacion.votes} usuarios
                           </p>
@@ -59,7 +71,7 @@ const RecomendadosDetalle = ({ visibleContent, id }: Props) => {
                           <p className="min-h-[14px] text-xs whitespace-nowrap overflow-hidden">
                             {recomendacion.entry.title}
                           </p>
-                        </article>
+                        </motion.article>
                       </SwiperSlide>
                     ))}
                   </>

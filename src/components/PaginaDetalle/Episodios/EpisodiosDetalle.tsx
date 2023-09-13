@@ -3,6 +3,11 @@ import SectionDetalle from "../SectionDetalle";
 import { BASE_URL_DETAILS } from "../../../constants";
 import { ApiResponseDetalleEpisodios, DataEpisode } from "../../../types";
 import useFetch from "../../../hooks/useFetch";
+import { motion } from "framer-motion";
+import {
+  transition,
+  varianteDetalleArticle,
+} from "../../../VariantesFramerMotion";
 
 type Props = {
   visibleContent?: string;
@@ -37,7 +42,12 @@ const EpisodiosDetalle = ({ visibleContent, id }: Props) => {
               <SectionDetalle titulo="episodios">
                 <div className="grid sm:grid-cols-2 gap-2 lg:grid-cols-4">
                   {currentData.map((episodio) => (
-                    <article
+                    <motion.article
+                      variants={varianteDetalleArticle}
+                      initial="initial"
+                      whileInView="whileInView"
+                      viewport={{ once: true, margin: "-70px" }}
+                      transition={transition}
                       key={episodio.mal_id}
                       className="mb-5 flex flex-col max-w-sm mx-auto w-full"
                     >
@@ -50,7 +60,7 @@ const EpisodiosDetalle = ({ visibleContent, id }: Props) => {
                       <p className="self-end text-sm text-end">
                         {episodio.title}
                       </p>
-                    </article>
+                    </motion.article>
                   ))}
                 </div>
               </SectionDetalle>

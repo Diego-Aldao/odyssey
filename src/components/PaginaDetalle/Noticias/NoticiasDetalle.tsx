@@ -3,6 +3,11 @@ import { useEffect, useState } from "react";
 import { BASE_URL_DETAILS } from "../../../constants";
 import { DataNews, ApiResponseDetalleNoticias } from "../../../types";
 import useFetch from "../../../hooks/useFetch";
+import { motion } from "framer-motion";
+import {
+  varianteDetalleArticle,
+  transition,
+} from "../../../VariantesFramerMotion";
 
 type Props = {
   visibleContent?: string;
@@ -36,7 +41,12 @@ const NoticiasDetalle = ({ visibleContent, id }: Props) => {
               <SectionDetalle titulo="noticias">
                 <div className="grid sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-x-5 lg:gap-y-5">
                   {currentData.map((noticia) => (
-                    <article
+                    <motion.article
+                      variants={varianteDetalleArticle}
+                      initial="initial"
+                      whileInView="whileInView"
+                      viewport={{ once: true, margin: "-70px" }}
+                      transition={transition}
                       key={noticia.mal_id}
                       className="flex gap-2 items-start"
                     >
@@ -55,7 +65,7 @@ const NoticiasDetalle = ({ visibleContent, id }: Props) => {
                         </p>
                         <p></p>
                       </div>
-                    </article>
+                    </motion.article>
                   ))}
                 </div>
               </SectionDetalle>
