@@ -1,31 +1,32 @@
 import { useParams } from "react-router-dom";
-import useFetch from "../../hooks/useFetch";
+import useFetch from "../../../hooks/useFetch";
 import { useEffect, useState } from "react";
-import { BASE_URL_DETAILS } from "../../constants";
+import { BASE_URL_DETAILS } from "../../../constants";
 import { Icon } from "@iconify/react";
-import ImagenBackground from "../../components/PaginaDetalle/ImagenBackground";
-import AsideInfo from "../../components/PaginaDetalle/AsideInfo";
-import ListaTags from "../../components/PaginaDetalle/MainInfo/ListaTags";
-import Descripcion from "../../components/PaginaDetalle/Descripcion";
-import EpisodiosDetalle from "../../components/PaginaDetalle/Episodios/EpisodiosDetalle";
-import RecomendadosDetalle from "../../components/PaginaDetalle/Recomendados/RecomendadosDetalle";
-import PersonajesDetalle from "../../components/PaginaDetalle/Personajes/PersonajesDetalle";
-import ReviewsDetalle from "../../components/PaginaDetalle/Reviews/ReviewsDetalle";
-import NoticiasDetalle from "../../components/PaginaDetalle/Noticias/NoticiasDetalle";
-import { ApiResponseDetalle, InfoAside, InfoTags } from "../../types";
-import ModalVideo from "../../components/Generales/ModalVideo";
-import Trailer from "../../components/PaginaDetalle/MainInfo/Trailer";
-import FiltrosDetalle from "../../components/PaginaDetalle/FiltrosDetalle";
-import MainInfoDetalle from "../../components/PaginaDetalle/MainInfo/MainInfoDetalle";
+import ImagenBackground from "../ImagenBackground";
+import AsideDetalle from "../AsideDetalle";
+import EpisodiosDetalle from "./MainSection/ListadoEpisodios";
+import RecomendadosDetalle from "./MainSection/ListadoRecomendados";
+import PersonajesDetalle from "./MainSection/ListadoPersonajes";
+import ReviewsDetalle from "./MainSection/ListadoReviews";
+import NoticiasDetalle from "./MainSection/ListadoNoticias";
+import { ApiResponseDetalle, InfoAside, InfoTags } from "../../../types";
+import ModalVideo from "../../Generales/ModalVideo";
+import FiltrosDetalle from "./FiltroSecciones";
+import Loading from "../../Generales/Loading";
+import SubSectionDetalle from "../SubSectionDetalle";
+import MainSectionDetalle from "../MainSectionDetalle";
+import HeaderAnime from "./Header/HeaderAnime";
+import AsideAnime from "./Aside/AsideAnime";
 
 const DetalleAnime = () => {
   const { id, seccion } = useParams();
   const [visibleContent, setVisibleContent] = useState<string>("general");
   const [tituloEsp, setTituloEsp] = useState<string | undefined>();
+  const [modalVisibility, setModalVisibility] = useState<boolean>(false);
   const { respuestaApi, loading } = useFetch<ApiResponseDetalle>(
     `${BASE_URL_DETAILS}/anime/${id || "54842"}/full`
   );
-  const [modalVisibility, setModalVisibility] = useState<boolean>(false);
 
   useEffect(() => {
     if (seccion === "trailer") setModalVisibility(true);
@@ -145,7 +146,6 @@ const DetalleAnime = () => {
     "reviews",
     "noticias",
   ];
-
   const handleClick = () => {
     setModalVisibility((prevState) => !prevState);
   };
@@ -161,7 +161,7 @@ const DetalleAnime = () => {
         />
       )}
       {loading || !respuestaApi ? (
-        <>cargando</>
+        <Loading />
       ) : (
         <>
           <FiltrosDetalle
@@ -171,35 +171,33 @@ const DetalleAnime = () => {
           <ImagenBackground
             imagenUrl={respuestaApi.data.images.webp.large_image_url}
           />
-          <AsideInfo
+          <AsideDetalle
             imagenUrl={respuestaApi.data.images.webp.image_url}
-            data={dataAside}
-          />
-          <MainInfoDetalle
-            titulo={respuestaApi.data.title}
-            tituloEspañol={tituloEsp}
-            score={respuestaApi.data.score}
-            personasScore={respuestaApi.data.scored_by.toLocaleString()}
-            dataHeader={
-              <>
-                <ListaTags mainInfo={dataTags} />
-                <Trailer
-                  handleClick={handleClick}
-                  imagen={respuestaApi.data.trailer.images.medium_image_url}
-                />
-              </>
-            }
+            tituloAside="informacion"
           >
+            <AsideAnime data={dataAside} />
+          </AsideDetalle>
+          <MainSectionDetalle>
             <>
-              <Descripcion
-                titulo="sinopsis"
-                descripcion={respuestaApi.data.synopsis}
+              <HeaderAnime
+                titulo={respuestaApi.data.title}
+                tituloEspañol={tituloEsp}
+                score={respuestaApi.data.score}
+                personasScore={respuestaApi.data.scored_by}
+                listaTags={dataTags}
+                handleClick={handleClick}
+                imagenTrailer={
+                  respuestaApi.data.trailer.images.medium_image_url
+                }
               />
+
+              <SubSectionDetalle titulo="sinopsis">
+                <p className="mb-10">{respuestaApi.data.synopsis}</p>
+              </SubSectionDetalle>
               {respuestaApi.data.background && (
-                <Descripcion
-                  titulo="background"
-                  descripcion={respuestaApi.data.background}
-                />
+                <SubSectionDetalle titulo="background">
+                  <p className="mb-10">{respuestaApi.data.background}</p>
+                </SubSectionDetalle>
               )}
               <EpisodiosDetalle visibleContent={visibleContent} id={id} />
               <PersonajesDetalle visibleContent={visibleContent} id={id} />
@@ -207,7 +205,7 @@ const DetalleAnime = () => {
               <ReviewsDetalle visibleContent={visibleContent} id={id} />
               <NoticiasDetalle visibleContent={visibleContent} id={id} />
             </>
-          </MainInfoDetalle>
+          </MainSectionDetalle>
         </>
       )}
     </>
