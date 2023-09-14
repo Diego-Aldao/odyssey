@@ -9,6 +9,8 @@ import { ApiResponsePersona } from "../../../types";
 import { useParams } from "react-router-dom";
 import { BASE_URL_DETAILS_PEOPLE } from "../../../constants";
 import SectionPictures from "../SectionPictures";
+import AsideDetalle from "../AsideDetalle";
+import MainSectionDetalle from "../MainSectionDetalle";
 
 const DetallePersona = () => {
   const { id } = useParams();
@@ -24,29 +26,35 @@ const DetallePersona = () => {
           <ImagenBackground
             imagenUrl={respuestaApi.data.images.jpg.image_url}
           />
-          <AsidePersona
-            imagen={respuestaApi.data.images.jpg.image_url}
-            about={respuestaApi.data.about}
-          />
-          <section className="relative z-20 md:col-span-2 lg:col-span-3 section-detalle lg:mt-20">
-            <HeaderPersona
-              nombre={respuestaApi.data.name}
-              nombresAlternativos={respuestaApi.data.alternate_names}
-              cumpleaños={respuestaApi.data.birthday}
-              sitioWeb={respuestaApi.data.website_url}
-              favoritos={respuestaApi.data.favorites}
-            />
-            <DoblajesPersona voces={respuestaApi.data.voices} />
-            <OtrosRolesPersona otrosRolesAnime={respuestaApi.data.anime} />
-            {respuestaApi.data.manga.length >= 1 && (
-              <MangasPersona mangas={respuestaApi.data.manga} />
-            )}
-            <SectionPictures
-              id={id}
-              nombre={respuestaApi.data.name}
-              baseUrl={BASE_URL_DETAILS_PEOPLE}
-            />
-          </section>
+          <AsideDetalle
+            imagenUrl={respuestaApi.data.images.jpg.image_url}
+            tituloAside="informacion"
+          >
+            <AsidePersona about={respuestaApi.data.about} />
+          </AsideDetalle>
+          <MainSectionDetalle>
+            <>
+              <HeaderPersona
+                nombre={respuestaApi.data.name}
+                nombresAlternativos={respuestaApi.data.alternate_names}
+                cumpleaños={respuestaApi.data.birthday}
+                sitioWeb={respuestaApi.data.website_url}
+                favoritos={respuestaApi.data.favorites}
+              />
+              <DoblajesPersona voces={respuestaApi.data.voices} />
+              {respuestaApi.data.anime.length >= 1 && (
+                <OtrosRolesPersona otrosRolesAnime={respuestaApi.data.anime} />
+              )}
+              {respuestaApi.data.manga.length >= 1 && (
+                <MangasPersona mangas={respuestaApi.data.manga} />
+              )}
+              <SectionPictures
+                id={id}
+                nombre={respuestaApi.data.name}
+                baseUrl={BASE_URL_DETAILS_PEOPLE}
+              />
+            </>
+          </MainSectionDetalle>
         </>
       )}
     </>
