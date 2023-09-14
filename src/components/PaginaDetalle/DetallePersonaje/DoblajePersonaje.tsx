@@ -1,6 +1,7 @@
 import { Voice } from "../../../types";
-import SectionDetalle from "../SectionDetalle";
+import SubSectionDetalle from "../SubSectionDetalle";
 import { Link } from "react-router-dom";
+import MotionListItem from "../FramerMotion/MotionListItem";
 
 type Props = {
   dataDoblaje: Voice[];
@@ -8,11 +9,14 @@ type Props = {
 
 const DoblajePersonaje = ({ dataDoblaje }: Props) => {
   return (
-    <SectionDetalle titulo="actores de doblaje">
+    <SubSectionDetalle titulo="actores de doblaje">
       <ul className="grid gap-4 xs:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 lg:gap-y-6">
         {dataDoblaje.map((item) => (
-          <Link to={`/detalle/persona/${item.person.mal_id}`}>
-            <li key={item.person.mal_id} className="flex gap-2 cursor-pointer">
+          <MotionListItem key={item.person.mal_id} clases="">
+            <Link
+              to={`/detalle/persona/${item.person.mal_id}`}
+              className="flex gap-2"
+            >
               <div className="min-h-[100px] max-h-[100px] max-w-[65px] overflow-hidden border-2 border-main-black rounded-lg">
                 <img src={item.person.images.jpg.image_url} alt="" />
               </div>
@@ -22,11 +26,11 @@ const DoblajePersonaje = ({ dataDoblaje }: Props) => {
                 </p>
                 <p className="text-xs lg:text-sm">{item.language}</p>
               </div>
-            </li>
-          </Link>
+            </Link>
+          </MotionListItem>
         ))}
       </ul>
-    </SectionDetalle>
+    </SubSectionDetalle>
   );
 };
 
