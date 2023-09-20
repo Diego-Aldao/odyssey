@@ -8,7 +8,7 @@ type Props = {
 
 const MangasPersona = ({ mangas }: Props) => {
   return (
-    <SubSectionDetalle titulo="mangas publicados">
+    <SubSectionDetalle titulo="mangas publicados" visibleContent="general">
       <ul className="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
         {mangas.map((item) => (
           <MotionListItem clases="flex gap-2">

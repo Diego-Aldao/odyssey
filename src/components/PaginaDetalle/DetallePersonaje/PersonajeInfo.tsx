@@ -1,4 +1,4 @@
-import SectionDetalle from "../SectionDetalle";
+import SubSectionDetalle from "../SubSectionDetalle";
 
 type Props = {
   info: string;
@@ -6,9 +6,12 @@ type Props = {
 
 const PersonajeInfo = ({ info }: Props) => {
   return (
-    <SectionDetalle titulo={"Informacion principal"}>
+    <SubSectionDetalle
+      titulo={"Informacion principal"}
+      visibleContent="general"
+    >
       <p className="whitespace-pre-line">{info}</p>
-    </SectionDetalle>
+    </SubSectionDetalle>
   );
 };
 

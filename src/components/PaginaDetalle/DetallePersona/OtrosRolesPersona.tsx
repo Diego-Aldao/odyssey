@@ -9,7 +9,10 @@ type Props = {
 
 const OtrosRolesPersona = ({ otrosRolesAnime }: Props) => {
   return (
-    <SubSectionDetalle titulo="otros roles en el anime">
+    <SubSectionDetalle
+      titulo="otros roles en el anime"
+      visibleContent="general"
+    >
       <ul className="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
         {otrosRolesAnime.map((rol) => (
           <MotionListItem clases="">

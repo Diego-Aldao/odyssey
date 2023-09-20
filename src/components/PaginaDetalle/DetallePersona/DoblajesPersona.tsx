@@ -9,7 +9,10 @@ type Props = {
 
 const DoblajesPersona = ({ voces }: Props) => {
   return (
-    <SubSectionDetalle titulo={"roles de actuación de voz"}>
+    <SubSectionDetalle
+      titulo={"roles de actuación de voz"}
+      visibleContent="general"
+    >
       <ul className="flex flex-col gap-5 lg:gap-3">
         {voces.slice(0, 10).map((rol) => (
           <MotionListItem clases="flex items-center justify-between gap-2">
