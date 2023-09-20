@@ -12,12 +12,12 @@ import ReviewsDetalle from "./MainSection/ListadoReviews";
 import NoticiasDetalle from "./MainSection/ListadoNoticias";
 import { ApiResponseDetalle, InfoAside, InfoTags } from "../../../types";
 import ModalVideo from "../../Generales/ModalVideo";
-import FiltrosDetalle from "./FiltroSecciones";
 import Loading from "../../Generales/Loading";
 import SubSectionDetalle from "../SubSectionDetalle";
 import MainSectionDetalle from "../MainSectionDetalle";
 import HeaderAnime from "./Header/HeaderAnime";
 import AsideAnime from "./Aside/AsideAnime";
+import FiltroSecciones from "./FiltroSecciones";
 
 const DetalleAnime = () => {
   const { id, seccion } = useParams();
@@ -164,9 +164,10 @@ const DetalleAnime = () => {
         <Loading />
       ) : (
         <>
-          <FiltrosDetalle
+          <FiltroSecciones
             listaFiltros={listaFiltros}
             setVisibleContent={setVisibleContent}
+            visibleContent={visibleContent}
           />
           <ImagenBackground
             imagenUrl={respuestaApi.data.images.webp.large_image_url}

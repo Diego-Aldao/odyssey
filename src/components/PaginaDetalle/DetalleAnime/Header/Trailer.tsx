@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
-import { varianteTrailer, transition } from "../../FramerMotion/Variantes";
+import { transition, varianteTrailer } from "../../../../VariantesFramerMotion";
 
 type Props = {
   handleClick: () => void;

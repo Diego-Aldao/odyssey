@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
-import { variantesHeader, transition } from "./FramerMotion/Variantes";
+import {
+  transition,
+  variantesHeaderDetalle,
+} from "../../VariantesFramerMotion";
 type Props = {
   titulo: string;
   children: JSX.Element;
@@ -9,7 +12,7 @@ const HeaderDetalle = ({ titulo, children }: Props) => {
   return (
     <header className="md:h-auto text-center h-[500px] flex flex-col justify-end mb-10">
       <motion.h1
-        variants={variantesHeader}
+        variants={variantesHeaderDetalle}
         initial="initial"
         animate="animate"
         transition={transition}

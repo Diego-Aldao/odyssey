@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { variantesAside, transition } from "./FramerMotion/Variantes";
+import { transition, variantesAside } from "../../VariantesFramerMotion";
 
 type Props = {
   imagenUrl?: string;
