@@ -11,6 +11,7 @@ import { BASE_URL_DETAILS_PEOPLE } from "../../../constants";
 import SectionPictures from "../SectionPictures";
 import AsideDetalle from "../AsideDetalle";
 import MainSectionDetalle from "../MainSectionDetalle";
+import Loading from "../../Generales/Loading";
 
 const DetallePersona = () => {
   const { id } = useParams();
@@ -20,7 +21,7 @@ const DetallePersona = () => {
   return (
     <>
       {loading || !respuestaApi ? (
-        <>cargando...</>
+        <Loading />
       ) : (
         <>
           <ImagenBackground

@@ -10,6 +10,7 @@ import { ApiResponsePersonaje } from "../../../types";
 import SectionPictures from "../SectionPictures";
 import AsideDetalle from "../AsideDetalle";
 import MainSectionDetalle from "../MainSectionDetalle";
+import Loading from "../../Generales/Loading";
 
 const DetallePersonaje = () => {
   const { id } = useParams();
@@ -21,7 +22,7 @@ const DetallePersonaje = () => {
   return (
     <>
       {loading || !respuestaApi ? (
-        <p>cargando...</p>
+        <Loading />
       ) : (
         <>
           <ImagenBackground
