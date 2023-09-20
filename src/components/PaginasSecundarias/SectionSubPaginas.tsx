@@ -1,7 +1,13 @@
+import { motion } from "framer-motion";
+import {
+  transition,
+  varianteSectionSubPaginas,
+} from "../../VariantesFramerMotion";
+
 type Props = {
   btnVisible: boolean;
   setBtnVisible: React.Dispatch<React.SetStateAction<boolean>>;
-  titulo: string;
+  titulo: string | JSX.Element;
   filtrosPrincipales: JSX.Element;
   filtrosSecundarios?: JSX.Element;
   children: JSX.Element;
@@ -23,10 +29,14 @@ const SectionSubPaginas: React.FC<Props> = ({
   };
 
   return (
-    <section
+    <motion.section
+      initial="initial"
+      animate="animate"
+      variants={varianteSectionSubPaginas}
+      transition={transition}
       className={`${
         btnVisible ? "" : "pb-10 lg:pb-16"
-      } bg-main-color-background px-4 md:px-6 lg:px-10 pt-10 lg:pt-16 rounded-b-xl last_section section_sub_paginas`}
+      } bg-main-color-background px-4 md:px-6 lg:px-10 pt-10 lg:pt-16 rounded-b-xl last_section section_sub_paginas overflow-hidden`}
     >
       <header className="mb-10 md:mb-0 relative md:min-h-[280px] lg:min-h-[400px]">
         <h2 className="max-w-[400px] mx-auto md:mx-0 uppercase font-chivo text-4xl sm:text-5xl  md:text-7xl  lg:text-[115px] text-center md:text-left  font-bold md:-tracking-[5px] md:max-w-[62%] lg:max-w-[700px] lg lg:-tracking-[10px] relative z-[2] md:text-main-color-background md:drop-shadow-[0px_0px_8px_#000000] md:[text-shadow:_5px_5px_#23210f]">
@@ -45,7 +55,7 @@ const SectionSubPaginas: React.FC<Props> = ({
       >
         ver mas
       </button>
-    </section>
+    </motion.section>
   );
 };
 

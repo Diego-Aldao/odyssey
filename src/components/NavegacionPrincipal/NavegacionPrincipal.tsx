@@ -2,6 +2,7 @@ import { Icon } from "@iconify/react";
 import NavDesktop from "./NavDesktop";
 import NavMobile from "./NavMobile";
 import { useState } from "react";
+import { AnimatePresence } from "framer-motion";
 
 type Props = {
   handleVisibility: () => void;
@@ -29,11 +30,15 @@ const NavegacionPrincipal = () => {
     <nav className="text-white md:flex-1 h-full">
       <BotonNavMobile handleVisibility={handleVisibility} />
       <NavDesktop />
-      <NavMobile
-        handleVisibility={handleVisibility}
-        navVisibility={navVisibility}
-        setNavVisibility={setNavVisibility}
-      />
+      <AnimatePresence>
+        {navVisibility && (
+          <NavMobile
+            handleVisibility={handleVisibility}
+            navVisibility={navVisibility}
+            setNavVisibility={setNavVisibility}
+          />
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

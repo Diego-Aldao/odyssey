@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { Entry } from "../../../../../types";
+import { motion } from "framer-motion";
+import {
+  varianteCards,
+  transition,
+} from "../../../../../VariantesFramerMotion";
 
 type Props = {
   id: number;
@@ -11,7 +16,14 @@ type Props = {
 const CardEpisodio = ({ id, titulo, imagen, episodios }: Props) => {
   return (
     <Link to={`/detalle/anime/${id}/episodios`}>
-      <div className="flex h-full flex-col gap-4 z-[2]">
+      <motion.div
+        initial="initial"
+        whileInView="whileInView"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={varianteCards}
+        transition={transition}
+        className="flex h-full flex-col gap-4 z-[2]"
+      >
         <h3 className="text-center min-h-[45px] max-h-[45px] line-clamp-2 font-semibold">
           {titulo}
         </h3>
@@ -31,7 +43,7 @@ const CardEpisodio = ({ id, titulo, imagen, episodios }: Props) => {
             </li>
           ))}
         </ul>
-      </div>
+      </motion.div>
     </Link>
   );
 };

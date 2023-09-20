@@ -1,5 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react/dist/iconify.js";
+import { motion } from "framer-motion";
+import {
+  transition,
+  varianteCards,
+} from "../../../../../VariantesFramerMotion";
 
 type Props = {
   id: number;
@@ -8,7 +13,7 @@ type Props = {
   tipo: string;
   posicion: number;
   score?: number;
-  sideInfo?: string;
+  sideInfo?: string | null;
   favoritos: number;
   children: JSX.Element;
 };
@@ -32,7 +37,12 @@ const CardTable: React.FC<Props> = ({
     navigate(`/detalle/${tipo}/${id}`);
   };
   return (
-    <tr
+    <motion.tr
+      initial="initial"
+      whileInView="whileInView"
+      variants={varianteCards}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={transition}
       className="h-[120px] max-w-[50px] border-2 border-main-black cursor-pointer bg-main-color-background"
       onClick={handleNavigation}
     >
@@ -84,7 +94,7 @@ const CardTable: React.FC<Props> = ({
           {favoritos.toLocaleString()}
         </span>
       </td>
-    </tr>
+    </motion.tr>
   );
 };
 

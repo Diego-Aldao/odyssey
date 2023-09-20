@@ -1,3 +1,6 @@
+import { motion } from "framer-motion";
+import { VarianteSections, transition } from "../../VariantesFramerMotion";
+
 type Props = {
   tipoDeGrid: string;
   children: JSX.Element;
@@ -16,7 +19,14 @@ const Grids: React.FC<Props> = ({
   return (
     <>
       {tipoDeGrid === "tabla" ? (
-        <table className="w-full border-separate border-spacing-y-[20px] border-spacing-x-[5px]">
+        <motion.table
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          variants={VarianteSections}
+          transition={transition}
+          className="w-full border-separate border-spacing-y-[20px] border-spacing-x-[5px]"
+        >
           <thead className="hidden md:table-header-group">
             <tr>
               <th className="capitalize bg-main-black text-main-color-background px-3 py-1 rounded-sm">
@@ -34,14 +44,19 @@ const Grids: React.FC<Props> = ({
             </tr>
           </thead>
           <tbody>{children}</tbody>
-        </table>
+        </motion.table>
       ) : (
-        <div
-          className={`mt-10 contenedor grid justify-items-center gap-2 gap-y-6 sm:gap-4 sm:gap-y-10 grid-${tipoDeGrid} 
+        <motion.div
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          variants={VarianteSections}
+          transition={transition}
+          className={`mt-10 contenedor grid justify-items-center gap-2 gap-y-6 sm:gap-4 sm:gap-y-10 grid-${tipoDeGrid} relative min-h-fit
         `}
         >
           {children}
-        </div>
+        </motion.div>
       )}
     </>
   );

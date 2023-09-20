@@ -3,6 +3,12 @@ import IconoHeader from "../Layout/IconoHeader";
 import { useNavigate } from "react-router-dom";
 import imagenNav from "../../assets/imgNavMobile.png";
 import { useState } from "react";
+import { motion } from "framer-motion";
+import {
+  transition,
+  varianteBarraBusqueda,
+  varianteNavMobile,
+} from "../../VariantesFramerMotion";
 
 const listadoNav = [
   {
@@ -62,10 +68,13 @@ const NavMobile = ({
   };
 
   return (
-    <div
-      className={` fixed z-20 top-0 right-0 w-full h-full bg-main-black ${
-        navVisibility ? "block" : "hidden"
-      }`}
+    <motion.div
+      variants={varianteNavMobile}
+      initial="initialContenedor"
+      animate="animateContenedor"
+      exit="exitContenedor"
+      transition={transition}
+      className="fixed z-20 top-0 right-0 w-full h-full bg-main-black border-[1px] border-main-black"
     >
       <div
         className={`w-full h-full xs:border-4 xs:p-3 xs:rounded-xl bg-main-color-background xs:border-main-black  `}
@@ -75,18 +84,33 @@ const NavMobile = ({
             <IconoHeader />
           </div>
 
-          <div
+          <motion.div
+            variants={varianteNavMobile}
+            initial="initialMenu"
+            animate="animateMenu"
+            transition={{ transition, delay: 0.1 }}
             onClick={handleVisibility}
             className="h-full before:-left-[20px] before:bg-main-color-background after:hidden flex items-center item-skew-x bg-main-color-background z-[2] relative px-4"
           >
-            <Icon icon="jam:close" className="h-12 w-12 text-main-black" />
-          </div>
+            <motion.span
+              variants={varianteNavMobile}
+              initial="initialMenuIcon"
+              animate="animateMenuIcon"
+              transition={{ delay: 0.3, transition, duration: 0.1 }}
+            >
+              <Icon icon="jam:close" className="h-12 w-12 text-main-black" />
+            </motion.span>
+          </motion.div>
         </header>
         <div className="contenido relative flex flex-col items-center gap-10 py-10 px-4 bg-main-black h-[calc(100%_-_112px)]">
-          <div className="absolute bottom-0 -right-0 h-[65vw] max-h-[370px] overflow-hidden">
+          <div className="absolute bottom-0 -right-0 h-[45vw] max-h-[300px] overflow-hidden">
             <img src={imagenNav} alt="" />
           </div>
-          <form
+          <motion.form
+            variants={varianteBarraBusqueda}
+            initial="initialForm"
+            animate="animateForm"
+            transition={{ delay: 0.2, transition, duration: 0.1 }}
             onSubmit={handleSubmit}
             className="w-full rounded-md overflow-hidden flex items-center  text-main-black h-10 bg-main-color-background pl-2 border-2 border-main-color-background max-w-[500px]"
           >
@@ -103,10 +127,14 @@ const NavMobile = ({
                 className="h-6 w-6 lg:h-5 lg:w-5 text-main-color-background"
               />
             </button>
-          </form>
+          </motion.form>
           <ul className="w-full flex flex-col gap-10 items-start">
             {listadoNav.map(({ id, destino, nombre }) => (
-              <li
+              <motion.li
+                variants={varianteNavMobile}
+                initial="initialListItem"
+                animate="animateListItem"
+                transition={{ transition, delay: Number(`0.${id}9`) }}
                 onClick={() => {
                   handleDestino(destino);
                 }}
@@ -114,7 +142,7 @@ const NavMobile = ({
                 key={id}
               >
                 {nombre}
-              </li>
+              </motion.li>
             ))}
           </ul>
         </div>
@@ -124,7 +152,7 @@ const NavMobile = ({
           </p>
         </footer>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

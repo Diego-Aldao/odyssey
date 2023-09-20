@@ -1,5 +1,10 @@
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import {
+  varianteCards,
+  transition,
+} from "../../../../../VariantesFramerMotion";
 
 type Props = {
   imagen?: string;
@@ -19,7 +24,14 @@ const CardVideo: React.FC<Props> = ({
   mainPage,
 }) => {
   return (
-    <article className="relative flex flex-col w-full gap-2 z-[1]">
+    <motion.article
+      initial="initial"
+      whileInView="whileInView"
+      transition={transition}
+      viewport={{ once: true }}
+      variants={varianteCards}
+      className="relative flex flex-col w-full gap-2 z-[1]"
+    >
       <Link to={`/detalle/${tipo}/${id}`}>
         <p
           className={`flex w-fit max-w-[90%] justify-start border-main-black rounded-sm pl-4 relative item-skew-izquierda z-[1] px-1 bg-main-black text-main-color-background ${
@@ -54,7 +66,7 @@ const CardVideo: React.FC<Props> = ({
       >
         {subtitulo}
       </p>
-    </article>
+    </motion.article>
   );
 };
 
