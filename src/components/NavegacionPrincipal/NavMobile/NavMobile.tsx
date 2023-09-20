@@ -1,14 +1,12 @@
 import { Icon } from "@iconify/react";
-import IconoHeader from "../Layout/IconoHeader";
+import IconoHeader from "../../Layout/IconoHeader";
 import { useNavigate } from "react-router-dom";
-import imagenNav from "../../assets/imgNavMobile.png";
-import { useState } from "react";
+import imagenNav from "../../../assets/imgNavMobile.png";
 import { motion } from "framer-motion";
-import {
-  transition,
-  varianteBarraBusqueda,
-  varianteNavMobile,
-} from "../../VariantesFramerMotion";
+import { transition, varianteNavMobile } from "../../../VariantesFramerMotion";
+import BarraBusqueda from "../../Generales/BarraBusqueda";
+import LinkNavMobile from "./LinkNavMobile";
+import React from "react";
 
 const listadoNav = [
   {
@@ -40,31 +38,15 @@ const listadoNav = [
 
 type Props = {
   handleVisibility: () => void;
-  navVisibility: boolean;
   setNavVisibility: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const NavMobile = ({
-  handleVisibility,
-  navVisibility,
-  setNavVisibility,
-}: Props) => {
+const NavMobile = ({ handleVisibility, setNavVisibility }: Props) => {
   const navigate = useNavigate();
-  const [value, setValue] = useState<string | number>("");
 
   const handleDestino = (destino: string) => {
     setNavVisibility((prevState) => !prevState);
     navigate(destino);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!value) return;
-    navigate(`/busqueda/${value}`);
   };
 
   return (
@@ -106,43 +88,17 @@ const NavMobile = ({
           <div className="absolute bottom-0 -right-0 h-[45vw] max-h-[300px] overflow-hidden">
             <img src={imagenNav} alt="" />
           </div>
-          <motion.form
-            variants={varianteBarraBusqueda}
-            initial="initialForm"
-            animate="animateForm"
-            transition={{ delay: 0.2, transition, duration: 0.1 }}
-            onSubmit={handleSubmit}
-            className="w-full rounded-md overflow-hidden flex items-center  text-main-black h-10 bg-main-color-background pl-2 border-2 border-main-color-background max-w-[500px]"
-          >
-            <input
-              onChange={handleChange}
-              value={value}
-              type="text"
-              className="flex-1 h-full placeholder:capitalize bg-transparent border-transparent -outline-offset-2 px-1 outline-main-black "
-              placeholder="naruto, shingeki, jujut..."
-            />
-            <button className="h-full w-12 flex items-center justify-center bg-main-black">
-              <Icon
-                icon="mingcute:search-3-line"
-                className="h-6 w-6 lg:h-5 lg:w-5 text-main-color-background"
-              />
-            </button>
-          </motion.form>
+          <BarraBusqueda />
           <ul className="w-full flex flex-col gap-10 items-start">
             {listadoNav.map(({ id, destino, nombre }) => (
-              <motion.li
-                variants={varianteNavMobile}
-                initial="initialListItem"
-                animate="animateListItem"
-                transition={{ transition, delay: Number(`0.${id}9`) }}
-                onClick={() => {
-                  handleDestino(destino);
-                }}
-                className="item-skew-izquierda z-[2] relative -left-4 after:bg-main-color-background text-main-black bg-main-color-background pl-4 py-2 capitalize font-semibold text-lg px-10"
-                key={id}
-              >
-                {nombre}
-              </motion.li>
+              <React.Fragment key={id}>
+                <LinkNavMobile
+                  id={id}
+                  destino={destino}
+                  nombre={nombre}
+                  handleDestino={handleDestino}
+                />
+              </React.Fragment>
             ))}
           </ul>
         </div>
