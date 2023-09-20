@@ -4,6 +4,9 @@ import { BASE_URL_DETAILS } from "../../../../constants";
 import { ApiResponseDetalleEpisodios, DataEpisode } from "../../../../types";
 import useFetch from "../../../../hooks/useFetch";
 import MotionListItem from "../../FramerMotion/MotionListItem";
+import Loading from "../../../Generales/Loading";
+import ListadoSinResultados from "./ListadoSinResultados";
+import MotionUnorderedList from "../../FramerMotion/MotionUnorderedList";
 
 type Props = {
   visibleContent?: string;
@@ -27,16 +30,19 @@ const ListadoEpisodios = ({ visibleContent, id }: Props) => {
   }, [respuestaApi, visibleContent]);
 
   return (
-    <>
-      {loading || !currentData ? (
-        <>cargando</>
-      ) : (
-        <>
-          {currentData.length >= 1 &&
-            (visibleContent === "general" ||
-              visibleContent === "episodios") && (
-              <SubSectionDetalle titulo="episodios">
-                <ul className="grid sm:grid-cols-2 gap-2 lg:grid-cols-4">
+    <SubSectionDetalle titulo="episodios" visibleContent={visibleContent}>
+      <>
+        {loading || !currentData ? (
+          <Loading
+            customClases={
+              visibleContent === "episodios" ? "" : "loading_height_subSection"
+            }
+          />
+        ) : (
+          <>
+            {currentData.length >= 1 ? (
+              <MotionUnorderedList clases="grid sm:grid-cols-2 gap-2 lg:grid-cols-4">
+                <>
                   {currentData.map((episodio) => (
                     <MotionListItem
                       key={episodio.mal_id}
@@ -55,12 +61,15 @@ const ListadoEpisodios = ({ visibleContent, id }: Props) => {
                       </>
                     </MotionListItem>
                   ))}
-                </ul>
-              </SubSectionDetalle>
+                </>
+              </MotionUnorderedList>
+            ) : (
+              <ListadoSinResultados nombreSeccion="episodios" />
             )}
-        </>
-      )}
-    </>
+          </>
+        )}
+      </>
+    </SubSectionDetalle>
   );
 };
 

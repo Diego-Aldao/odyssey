@@ -4,6 +4,10 @@ import { BASE_URL_DETAILS } from "../../../../constants";
 import { ApiResponseDetallePersonajes, DataPersonaje } from "../../../../types";
 import useFetch from "../../../../hooks/useFetch";
 import MotionListItem from "../../FramerMotion/MotionListItem";
+import Loading from "../../../Generales/Loading";
+import MotionUnorderedList from "../../FramerMotion/MotionUnorderedList";
+import ListadoSinResultados from "./ListadoSinResultados";
+import { Link } from "react-router-dom";
 
 type Props = {
   visibleContent?: string;
@@ -27,24 +31,30 @@ const ListadoPersonajes = ({ visibleContent, id }: Props) => {
   }, [respuestaApi, visibleContent]);
 
   return (
-    <>
-      {loading || !currentData ? (
-        <>cargando</>
-      ) : (
-        <>
-          {currentData.length >= 1 &&
-            (visibleContent === "general" ||
-              visibleContent === "personajes") && (
-              <SubSectionDetalle titulo="personajes">
-                <ul className="grid gap-2 xs:grid-cols-2 md:gap-3 lg:grid-cols-2 lg:gap-x-5 lg:gap-3">
-                  <>
-                    {currentData.map((personaje) => (
-                      <MotionListItem
-                        key={personaje.character.mal_id}
-                        clases="flex gap-2 justify-between"
-                      >
-                        <>
-                          <div className="personaje flex gap-2 lg:w-1/2">
+    <SubSectionDetalle titulo="personajes" visibleContent={visibleContent}>
+      <>
+        {loading || !currentData ? (
+          <Loading
+            customClases={
+              visibleContent === "personajes" ? "" : "loading_height_subSection"
+            }
+          />
+        ) : (
+          <>
+            {currentData.length >= 1 ? (
+              <MotionUnorderedList clases="grid gap-2 xs:grid-cols-2 md:gap-3 lg:grid-cols-2 lg:gap-x-5 lg:gap-3">
+                <>
+                  {currentData.map((personaje) => (
+                    <MotionListItem
+                      key={personaje.character.mal_id}
+                      clases="flex gap-2 justify-between"
+                    >
+                      <>
+                        <Link
+                          to={`/detalle/personaje/${personaje.character.mal_id}`}
+                          className="lg:w-1/2"
+                        >
+                          <div className="personaje flex gap-2">
                             <div className="rounded-xl border-2 border-main-black h-24 lg:h-22 min-w-[60px] max-w-[60px] overflow-hidden">
                               <img
                                 src={personaje.character.images.webp.image_url}
@@ -65,8 +75,14 @@ const ListadoPersonajes = ({ visibleContent, id }: Props) => {
                               )}
                             </div>
                           </div>
-                          {personaje.voice_actors.length >= 1 && (
-                            <div className="voz gap-2 text-end hidden lg:flex lg:w-1/2 justify-end">
+                        </Link>
+
+                        {personaje.voice_actors.length >= 1 && (
+                          <Link
+                            to={`/detalle/persona/${personaje.voice_actors[0].person.mal_id}`}
+                            className="lg:w-1/2"
+                          >
+                            <div className="voz gap-2 text-end hidden lg:flex  justify-end">
                               <div className="flex flex-col gap-1">
                                 <p className="font-bold lg:text-sm">
                                   {personaje.voice_actors[0].person.name}
@@ -85,17 +101,20 @@ const ListadoPersonajes = ({ visibleContent, id }: Props) => {
                                 />
                               </div>
                             </div>
-                          )}
-                        </>
-                      </MotionListItem>
-                    ))}
-                  </>
-                </ul>
-              </SubSectionDetalle>
+                          </Link>
+                        )}
+                      </>
+                    </MotionListItem>
+                  ))}
+                </>
+              </MotionUnorderedList>
+            ) : (
+              <ListadoSinResultados nombreSeccion="personajes" />
             )}
-        </>
-      )}
-    </>
+          </>
+        )}
+      </>
+    </SubSectionDetalle>
   );
 };
 

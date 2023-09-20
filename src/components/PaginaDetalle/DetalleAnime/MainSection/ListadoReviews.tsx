@@ -4,6 +4,9 @@ import { ApiResponseDetalleReviews, DataReviews } from "../../../../types";
 import { BASE_URL_DETAILS } from "../../../../constants";
 import useFetch from "../../../../hooks/useFetch";
 import MotionListItem from "../../FramerMotion/MotionListItem";
+import ListadoSinResultados from "./ListadoSinResultados";
+import MotionUnorderedList from "../../FramerMotion/MotionUnorderedList";
+import Loading from "../../../Generales/Loading";
 
 type Props = {
   visibleContent?: string;
@@ -27,15 +30,19 @@ const ListadoReviews = ({ visibleContent, id }: Props) => {
   }, [respuestaApi, visibleContent]);
 
   return (
-    <>
-      {loading || !currentData ? (
-        <>cargando</>
-      ) : (
-        <>
-          {currentData.length >= 1 &&
-            (visibleContent === "general" || visibleContent === "reviews") && (
-              <SubSectionDetalle titulo="reviews">
-                <ul>
+    <SubSectionDetalle titulo="reviews" visibleContent={visibleContent}>
+      <>
+        {loading || !currentData ? (
+          <Loading
+            customClases={
+              visibleContent === "reviews" ? "" : "loading_height_subSection"
+            }
+          />
+        ) : (
+          <>
+            {currentData.length >= 1 ? (
+              <MotionUnorderedList clases="">
+                <>
                   {currentData.map((review) => (
                     <MotionListItem
                       key={review.mal_id}
@@ -75,12 +82,15 @@ const ListadoReviews = ({ visibleContent, id }: Props) => {
                       </>
                     </MotionListItem>
                   ))}
-                </ul>
-              </SubSectionDetalle>
+                </>
+              </MotionUnorderedList>
+            ) : (
+              <ListadoSinResultados nombreSeccion="reviews" />
             )}
-        </>
-      )}
-    </>
+          </>
+        )}
+      </>
+    </SubSectionDetalle>
   );
 };
 

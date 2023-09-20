@@ -4,6 +4,9 @@ import { BASE_URL_DETAILS } from "../../../../constants";
 import { DataNews, ApiResponseDetalleNoticias } from "../../../../types";
 import useFetch from "../../../../hooks/useFetch";
 import MotionListItem from "../../FramerMotion/MotionListItem";
+import Loading from "../../../Generales/Loading";
+import MotionUnorderedList from "../../FramerMotion/MotionUnorderedList";
+import ListadoSinResultados from "./ListadoSinResultados";
 
 type Props = {
   visibleContent?: string;
@@ -27,15 +30,19 @@ const ListadoNoticias = ({ visibleContent, id }: Props) => {
   }, [respuestaApi, visibleContent]);
 
   return (
-    <>
-      {loading || !currentData ? (
-        <>cargando</>
-      ) : (
-        <>
-          {currentData.length >= 1 &&
-            (visibleContent === "general" || visibleContent === "noticias") && (
-              <SubSectionDetalle titulo="noticias">
-                <ul className="grid sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-x-5 lg:gap-y-5">
+    <SubSectionDetalle titulo="noticias" visibleContent={visibleContent}>
+      <>
+        {loading || !currentData ? (
+          <Loading
+            customClases={
+              visibleContent === "noticias" ? "" : "loading_height_subSection"
+            }
+          />
+        ) : (
+          <>
+            {currentData.length >= 1 ? (
+              <MotionUnorderedList clases="grid sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-x-5 lg:gap-y-5 items-start justify-start">
+                <>
                   {currentData.map((noticia) => (
                     <MotionListItem
                       key={noticia.mal_id}
@@ -60,12 +67,15 @@ const ListadoNoticias = ({ visibleContent, id }: Props) => {
                       </>
                     </MotionListItem>
                   ))}
-                </ul>
-              </SubSectionDetalle>
+                </>
+              </MotionUnorderedList>
+            ) : (
+              <ListadoSinResultados nombreSeccion="noticias" />
             )}
-        </>
-      )}
-    </>
+          </>
+        )}
+      </>
+    </SubSectionDetalle>
   );
 };
 
