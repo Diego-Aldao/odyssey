@@ -11,10 +11,15 @@ const SectionBusqueda = ({ seccion, children, currentContent }: Props) => {
     !currentContent;
 
   return (
-    <section className={`py-10 ${seccionVisible ? "block" : "hidden"}`}>
+    <section
+      className={`mt-10 ${
+        seccionVisible ? "flex" : "hidden"
+      } flex-col gap-5 lg:gap-10`}
+    >
       <p className="capitalize item-skew-izquierda z-[1] relative bg-main-black text-main-color-background w-fit -left-4 pl-4 md:-left-6 lg:-left-10 md:pl-6 lg:pl-10 md:px-10 py-1 xs:text-lg md:text-xl">
         resultados en {seccion}
       </p>
+
       {children}
     </section>
   );

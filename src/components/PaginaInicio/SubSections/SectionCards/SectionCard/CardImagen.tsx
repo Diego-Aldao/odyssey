@@ -16,7 +16,7 @@ type Props = {
 
 const Episodios: React.FC<PropsEpisodio> = ({ info }) => {
   return (
-    <div className="section_card_episodios absolute bottom-12 left-0 px-2 lg:pb-2 w-full h-20 flex  flex-col justify-end gap-1">
+    <div className="bg-[linear-gradient(#ffffff00,_#000000)] z-[1] px-2 w-full flex flex-col justify-end gap-1 pt-5">
       {info.map((episodio: Entry) => (
         <p
           key={episodio.mal_id}
@@ -32,16 +32,18 @@ const Episodios: React.FC<PropsEpisodio> = ({ info }) => {
 
 const CardImagen: React.FC<Props> = ({ infoImagen }) => {
   return (
-    <article className="section_card w-full rounded-lg overflow-hidden border-2 border-main-black  rounded-tl-[60px] cursor-pointer">
-      <img
-        src={infoImagen.imagen}
-        alt="imagen de portada de un anime de temporada"
-        className="min-h-[200px] max-h-[55vw] sm:max-h-[35vw] md:max-h-[27vw] lg:max-h-[20vw]"
-      />
+    <article className="h-[70vw] xs:h-[45vw] md:h-[35vw] lg:h-[25vw] xl:h-[300px] rounded-lg border-2 border-main-black  flex section_card rounded-tl-[60px] relative flex-col justify-end">
+      <div className="w-full h-full rounded-lg overflow-hidden rounded-tl-[60px] absolute bottom-0 left-0">
+        <img
+          src={infoImagen.imagen}
+          alt="imagen de portada de anime"
+          className="text-sm text-center leading-10"
+        />
+      </div>
       {infoImagen.episodios && <Episodios info={infoImagen.episodios} />}
-      <div className="nombre py-1 md:py-2 px-1 bg-main-black">
-        <p className="text-[12px] xl:text-sm capitalize text-center line-clamp-2 text-main-color-background flex  justify-center h-[40px]">
-          <span className="my-auto">{infoImagen.titulo}</span>
+      <div className="relative z-[1] nombre py-1 md:py-2 px-1 bg-main-black">
+        <p className="text-[10px] xl:text-sm capitalize text-center  text-main-color-background pt-1 h-[34px] flex items-center justify-center">
+          <span className="line-clamp-2">{infoImagen.titulo}</span>
         </p>
       </div>
     </article>
