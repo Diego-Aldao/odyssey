@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import MainLayout from "../layout/MainLayout";
 import SectionSubPaginas from "../components/PaginasSecundarias/SectionSubPaginas";
 import Filtros from "../components/PaginasSecundarias/Filtros";
@@ -9,6 +9,9 @@ import useFetch from "../hooks/useFetch";
 import { ApiResponseEpisodios, DataEpisodios } from "../types";
 import ImagenHeaderEpisodios from "../components/PaginaEpisodios/ImagenHeaderEpisodios";
 import CardEpisodio from "../components/PaginaInicio/SubSections/SectionCards/CardEpisodio/CardEpisodio";
+import TituloHeaderMotion from "../components/FramerMotion/TituloHeaderMotion";
+import Loading from "../components/Generales/Loading";
+import { AnimatePresence } from "framer-motion";
 
 const PaginaEpisodios = () => {
   const { filtro } = useParams();
@@ -42,30 +45,37 @@ const PaginaEpisodios = () => {
       <SectionSubPaginas
         setBtnVisible={setBtnVisible}
         btnVisible={btnVisible}
-        titulo={"anime por episodios"}
+        titulo={
+          <TituloHeaderMotion
+            textoLineaUno="anime por"
+            textoLineaDos="episodios"
+          />
+        }
         imagenHeader={<ImagenHeaderEpisodios />}
         filtrosPrincipales={
           <Filtros filtros={MAIN_FILTERS_EPISODES} pathInicial="episodios" />
         }
       >
-        <Grids tipoDeGrid="comun">
+        <AnimatePresence>
           {loading || !currentData ? (
-            <p>cargando...</p>
+            <Loading key={"loading"} />
           ) : (
-            <>
-              {currentData.map((item) => (
-                <div className="flex-1" key={item.entry.mal_id}>
-                  <CardEpisodio
-                    id={item.entry.mal_id}
-                    imagen={item.entry.images?.webp.image_url}
-                    episodios={item.episodes}
-                    titulo={item.entry.title}
-                  />
-                </div>
-              ))}
-            </>
+            <Grids tipoDeGrid="comun" key={"grid"}>
+              <>
+                {currentData.map((item) => (
+                  <React.Fragment key={item.entry.mal_id}>
+                    <CardEpisodio
+                      id={item.entry.mal_id}
+                      imagen={item.entry.images?.webp.image_url}
+                      episodios={item.episodes}
+                      titulo={item.entry.title}
+                    />
+                  </React.Fragment>
+                ))}
+              </>
+            </Grids>
           )}
-        </Grids>
+        </AnimatePresence>
       </SectionSubPaginas>
     </MainLayout>
   );

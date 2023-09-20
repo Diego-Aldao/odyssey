@@ -9,6 +9,8 @@ import useFetch from "../hooks/useFetch";
 import { useParams } from "react-router-dom";
 import ImagenHeaderTrailers from "../components/PaginaTrailers/ImagenHeaderTrailers";
 import CardVideo from "../components/PaginaInicio/SubSections/SectionCards/SectionCard/CardVideo";
+import TituloHeaderMotion from "../components/FramerMotion/TituloHeaderMotion";
+import Loading from "../components/Generales/Loading";
 
 const PaginaTrailers = () => {
   const { filtro } = useParams();
@@ -43,16 +45,21 @@ const PaginaTrailers = () => {
       <SectionSubPaginas
         setBtnVisible={setBtnVisible}
         btnVisible={btnVisible}
-        titulo={"trailers de anime"}
+        titulo={
+          <TituloHeaderMotion
+            textoLineaUno="trailers de"
+            textoLineaDos="anime"
+          />
+        }
         imagenHeader={<ImagenHeaderTrailers />}
         filtrosPrincipales={
           <Filtros pathInicial="trailers" filtros={MAIN_FILTERS_TRAILERS} />
         }
       >
-        <Grids tipoDeGrid="videos">
-          {loading || !currentData ? (
-            <p>cargando...</p>
-          ) : (
+        {loading || !currentData ? (
+          <Loading />
+        ) : (
+          <Grids tipoDeGrid="videos">
             <>
               {currentData.map((item) => (
                 <React.Fragment key={item.entry.mal_id}>
@@ -67,8 +74,8 @@ const PaginaTrailers = () => {
                 </React.Fragment>
               ))}
             </>
-          )}
-        </Grids>
+          </Grids>
+        )}
       </SectionSubPaginas>
     </MainLayout>
   );

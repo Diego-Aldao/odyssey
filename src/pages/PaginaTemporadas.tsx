@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import MainLayout from "../layout/MainLayout";
-import animeTemporada from "../mocks/AnimeTemporada.json";
 import SectionSubPaginas from "../components/PaginasSecundarias/SectionSubPaginas";
 import CardInfo from "../components/PaginaInicio/SubSections/SectionCards/CardInfo/CardInfo";
 import Filtros from "../components/PaginasSecundarias/Filtros";
@@ -17,6 +16,10 @@ import Grids from "../components/PaginasSecundarias/Grids";
 import { useParams } from "react-router-dom";
 import { ApiResponseTemporada, MainData } from "../types";
 import ImagenHeaderTemporada from "../components/PaginaTemporadas/ImagenHeaderTemporada";
+import TituloHeaderMotion from "../components/FramerMotion/TituloHeaderMotion";
+import { motion, AnimatePresence } from "framer-motion";
+import Loading from "../components/Generales/Loading";
+import { VarianteSections, transition } from "../VariantesFramerMotion";
 
 const PaginaTemporadas = () => {
   const [currentFiltro, setCurrentFiltro] = useState<string>();
@@ -62,7 +65,12 @@ const PaginaTemporadas = () => {
       <SectionSubPaginas
         setBtnVisible={setBtnVisible}
         btnVisible={btnVisible}
-        titulo={"anime por temporadas"}
+        titulo={
+          <TituloHeaderMotion
+            textoLineaUno="anime por"
+            textoLineaDos="temporadas"
+          />
+        }
         imagenHeader={<ImagenHeaderTemporada />}
         filtrosPrincipales={
           <Filtros pathInicial="temporadas" filtros={MAIN_FILTERS_SEASONS} />
@@ -76,43 +84,53 @@ const PaginaTemporadas = () => {
           />
         }
       >
-        <Grids tipoDeGrid="detalle">
-          {loading || !currentData ? (
-            <p>cargando...</p>
+        <AnimatePresence>
+          {loading ? (
+            <Loading key={"loading"} />
           ) : (
-            <>
-              {currentData.map((item) => (
-                <div key={item.mal_id} className="w-full relative flex">
-                  <CardInfo titulo={item.title} id={item.mal_id} tipo="anime">
-                    <>
-                      <SecondaryInfo
-                        fecha={item.aired.prop.from}
-                        episodios={item.episodes}
-                        duracion={item.duration}
-                        generos={item.genres}
-                      />
-                      <MainInfo
-                        imagen={item.images.webp.image_url}
-                        sinopsis={item.synopsis}
-                        origen={item.source}
-                        mainGeneros={item.demographics}
-                        temas={item.themes}
-                        estudios={item.studios}
-                        titulo={item.title}
-                      />
-                      <Footer
-                        tipo={item.type}
-                        score={item.score}
-                        miembros={item.members}
-                        episodios={item.episodes}
-                      />
-                    </>
-                  </CardInfo>
-                </div>
-              ))}
-            </>
+            <Grids tipoDeGrid="detalle" key={"grid"}>
+              <>
+                {currentData?.map((item) => (
+                  <motion.div
+                    initial="initial"
+                    animate="animate"
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={transition}
+                    variants={VarianteSections}
+                    key={item.mal_id}
+                    className="w-full relative flex"
+                  >
+                    <CardInfo titulo={item.title} id={item.mal_id} tipo="anime">
+                      <>
+                        <SecondaryInfo
+                          fecha={item.aired.prop.from}
+                          episodios={item.episodes}
+                          duracion={item.duration}
+                          generos={item.genres}
+                        />
+                        <MainInfo
+                          imagen={item.images.webp.image_url}
+                          sinopsis={item.synopsis}
+                          origen={item.source}
+                          mainGeneros={item.demographics}
+                          temas={item.themes}
+                          estudios={item.studios}
+                          titulo={item.title}
+                        />
+                        <Footer
+                          tipo={item.type}
+                          score={item.score}
+                          miembros={item.members}
+                          episodios={item.episodes}
+                        />
+                      </>
+                    </CardInfo>
+                  </motion.div>
+                ))}
+              </>
+            </Grids>
           )}
-        </Grids>
+        </AnimatePresence>
       </SectionSubPaginas>
     </MainLayout>
   );
