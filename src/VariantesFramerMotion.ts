@@ -91,3 +91,41 @@ export const variantesMainPage = {
 export const variantesIconoHeader = {
   animate: { rotate: [0, 10, -10, 0] },
 };
+
+export const variantesNavegaciones = {
+  whileHover: { x: 5, y: -2 },
+  initial: { x: 0, y: 20, opacity: 0 },
+  animate: { y: 0, opacity: 1 },
+};
+
+export const variantesNavegacionesLinea = {
+  initial: { width: 0, opacity: 0 },
+  whileHover: { width: "100%", opacity: 1 },
+};
+
+export const varianteTrailer = {
+  initialContenedor: { x: 20, y: 20, opacity: 0 },
+  animateContenedor: { x: 0, y: 0, opacity: 1 },
+  initialBoton: { x: -20, opacity: 0 },
+  animateBoton: { x: 0, opacity: 1 },
+  whileHover: { x: 2, transition: transition },
+  whileHoverMain: {
+    backgroundColor: "#e6e4d5",
+    color: "#23210f",
+    borderColor: "#23210f",
+  },
+};
+
+export const variantesHeaderDetalle = {
+  initial: { y: 20, opacity: 0 },
+  animate: { y: 0, opacity: 1 },
+};
+
+export const variantesAside = {
+  initialContenedor: { y: 20, x: 20, opacity: 0 },
+  animateContenedor: { y: 0, x: 0, opacity: 1 },
+  initialContenedorTexto: { x: 20, opacity: 0 },
+  animateContenedorTexto: { x: 0, opacity: 1 },
+  initialTexto: { y: 20, opacity: 0 },
+  animateTexto: { y: 0, opacity: 1 },
+};
