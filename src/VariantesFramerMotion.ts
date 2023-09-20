@@ -153,3 +153,10 @@ export const variantesSubSectionHeader = {
   initialP: { opacity: 0, y: 50 },
   whileInViewP: { opacity: 1, y: 0 },
 };
+
+export const varianteFooterPrincipal = {
+  initialLeft: { opacity: 0, x: -50 },
+  whileInViewLeft: { opacity: 1, x: 0 },
+  initialRight: { opacity: 0, x: 50 },
+  whileInViewRight: { opacity: 1, x: 0 },
+};
