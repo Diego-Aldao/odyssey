@@ -25,7 +25,7 @@ export const varianteModalVideo = {
 
 export const varianteNavMobile = {
   initialContenedor: { opacity: 1, x: "100%" },
-  animateContenedor: { opacity: 1, x: "100%" },
+  animateContenedor: { opacity: 1, x: 0 },
   exitContenedor: { opacity: 0, x: "100%" },
   initialMenu: { x: 110 },
   animateMenu: { x: 0 },
@@ -38,6 +38,11 @@ export const varianteNavMobile = {
 export const varianteBarraBusqueda = {
   initialForm: { opacity: 0, y: 10, x: 10 },
   animateForm: { opacity: 1, y: 0, x: 0 },
+  exitForm: { opacity: 0, y: 10, x: 10 },
+  initialClose: { y: -10, opacity: 0 },
+  animateClose: { y: 0, opacity: 1 },
+  exitClose: { y: -10, opacity: 0 },
+  whileHoverClose: { scale: 1.2 },
 };
 
 export const varianteMainImagen = {
@@ -128,4 +133,23 @@ export const variantesAside = {
   animateContenedorTexto: { x: 0, opacity: 1 },
   initialTexto: { y: 20, opacity: 0 },
   animateTexto: { y: 0, opacity: 1 },
+};
+
+export const variantesListaTags = {
+  initialLI: { x: -20, opacity: 0 },
+  animateLI: { x: 0, opacity: 1 },
+  initialP: { y: 10, opacity: 0 },
+  animateP: { y: 0, opacity: 1 },
+};
+
+export const variantesSubSectionContent = {
+  initial: { opacity: 1, x: -20 },
+  whileInView: { opacity: 1, x: 0 },
+};
+
+export const variantesSubSectionHeader = {
+  initialContenedor: { opacity: 1, x: 50 },
+  whileInViewContenedor: { opacity: 1, x: 0 },
+  initialP: { opacity: 0, y: 50 },
+  whileInViewP: { opacity: 1, y: 0 },
 };
