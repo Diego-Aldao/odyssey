@@ -5,22 +5,24 @@ import { BASE_URL_TOPS } from "../../constants";
 import CardTable from "../PaginaInicio/SubSections/SectionCards/CardTable/CardTable";
 import Grids from "../PaginasSecundarias/Grids";
 import MainInfoPersonaje from "../PaginaInicio/SubSections/SectionCards/CardTable/MainInfoPersonaje";
+import { AnimatePresence } from "framer-motion";
+import Loading from "../Generales/Loading";
 
 const TopsPersonajes = () => {
   const { respuestaApi, loading } = useFetch<ApiResponseTopPersonaje>(
     `${BASE_URL_TOPS}/characters`
   );
-  console.log(respuestaApi);
   return (
-    <>
+    <AnimatePresence>
       {loading || !respuestaApi ? (
-        <>cargando</>
+        <Loading key={"loading"} />
       ) : (
         <Grids
           tipoDeGrid="tabla"
           headerDos="personaje"
           headerTres="nombre en kanji"
           headerCuatro="favoritos"
+          key={"grid-personaje"}
         >
           <>
             {respuestaApi.data.map((item, index) => (
@@ -41,7 +43,7 @@ const TopsPersonajes = () => {
           </>
         </Grids>
       )}
-    </>
+    </AnimatePresence>
   );
 };
 
