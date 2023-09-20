@@ -1,16 +1,4 @@
 /*types para objetos de my anime list */
-export type ObjetoMal = {
-  mal_id: number;
-  type: string;
-  name: string;
-  url: string;
-};
-
-export type FechaMal = {
-  day: number;
-  month: number;
-  year: number;
-};
 
 export type Episodio = {
   mal_id: number;
@@ -23,25 +11,18 @@ export type Episodio = {
 
 export type Filtro = {
   nombre: string;
-  query: string;
+  query: string | undefined;
   id: number;
 };
 
 export type InfoAside = {
   nombre: string;
-  data:
-    | string
-    | Date
-    | number
-    | never[]
-    | ObjetoMal[]
-    | undefined
-    | Demographic;
+  data: string | Date | number | never[] | Generic[] | undefined | Demographic;
 };
 
 export type InfoTags = {
   nombre?: string;
-  data?: string | number | ObjetoMal[];
+  data?: string | number | Generic[];
   icono?: JSX.Element;
   primerItem?: boolean;
   ocultoMovile?: boolean;
@@ -101,6 +82,11 @@ export type ApiResponseTemporada = {
   data: MainData[];
 };
 
+export type ApiResponseMain = {
+  pagination: MainPaginacion;
+  data: MainData[];
+};
+
 export type ApiResponseEpisodios = {
   pagination: Pagination;
   data: DataEpisodios[];
@@ -138,8 +124,29 @@ export type DataPersonajeTop = {
   name_kanji: string;
   nicknames: string[];
   favorites: number;
-  about: string;
+  about: string | null;
 };
+
+export type ApiResponseTopPersona = {
+  pagination: Pagination;
+  data: DataPersonaTop[];
+};
+
+export type DataPersonaTop = {
+  mal_id: number;
+  url: string;
+  website_url: null | string;
+  images: ImagesSecondary;
+  name: string;
+  given_name: string;
+  family_name: string;
+  alternate_names: string[];
+  birthday: Date | null;
+  favorites: number;
+  about: string | null;
+};
+
+/*types fetch pagina tops */
 
 /*types fetch pagina detalle */
 
@@ -256,6 +263,106 @@ export type DataReviews = {
   is_preliminary: boolean;
   episodes_watched: null;
   user: User;
+};
+
+export type ApiResponsePersonaje = {
+  data: DataDetallePersonaje;
+};
+
+export type DataDetallePersonaje = {
+  mal_id: number;
+  url: string;
+  images: GenericImages;
+  name: string;
+  name_kanji: string;
+  nicknames: string[] | [];
+  favorites: number;
+  about: string;
+  anime: AnimeElement[];
+  manga: Manga[];
+  voices: Voice[];
+};
+
+export type ApiResponseDetallePictures = {
+  data: PicturesDetalle[];
+};
+
+export type ApiResponsePersona = {
+  data: DataPersona;
+};
+
+export type DataPersona = {
+  mal_id: number;
+  url: string;
+  website_url: null;
+  images: ImagesPersona;
+  name: string;
+  given_name: string;
+  family_name: string;
+  alternate_names: string[];
+  birthday: Date;
+  favorites: number;
+  about: string;
+  anime: AnimeElementPersona[];
+  manga: MangaElementPersona[];
+  voices: VoicePersona[];
+};
+
+export type ImagesPersona = {
+  jpg: Jpg;
+};
+
+export type VoicePersona = {
+  role: string;
+  anime: AnimeMangaClass;
+  character: Character;
+};
+
+export type AnimeElementPersona = {
+  position: string;
+  anime: AnimeMangaClass;
+};
+
+export type MangaElementPersona = {
+  position: string;
+  manga: AnimeMangaClass;
+};
+
+export type PicturesDetalle = {
+  jpg: Jpg;
+};
+
+export type AnimeElement = {
+  role: string;
+  anime: AnimeMangaClass;
+};
+
+export type AnimeMangaClass = {
+  mal_id: number;
+  url: string;
+  images: GenericImages;
+  title: string;
+};
+
+export type Manga = {
+  role: Role;
+  manga: AnimeMangaClass;
+};
+
+export type Voice = {
+  person: PersonVoice;
+  language: string;
+};
+
+export type PersonVoice = {
+  mal_id: number;
+  url: string;
+  images: PersonVoiceImages;
+  name: string;
+};
+
+export type PersonVoiceImages = {
+  jpg: JpgGeneric;
 };
 
 export type ImagesNews = {
@@ -488,9 +595,30 @@ export type Items = {
 export type Entry = {
   mal_id: number;
   url: string;
-  images?: { [key: string]: Image };
+  images?: GenericImages;
   title: string;
   premium?: boolean;
+};
+
+export type GenericImages = {
+  jpg: WebpGeneric;
+  webp: JpgGeneric;
+};
+
+export type WebpGeneric = {
+  image_url?: string;
+  small_image_url?: string;
+  medium_image_url?: string;
+  large_image_url?: string;
+  maximum_image_url?: string;
+};
+
+export type JpgGeneric = {
+  image_url?: string;
+  small_image_url?: string;
+  medium_image_url?: string;
+  large_image_url?: string;
+  maximum_image_url?: string;
 };
 
 export type Generic = {
