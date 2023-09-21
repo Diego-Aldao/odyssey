@@ -14,7 +14,7 @@ const SectionEpisodiosRecientes = () => {
     useFetch<ApiResponseEpisodios>(BASE_URL_EPISODES);
 
   return (
-    <SubSection id="recientes">
+    <SubSection>
       <>
         <SubSectionHeader
           destino="episodios"
