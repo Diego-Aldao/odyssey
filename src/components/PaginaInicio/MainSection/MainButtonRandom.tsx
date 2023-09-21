@@ -1,44 +1,51 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
+import imagenDescubrir from "../../../assets/imgRandomAnime.png";
+import { motion } from "framer-motion";
+import {
+  transition,
+  varianteMainButtonRandom,
+} from "../../../VariantesFramerMotion";
+import { useNavigate } from "react-router-dom";
 
 const MainButtonRandom = () => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/detalle/anime/40748");
+  };
+
   return (
-    <button className="main_button_random">
-      <Icon icon="uim:polygon" className="w-24 h-24 lg:w-32 lg:h-32 absolute" />
-      <Icon
-        icon="uim:polygon"
-        className="w-24 h-24 lg:w-32 lg:h-32 absolute rotate-90"
-      />
-      <p className="text-center absolute flex flex-col">
-        <span className="text-main-color uppercase text-[10px] lg:text-sm">
-          descrubrir
-        </span>
-      </p>
-      <svg
-        className="animate-spin-slow w-[150px] lg:w-[200px] h-[150px] lg:h-[200px]"
-        viewBox="0 0 200 200"
+    <div className="w-full flex xs:hidden lg:flex self-end md:col-start-1 md:row-start-2 flex-col items-center">
+      <motion.div
+        initial="initial"
+        whileInView="whileInView"
+        variants={varianteMainButtonRandom}
+        viewport={{ once: true }}
+        transition={transition}
+        className="max-w-[350px]"
       >
-        <defs>
-          <path
-            id="circle"
-            d="M 100, 100
-        m -75, 0
-        a 75, 75 0 1, 0 150, 0
-        a 75, 75 0 1, 0 -150, 0
-        "
-          ></path>
-        </defs>
-        <text>
-          <textPath
-            alignment-baseline="top"
-            href="#circle"
-            className="font-semibold capitalize"
-          >
-            - personaje random - anime random - persona random
-          </textPath>
-        </text>
-      </svg>
-    </button>
+        <img src={imagenDescubrir} alt="" />
+      </motion.div>
+      <motion.p
+        initial="initialP"
+        whileInView="whileInViewP"
+        variants={varianteMainButtonRandom}
+        viewport={{ once: true }}
+        transition={transition}
+        className="border-b-2 border-r-2 -left-4 border-main-black font-bold italic capitalize pl-2 py-1 mt-5  xl:text-xl  rounded-br-lg item-skew-izquierda relative bg-main-color-background z-[1] after:bg-main-color-background after:border-main-black after:border-b-2 after:border-r-2 after:rounded-bl-none after:top-[0px] after:h-[34px] after:xl:h-[38px]"
+      >
+        <motion.span
+          initial="initial"
+          whileInView="whileInView"
+          variants={varianteMainButtonRandom}
+          viewport={{ once: true }}
+          transition={transition}
+          className="flex gap-3 items-center justify-start"
+          onClick={handleClick}
+        >
+          descubrir anime <Icon icon="cil:arrow-right" className="w-5 h-5" />
+        </motion.span>
+      </motion.p>
+    </div>
   );
 };
-
 export default MainButtonRandom;
