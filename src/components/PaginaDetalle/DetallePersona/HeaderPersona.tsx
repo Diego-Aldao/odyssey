@@ -28,9 +28,17 @@ const HeaderPersona = ({
             <p className="font-semibold md:text-base">tambien conocido como:</p>
             {nombresAlternativos.map((nombre, index) => {
               if (nombresAlternativos.length === index + 1) {
-                return <span className="text-xs md:text-sm">{nombre}</span>;
+                return (
+                  <span key={nombre} className="text-xs md:text-sm">
+                    {nombre}
+                  </span>
+                );
               } else {
-                return <span className="text-xs md:text-sm">{nombre}, </span>;
+                return (
+                  <span key={nombre} className="text-xs md:text-sm">
+                    {nombre},{" "}
+                  </span>
+                );
               }
             })}
           </li>

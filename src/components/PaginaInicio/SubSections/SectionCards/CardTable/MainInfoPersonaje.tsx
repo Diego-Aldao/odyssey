@@ -9,13 +9,19 @@ const MainInfoPersonaje = ({ sobrenombres }: Props) => {
         {sobrenombres.map((sobrenombre, index) => {
           if (sobrenombres.length === index + 1) {
             return (
-              <span className="text-xs md:text-sm lg:text-base">
+              <span
+                key={sobrenombre}
+                className="text-xs md:text-sm lg:text-base"
+              >
                 {sobrenombre}
               </span>
             );
           } else {
             return (
-              <span className="text-xs md:text-sm lg:text-base">
+              <span
+                key={sobrenombre}
+                className="text-xs md:text-sm lg:text-base"
+              >
                 {sobrenombre},{" "}
               </span>
             );

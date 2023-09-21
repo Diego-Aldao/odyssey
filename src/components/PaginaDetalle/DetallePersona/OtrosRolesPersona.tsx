@@ -15,7 +15,7 @@ const OtrosRolesPersona = ({ otrosRolesAnime }: Props) => {
     >
       <ul className="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
         {otrosRolesAnime.map((rol) => (
-          <MotionListItem clases="">
+          <MotionListItem clases="" key={rol.anime.mal_id}>
             <Link
               to={`/detalle/anime/${rol.anime.mal_id}`}
               className="flex gap-2"

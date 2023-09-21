@@ -11,7 +11,7 @@ const MangasPersona = ({ mangas }: Props) => {
     <SubSectionDetalle titulo="mangas publicados" visibleContent="general">
       <ul className="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
         {mangas.map((item) => (
-          <MotionListItem clases="flex gap-2">
+          <MotionListItem clases="flex gap-2" key={item.manga.mal_id}>
             <>
               <div className="min-h-[120px] min-w-[80px] max-h-[120px] max-w-[80px] rounded-lg border-2 border-main-black overflow-hidden">
                 <img src={item.manga.images.webp.image_url} alt="" />

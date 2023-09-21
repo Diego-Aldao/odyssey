@@ -57,6 +57,7 @@ const ResultadosPersonas = ({ query }: Props) => {
                     imagen={persona.images.jpg.image_url}
                     id={persona.mal_id}
                     tipo="persona"
+                    key={persona.mal_id}
                   >
                     <>
                       {persona.given_name && (

@@ -14,14 +14,13 @@ const ListaTags: React.FC<Props> = ({ mainInfo }) => {
   return (
     <ul className="flex justify-center gap-5 md:justify-start flex-wrap max-w-[550px]">
       {mainInfo.map((item) => (
-        <>
+        <React.Fragment key={item.id}>
           {item.data !== null && (
             <motion.li
               initial="initialLI"
               animate="animateLI"
               variants={variantesListaTags}
               transition={transition}
-              key={item.id}
               className={`bg-main-black px-4 text-xs py-[6px] rounded-sm h-fit text-main-color-background ${
                 item.primerItem ? "flex items-center gap-2 lg:hidden" : ""
               }
@@ -62,7 +61,7 @@ const ListaTags: React.FC<Props> = ({ mainInfo }) => {
               )}
             </motion.li>
           )}
-        </>
+        </React.Fragment>
       ))}
     </ul>
   );

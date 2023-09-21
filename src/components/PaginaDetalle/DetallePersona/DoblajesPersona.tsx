@@ -15,7 +15,10 @@ const DoblajesPersona = ({ voces }: Props) => {
     >
       <ul className="flex flex-col gap-5 lg:gap-3">
         {voces.slice(0, 10).map((rol) => (
-          <MotionListItem clases="flex items-center justify-between gap-2">
+          <MotionListItem
+            key={rol.character.mal_id}
+            clases="flex items-center justify-between gap-2"
+          >
             <>
               <Link
                 to={`/detalle/anime/${rol.anime.mal_id}`}

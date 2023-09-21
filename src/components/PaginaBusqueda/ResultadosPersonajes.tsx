@@ -45,6 +45,7 @@ const ResultadosPersonaje = ({ query }: Props) => {
                   imagen={personaje.images.webp.image_url}
                   id={personaje.mal_id}
                   tipo="personaje"
+                  key={personaje.mal_id}
                 >
                   <>
                     {personaje.name_kanji && (
