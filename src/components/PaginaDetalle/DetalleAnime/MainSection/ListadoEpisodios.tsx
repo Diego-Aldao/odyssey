@@ -7,6 +7,7 @@ import MotionListItem from "../../FramerMotion/MotionListItem";
 import Loading from "../../../Generales/Loading";
 import ListadoSinResultados from "./ListadoSinResultados";
 import MotionUnorderedList from "../../FramerMotion/MotionUnorderedList";
+import LazyLoadImage from "../../../Generales/LazyLoadImage";
 
 type Props = {
   visibleContent: string;
@@ -53,7 +54,12 @@ const ListadoEpisodios = ({ visibleContent, id }: Props) => {
                           episodio {episodio.mal_id}
                         </p>
                         <div className="rounded-xl overflow-hidden border-2 border-main-black my-1 min-h-[150px] md:min-h-[100px]">
-                          <img src={episodio.images.jpg.image_url} alt="" />
+                          <LazyLoadImage>
+                            <img
+                              src={episodio.images.jpg.image_url}
+                              alt={`imagen episodio ${episodio.title}`}
+                            />
+                          </LazyLoadImage>
                         </div>
                         <p className="self-end text-sm text-end">
                           {episodio.title}

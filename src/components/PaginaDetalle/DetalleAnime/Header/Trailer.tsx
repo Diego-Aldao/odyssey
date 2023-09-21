@@ -1,6 +1,7 @@
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import { transition, varianteTrailer } from "../../../../VariantesFramerMotion";
+import LazyLoadImage from "../../../Generales/LazyLoadImage";
 
 type Props = {
   handleClick: () => void;
@@ -28,7 +29,7 @@ const Trailer = ({ handleClick, imagen }: Props) => {
           >
             trailer
           </motion.p>
-          <div className="video relative rounded-lg border-2 border-main-black overflow-hidden w-fit ml-auto flex items-center justify-center">
+          <div className="video relative rounded-lg border-2 border-main-black overflow-hidden ml-auto flex items-center justify-center max-w-[200px] h-[112px]">
             <motion.div
               initial="initialBoton"
               animate="animateBoton"
@@ -49,7 +50,9 @@ const Trailer = ({ handleClick, imagen }: Props) => {
                 />
               </motion.span>
             </motion.div>
-            <img src={imagen} alt="" />
+            <LazyLoadImage>
+              <img src={imagen} alt="" />
+            </LazyLoadImage>
           </div>
         </motion.div>
       )}

@@ -5,6 +5,7 @@ import {
   varianteCards,
   transition,
 } from "../../../../../VariantesFramerMotion";
+import LazyLoadImage from "../../../../Generales/LazyLoadImage";
 
 type Props = {
   imagen?: string;
@@ -44,7 +45,7 @@ const CardVideo: React.FC<Props> = ({
         </p>
       </Link>
       <div
-        className={`border-2 rounded-xl overflow-hidden flex flex-1 max-h-[250px] items-center justify-center ${
+        className={`h-[90vw] min-h-[160px] border-2 rounded-xl overflow-hidden flex flex-1 max-h-[250px] items-center justify-center ${
           mainPage ? "border-main-black" : "border-main-color-background"
         }`}
       >
@@ -57,7 +58,9 @@ const CardVideo: React.FC<Props> = ({
             />
           </div>
         </Link>
-        <img src={imagen} alt="" />
+        <LazyLoadImage>
+          <img src={imagen} alt="" />
+        </LazyLoadImage>
       </div>
       <p
         className={`w-fit flex self-end ${

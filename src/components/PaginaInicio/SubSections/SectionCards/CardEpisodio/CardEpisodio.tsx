@@ -6,6 +6,7 @@ import {
   varianteCards,
   transition,
 } from "../../../../../VariantesFramerMotion";
+import LazyLoadImage from "../../../../Generales/LazyLoadImage";
 
 type Props = {
   id: number;
@@ -28,7 +29,9 @@ const CardEpisodio = ({ id, titulo, imagen, episodios }: Props) => {
           {titulo}
         </h3>
         <div className="h-full rounded-xl border-2 border-main-black overflow-hidden">
-          <img src={imagen} alt="" />
+          <LazyLoadImage>
+            <img src={imagen} alt="" />
+          </LazyLoadImage>
         </div>
         <ul className="flex flex-col gap-4">
           {episodios.map((episodio) => (

@@ -8,6 +8,7 @@ import Loading from "../../../Generales/Loading";
 import MotionUnorderedList from "../../FramerMotion/MotionUnorderedList";
 import ListadoSinResultados from "./ListadoSinResultados";
 import { Link } from "react-router-dom";
+import LazyLoadImage from "../../../Generales/LazyLoadImage";
 
 type Props = {
   visibleContent: string;
@@ -56,10 +57,14 @@ const ListadoPersonajes = ({ visibleContent, id }: Props) => {
                         >
                           <div className="personaje flex gap-2">
                             <div className="rounded-xl border-2 border-main-black h-24 lg:h-22 min-w-[60px] max-w-[60px] overflow-hidden">
-                              <img
-                                src={personaje.character.images.webp.image_url}
-                                alt=""
-                              />
+                              <LazyLoadImage>
+                                <img
+                                  src={
+                                    personaje.character.images.webp.image_url
+                                  }
+                                  alt="imagen de personaje anime"
+                                />
+                              </LazyLoadImage>
                             </div>
                             <div className="flex flex-col gap-1">
                               <p className="font-bold md:text-sm">
@@ -92,13 +97,15 @@ const ListadoPersonajes = ({ visibleContent, id }: Props) => {
                                 </p>
                               </div>
                               <div className="rounded-xl border-2 border-main-black h-24 lg:h-22 min-w-[60px] max-w-[60px] overflow-hidden">
-                                <img
-                                  src={
-                                    personaje.voice_actors[0].person.images.jpg
-                                      .image_url
-                                  }
-                                  alt=""
-                                />
+                                <LazyLoadImage>
+                                  <img
+                                    src={
+                                      personaje.voice_actors[0].person.images
+                                        .jpg.image_url
+                                    }
+                                    alt="imagen actor de voz"
+                                  />
+                                </LazyLoadImage>
                               </div>
                             </div>
                           </Link>

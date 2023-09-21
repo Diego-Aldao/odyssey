@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import imagenLoading from "../../assets/ImagenLoading.png";
 import { transition } from "../../VariantesFramerMotion";
+import LazyLoad from "react-lazy-load";
+import LazyLoadImage from "./LazyLoadImage";
 
 const variants = {
   hidden: {
@@ -53,7 +55,9 @@ const Loading = ({ customClases }: Props) => {
         transition={transition}
         className="max-w-[40vw] xs:max-w-[30vw] md:max-w-[30vw] h-fit lg:max-w-[300px] overflow-hidden"
       >
-        <img src={imagenLoading} alt="" className="" />
+        <LazyLoadImage customClases="bg-transparent">
+          <img src={imagenLoading} alt="" className="" />
+        </LazyLoadImage>
       </motion.div>
     </motion.div>
   );

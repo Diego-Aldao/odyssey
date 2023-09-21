@@ -5,6 +5,7 @@ import {
   transition,
   varianteCards,
 } from "../../../../../VariantesFramerMotion";
+import LazyLoadImage from "../../../../Generales/LazyLoadImage";
 
 type Props = {
   id: number;
@@ -59,11 +60,13 @@ const CardTable: React.FC<Props> = ({
         </div>
         <div className="flex gap-2">
           <div className="imagen w-1/2 rounded-xl overflow-hidden border-2 border-main-black max-h-[130px] max-w-[90px]">
-            <img
-              src={imagen}
-              alt="imagen de portada de anime"
-              className="object-fill"
-            />
+            <LazyLoadImage>
+              <img
+                src={imagen}
+                alt="imagen de portada de anime"
+                className="object-fill"
+              />
+            </LazyLoadImage>
           </div>
           <div className="info flex flex-col gap-2 w-full">
             <h3 className="text-sm font-bold xs:text-base lg:text-xl">

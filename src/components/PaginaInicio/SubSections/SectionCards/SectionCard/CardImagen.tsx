@@ -1,6 +1,7 @@
 import React from "react";
 import { Icon } from "@iconify/react";
 import { Entry } from "../../../../../types";
+import LazyLoadImage from "../../../../Generales/LazyLoadImage";
 
 type PropsEpisodio = {
   info: Entry[];
@@ -34,11 +35,13 @@ const CardImagen: React.FC<Props> = ({ infoImagen }) => {
   return (
     <article className="h-[70vw] xs:h-[45vw] md:h-[35vw] lg:h-[25vw] xl:h-[300px] rounded-lg border-2 border-main-black  flex section_card rounded-tl-[60px] relative flex-col justify-end">
       <div className="w-full h-full rounded-lg overflow-hidden rounded-tl-[60px] absolute bottom-0 left-0">
-        <img
-          src={infoImagen.imagen}
-          alt="imagen de portada de anime"
-          className="text-sm text-center leading-10"
-        />
+        <LazyLoadImage>
+          <img
+            src={infoImagen.imagen}
+            alt="imagen de portada de anime"
+            className="text-sm text-center leading-10"
+          />
+        </LazyLoadImage>
       </div>
       {infoImagen.episodios && <Episodios info={infoImagen.episodios} />}
       <div className="relative z-[1] nombre py-1 md:py-2 px-1 bg-main-black">

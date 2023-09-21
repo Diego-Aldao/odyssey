@@ -11,6 +11,7 @@ import Loading from "../../../Generales/Loading";
 import ListadoSinResultados from "./ListadoSinResultados";
 import MotionUnorderedList from "../../FramerMotion/MotionUnorderedList";
 import { Link } from "react-router-dom";
+import LazyLoadImage from "../../../Generales/LazyLoadImage";
 
 type Props = {
   visibleContent: string;
@@ -58,10 +59,14 @@ const ListadoRecomendados = ({ visibleContent, id }: Props) => {
                               recomiendan: <br /> {recomendacion.votes} usuarios
                             </p>
                             <div className="rounded-xl border-2 border-main-black overflow-hidden h-full my-1">
-                              <img
-                                src={recomendacion.entry.images?.webp.image_url}
-                                alt=""
-                              />
+                              <LazyLoadImage>
+                                <img
+                                  src={
+                                    recomendacion.entry.images?.webp.image_url
+                                  }
+                                  alt="imagen poster anime recomendado"
+                                />
+                              </LazyLoadImage>
                             </div>
                             <p className="min-h-[14px] text-xs whitespace-nowrap overflow-hidden">
                               {recomendacion.entry.title}

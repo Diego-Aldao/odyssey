@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { transition, variantesAside } from "../../VariantesFramerMotion";
+import LazyLoadImage from "../Generales/LazyLoadImage";
 
 type Props = {
   imagenUrl?: string;
@@ -22,7 +23,9 @@ const AsideDetalle: React.FC<Props> = ({
         transition={transition}
         className="border-2 rounded-xl overflow-hidden border-main-black w-full"
       >
-        <img src={imagenUrl} alt="poster del anime" />
+        <LazyLoadImage>
+          <img src={imagenUrl} alt="poster del anime" />
+        </LazyLoadImage>
       </motion.div>
       <div className="info">
         <div className="border-b-[3px] border-main-black w-[calc(100%_+_14px)] lg:w-[calc(100%_+_18px)]">

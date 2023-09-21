@@ -7,6 +7,7 @@ import MotionListItem from "../../FramerMotion/MotionListItem";
 import ListadoSinResultados from "./ListadoSinResultados";
 import MotionUnorderedList from "../../FramerMotion/MotionUnorderedList";
 import Loading from "../../../Generales/Loading";
+import LazyLoadImage from "../../../Generales/LazyLoadImage";
 
 type Props = {
   visibleContent: string;
@@ -50,7 +51,12 @@ const ListadoReviews = ({ visibleContent, id }: Props) => {
                     >
                       <>
                         <div className="w-[40px] lg:w-[50px] flex rounded-lg border-2 border-main-black overflow-hidden">
-                          <img src={review.user.images.webp.image_url} alt="" />
+                          <LazyLoadImage>
+                            <img
+                              src={review.user.images.webp.image_url}
+                              alt={`imagen usuario ${review.user.username}`}
+                            />
+                          </LazyLoadImage>
                         </div>
                         <div className="header flex gap-2 flex-col w-[calc(100%_-_48px)] lg:w-[calc(100%_-_58px)]">
                           <div className="info-user flex flex-col gap-1">

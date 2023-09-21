@@ -7,6 +7,7 @@ import MotionListItem from "../../FramerMotion/MotionListItem";
 import Loading from "../../../Generales/Loading";
 import MotionUnorderedList from "../../FramerMotion/MotionUnorderedList";
 import ListadoSinResultados from "./ListadoSinResultados";
+import LazyLoadImage from "../../../Generales/LazyLoadImage";
 
 type Props = {
   visibleContent: string;
@@ -50,7 +51,12 @@ const ListadoNoticias = ({ visibleContent, id }: Props) => {
                     >
                       <>
                         <div className="rounded-xl border-2 border-main-black w-[70px] lg:w-[90px] min-h-[90px] overflow-hidden">
-                          <img src={noticia.images?.jpg.image_url} alt="" />
+                          <LazyLoadImage>
+                            <img
+                              src={noticia.images?.jpg.image_url}
+                              alt="imagen poster noticia"
+                            />
+                          </LazyLoadImage>
                         </div>
                         <div className="w-[calc(100%_-_70px)] flex flex-col gap-1">
                           <p className="text-sm max-w-sm font-bold">

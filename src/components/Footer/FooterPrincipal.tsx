@@ -9,6 +9,7 @@ import {
   transition,
   varianteFooterPrincipal,
 } from "../../VariantesFramerMotion";
+import LazyLoadImage from "../Generales/LazyLoadImage";
 
 const FooterPrincipal = () => {
   return (
@@ -19,9 +20,11 @@ const FooterPrincipal = () => {
         variants={varianteFooterPrincipal}
         viewport={{ amount: 0.7, once: true }}
         transition={transition}
-        className="imagen-footer absolute top-10  h-[25vw] max-h-[250px] left-1 hidden lg:block"
+        className="imagen-footer absolute top-10  h-[25vw] max-h-[250px] left-1 hidden lg:block w-[300px]"
       >
-        <img src={imagenFooter} alt="imagen footer odyssey" />
+        <LazyLoadImage customClases="bg-transparent">
+          <img src={imagenFooter} alt="imagen footer odyssey" />
+        </LazyLoadImage>
       </motion.div>
       <motion.div
         initial="initialRight"
@@ -29,9 +32,11 @@ const FooterPrincipal = () => {
         variants={varianteFooterPrincipal}
         viewport={{ amount: 0.7, once: true }}
         transition={transition}
-        className="imagen-footer absolute top-10  h-[25vw] max-h-[250px] right-1 hidden lg:block"
+        className="imagen-footer absolute top-10  h-[25vw] max-h-[250px] right-1 hidden lg:block w-[300px]"
       >
-        <img src={imagenFooter2} alt="imagen footer odyssey" />
+        <LazyLoadImage customClases="bg-transparent">
+          <img src={imagenFooter2} alt="imagen footer odyssey" />
+        </LazyLoadImage>
       </motion.div>
       <div className="logo flex flex-col gap-1 md:gap-2">
         <IconoHeader
@@ -67,18 +72,22 @@ const FooterPrincipal = () => {
         <div className="app flex flex-col items-center gap-2 md:flex-row">
           <p className="capitalize font-bold text-lg">descarga la app</p>
           <div className="w-[120px] h-[40px] md:w-[100px] md:h-[30px]">
-            <img
-              src={downloadIos}
-              className="object-contain"
-              alt="imagen boton descarga ios"
-            />
+            <LazyLoadImage>
+              <img
+                src={downloadIos}
+                className="object-contain"
+                alt="imagen boton descarga ios"
+              />
+            </LazyLoadImage>
           </div>
           <div className="w-[120px] h-[40px] md:w-[100px] md:h-[30px]">
-            <img
-              src={downloadGoogle}
-              className="object-contain"
-              alt="imagen boton descarga android"
-            />
+            <LazyLoadImage>
+              <img
+                src={downloadGoogle}
+                className="object-contain"
+                alt="imagen boton descarga android"
+              />
+            </LazyLoadImage>
           </div>
         </div>
       </div>

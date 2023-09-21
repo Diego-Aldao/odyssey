@@ -1,4 +1,5 @@
 import { Generic } from "../../../../../types";
+import LazyLoadImage from "../../../../Generales/LazyLoadImage";
 type Props = {
   imagen: string;
   sinopsis: string;
@@ -21,7 +22,9 @@ const MainInfo: React.FC<Props> = ({
   return (
     <div className="main-info md:flex w-full gap-2 h-full">
       <div className="main-info-img max-w-[210px] mx-auto xs:mx-0 md:w-1/2 rounded-lg overflow-hidden border-2 border-main-black  max-h-[305px] h-full">
-        <img src={imagen} alt={`imagen de portada del anime ${titulo}`} />
+        <LazyLoadImage>
+          <img src={imagen} alt={`imagen de portada del anime ${titulo}`} />
+        </LazyLoadImage>
       </div>
       <div className="main-info-data hidden md:flex md:w-1/2 flex-col gap-4 justify-start">
         <p className="line-clamp-[5] text-sm">{sinopsis}</p>
