@@ -54,7 +54,7 @@ export const varianteMainTitulo = {
   initialContenedor: { opacity: 0 },
   whileInViewContenedor: { opacity: 1 },
   initialTitulo: { y: 50, opacity: 0 },
-  whileInViewTitulo: { y: 0, opacity: 1 },
+  animateTitulo: { y: 0, opacity: 1 },
   initialButton: { x: -50, opacity: 0 },
   whileInViewButton: { x: 0, opacity: 1 },
   initialButtonText: { opacity: 0, y: 50, x: -50 },

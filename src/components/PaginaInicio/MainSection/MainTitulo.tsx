@@ -16,8 +16,7 @@ const MainTitulo = () => {
           <motion.span
             variants={varianteMainTitulo}
             initial="initialTitulo"
-            whileInView="whileInViewTitulo"
-            viewport={{ once: true }}
+            animate="animateTitulo"
             transition={{
               delay: 0.2,
               transition,
@@ -31,8 +30,7 @@ const MainTitulo = () => {
           <motion.span
             variants={varianteMainTitulo}
             initial="initialTitulo"
-            whileInView="whileInViewTitulo"
-            viewport={{ once: true }}
+            animate="animateTitulo"
             transition={{
               delay: 0.25,
               transition,
@@ -46,8 +44,7 @@ const MainTitulo = () => {
           <motion.span
             variants={varianteMainTitulo}
             initial="initialTitulo"
-            whileInView="whileInViewTitulo"
-            viewport={{ once: true }}
+            animate="animateTitulo"
             transition={{
               delay: 0.3,
               transition,
@@ -61,7 +58,7 @@ const MainTitulo = () => {
       <motion.p
         variants={varianteMainTitulo}
         initial="initialTitulo"
-        whileInView="whileInViewTitulo"
+        whileInView="animateTitulo"
         viewport={{ once: true }}
         transition={transition}
         className="text-center xs:text-left text-sm italic font-semibold md:text-left md:text-base lg:text-xl flex flex-col text-main-black"
