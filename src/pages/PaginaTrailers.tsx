@@ -11,6 +11,7 @@ import ImagenHeaderTrailers from "../components/PaginaTrailers/ImagenHeaderTrail
 import CardVideo from "../components/PaginaInicio/SubSections/SectionCards/SectionCard/CardVideo";
 import TituloHeaderMotion from "../components/FramerMotion/TituloHeaderMotion";
 import Loading from "../components/Generales/Loading";
+import useTitle from "../hooks/useTitle";
 
 const PaginaTrailers = () => {
   const { filtro } = useParams();
@@ -21,6 +22,12 @@ const PaginaTrailers = () => {
   const [btnVisible, setBtnVisible] = useState<boolean>(true);
 
   const { respuestaApi, loading } = useFetch<ApiResponseTrailers>(currentUrl);
+
+  const { fijarTitulo } = useTitle();
+
+  useEffect(() => {
+    fijarTitulo(`Trailers ${filtro || "Recientes"} -`);
+  }, [filtro]);
 
   useEffect(() => {
     window.scrollTo(0, 0);

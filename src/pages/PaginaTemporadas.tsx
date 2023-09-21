@@ -19,6 +19,7 @@ import ImagenHeaderTemporada from "../components/PaginaTemporadas/ImagenHeaderTe
 import TituloHeaderMotion from "../components/FramerMotion/TituloHeaderMotion";
 import { AnimatePresence } from "framer-motion";
 import Loading from "../components/Generales/Loading";
+import useTitle from "../hooks/useTitle";
 
 const PaginaTemporadas = () => {
   const [currentFiltro, setCurrentFiltro] = useState<string>();
@@ -29,10 +30,20 @@ const PaginaTemporadas = () => {
     `${BASE_URL_SEASONS}${anio ? `/${anio}` : ""}${season ? `/${season}` : ""}`
   );
   const { respuestaApi, loading } = useFetch<ApiResponseTemporada>(currentUrl);
+  const { fijarTitulo } = useTitle();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    if (!anio) return;
+    fijarTitulo(
+      `Temporada ${anio === "now" ? "Actual" : anio} ${
+        season ? `/ ${season}` : ""
+      }`
+    );
+  }, [anio, season]);
 
   useEffect(() => {
     if (btnVisible || !respuestaApi) return;

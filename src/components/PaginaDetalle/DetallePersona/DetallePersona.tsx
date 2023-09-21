@@ -12,12 +12,21 @@ import SectionPictures from "../SectionPictures";
 import AsideDetalle from "../AsideDetalle";
 import MainSectionDetalle from "../MainSectionDetalle";
 import Loading from "../../Generales/Loading";
+import useTitle from "../../../hooks/useTitle";
+import { useEffect } from "react";
 
 const DetallePersona = () => {
   const { id } = useParams();
   const { respuestaApi, loading } = useFetch<ApiResponsePersona>(
     `${BASE_URL_DETAILS_PEOPLE}/${id || ""}/full`
   );
+  const { fijarTitulo } = useTitle();
+
+  useEffect(() => {
+    if (!respuestaApi) return;
+    fijarTitulo(`${respuestaApi.data.name} -`);
+  }, [respuestaApi]);
+
   return (
     <>
       {loading || !respuestaApi ? (

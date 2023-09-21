@@ -18,6 +18,7 @@ import MainSectionDetalle from "../MainSectionDetalle";
 import HeaderAnime from "./Header/HeaderAnime";
 import AsideAnime from "./Aside/AsideAnime";
 import FiltroSecciones from "./FiltroSecciones";
+import useTitle from "../../../hooks/useTitle";
 
 const DetalleAnime = () => {
   const { id, seccion } = useParams();
@@ -27,6 +28,7 @@ const DetalleAnime = () => {
   const { respuestaApi, loading } = useFetch<ApiResponseDetalle>(
     `${BASE_URL_DETAILS}/anime/${id || "54842"}/full`
   );
+  const { fijarTitulo } = useTitle();
 
   useEffect(() => {
     if (seccion === "trailer") setModalVisibility(true);
@@ -35,6 +37,8 @@ const DetalleAnime = () => {
 
   useEffect(() => {
     if (!respuestaApi) return;
+
+    fijarTitulo(`${respuestaApi.data.title} -`);
 
     const currentTituloEsp = respuestaApi.data.titles.filter(
       (title) => title.type === "Spanish"
@@ -192,11 +196,17 @@ const DetalleAnime = () => {
                 }
               />
 
-              <SubSectionDetalle titulo="sinopsis">
+              <SubSectionDetalle
+                titulo="sinopsis"
+                visibleContent={visibleContent}
+              >
                 <p className="mb-10">{respuestaApi.data.synopsis}</p>
               </SubSectionDetalle>
               {respuestaApi.data.background && (
-                <SubSectionDetalle titulo="background">
+                <SubSectionDetalle
+                  titulo="background"
+                  visibleContent={visibleContent}
+                >
                   <p className="mb-10">{respuestaApi.data.background}</p>
                 </SubSectionDetalle>
               )}

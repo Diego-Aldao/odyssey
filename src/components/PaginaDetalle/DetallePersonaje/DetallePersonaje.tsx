@@ -11,6 +11,8 @@ import SectionPictures from "../SectionPictures";
 import AsideDetalle from "../AsideDetalle";
 import MainSectionDetalle from "../MainSectionDetalle";
 import Loading from "../../Generales/Loading";
+import useTitle from "../../../hooks/useTitle";
+import { useEffect } from "react";
 
 const DetallePersonaje = () => {
   const { id } = useParams();
@@ -18,6 +20,12 @@ const DetallePersonaje = () => {
   const { respuestaApi, loading } = useFetch<ApiResponsePersonaje>(
     `${BASE_URL_DETAILS_CHARACTER}/${id || ""}/full`
   );
+  const { fijarTitulo } = useTitle();
+
+  useEffect(() => {
+    if (!respuestaApi) return;
+    fijarTitulo(`${respuestaApi.data.name} -`);
+  }, [respuestaApi]);
 
   return (
     <>

@@ -12,6 +12,7 @@ import CardEpisodio from "../components/PaginaInicio/SubSections/SectionCards/Ca
 import TituloHeaderMotion from "../components/FramerMotion/TituloHeaderMotion";
 import Loading from "../components/Generales/Loading";
 import { AnimatePresence } from "framer-motion";
+import useTitle from "../hooks/useTitle";
 
 const PaginaEpisodios = () => {
   const { filtro } = useParams();
@@ -21,6 +22,12 @@ const PaginaEpisodios = () => {
   );
   const [btnVisible, setBtnVisible] = useState<boolean>(true);
   const { respuestaApi, loading } = useFetch<ApiResponseEpisodios>(currentUrl);
+
+  const { fijarTitulo } = useTitle();
+
+  useEffect(() => {
+    fijarTitulo(`Episodios ${filtro || "Recientes"} -`);
+  }, [filtro]);
 
   useEffect(() => {
     window.scrollTo(0, 0);

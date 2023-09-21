@@ -13,10 +13,14 @@ import SectionTrailersPopulares from "../components/PaginaInicio/SubSections/Tra
 import MainImagen from "../components/PaginaInicio/MainSection/MainImagen";
 import { motion, AnimatePresence } from "framer-motion";
 import { transition, variantesMainPage } from "../VariantesFramerMotion";
+import useTitle from "../hooks/useTitle";
 
 const PaginaInicio = () => {
+  const { fijarTitulo } = useTitle();
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    fijarTitulo("");
   }, []);
 
   return (

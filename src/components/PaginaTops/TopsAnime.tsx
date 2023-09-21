@@ -8,18 +8,25 @@ import Filtros from "../PaginasSecundarias/Filtros";
 import MainInfoAnime from "../PaginaInicio/SubSections/SectionCards/CardTable/MainInfoAnime";
 import Loading from "../Generales/Loading";
 import { AnimatePresence } from "framer-motion";
+import useTitle from "../../hooks/useTitle";
 
 const TopsAnime = () => {
   const baseUrlAnime = `${BASE_URL_TOPS}/anime`;
   const [currentUrl, setCurrentUrl] = useState<string>(baseUrlAnime);
   const { respuestaApi, loading } = useFetch<ApiResponseMain>(currentUrl);
   const [currentFiltro, setCurrentFiltro] = useState<string>();
+  const { fijarTitulo } = useTitle();
 
   useEffect(() => {
     setCurrentUrl(
       `${baseUrlAnime}${currentFiltro ? `?type=${currentFiltro}` : ""}`
     );
   }, [currentFiltro]);
+
+  useEffect(() => {
+    fijarTitulo(`Top Animes -`);
+  }, []);
+
   return (
     <>
       <Filtros

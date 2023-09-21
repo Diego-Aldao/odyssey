@@ -7,12 +7,19 @@ import ResultadosPersonas from "../components/PaginaBusqueda/ResultadosPersonas"
 import { useState, useEffect } from "react";
 import FiltrosBusqueda from "../components/PaginaBusqueda/FiltrosBusqueda";
 import BarraBusqueda from "../components/Generales/BarraBusqueda";
+import useTitle from "../hooks/useTitle";
 
-const PaginaBusqusqueda = () => {
+const PaginaBusqueda = () => {
   const { query, tipo } = useParams();
   const [currentContent, setCurrentContent] = useState<string | undefined>(
     tipo
   );
+  const { fijarTitulo } = useTitle();
+
+  useEffect(() => {
+    if (!query) return;
+    fijarTitulo(`Resultados de ${query} -`);
+  }, [query]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -47,4 +54,4 @@ const PaginaBusqusqueda = () => {
   );
 };
 
-export default PaginaBusqusqueda;
+export default PaginaBusqueda;

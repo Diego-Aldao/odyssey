@@ -7,11 +7,19 @@ import Grids from "../PaginasSecundarias/Grids";
 import MainInfoPersonaje from "../PaginaInicio/SubSections/SectionCards/CardTable/MainInfoPersonaje";
 import { AnimatePresence } from "framer-motion";
 import Loading from "../Generales/Loading";
+import useTitle from "../../hooks/useTitle";
+import { useEffect } from "react";
 
 const TopsPersonajes = () => {
   const { respuestaApi, loading } = useFetch<ApiResponseTopPersonaje>(
     `${BASE_URL_TOPS}/characters`
   );
+  const { fijarTitulo } = useTitle();
+
+  useEffect(() => {
+    fijarTitulo(`Top Personajes -`);
+  }, []);
+
   return (
     <AnimatePresence>
       {loading || !respuestaApi ? (

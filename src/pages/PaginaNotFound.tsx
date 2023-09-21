@@ -1,8 +1,16 @@
 import { Link } from "react-router-dom";
 import MainLayout from "../layout/MainLayout";
 import { Icon } from "@iconify/react";
+import useTitle from "../hooks/useTitle";
+import { useEffect } from "react";
 
 const PaginaNotFound = () => {
+  const { fijarTitulo } = useTitle();
+
+  useEffect(() => {
+    fijarTitulo("Pagina No Encontrada");
+  }, []);
+
   return (
     <MainLayout>
       <main
