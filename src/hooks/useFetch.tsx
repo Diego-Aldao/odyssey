@@ -31,7 +31,7 @@ const useFetch = <T,>(url: string) => {
 
     setTimeout(() => {
       void fetchData(url);
-    }, 3000);
+    }, 1000);
   }, [error]);
 
   return { respuestaApi, loading };
