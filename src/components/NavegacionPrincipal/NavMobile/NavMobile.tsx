@@ -1,7 +1,6 @@
 import { Icon } from "@iconify/react";
 import IconoHeader from "../../Layout/IconoHeader";
 import { useNavigate } from "react-router-dom";
-import imagenNav from "../../../assets/imgNavMobile.png";
 import { motion } from "framer-motion";
 import { transition, varianteNavMobile } from "../../../VariantesFramerMotion";
 import BarraBusqueda from "../../Generales/BarraBusqueda";
@@ -32,7 +31,7 @@ const listadoNav = [
   {
     id: 5,
     nombre: "trailers",
-    destino: "/tops",
+    destino: "/trailers",
   },
 ];
 
@@ -84,10 +83,7 @@ const NavMobile = ({ handleVisibility, setNavVisibility }: Props) => {
             </motion.span>
           </motion.div>
         </header>
-        <div className="contenido relative flex flex-col items-center gap-10 py-10 px-4 bg-main-black h-[calc(100%_-_112px)]">
-          <div className="absolute bottom-0 -right-0 h-[45vw] max-h-[300px] overflow-hidden">
-            <img src={imagenNav} alt="" />
-          </div>
+        <div className="contenido flex flex-col items-center gap-10 py-10 px-4 bg-main-black h-[calc(100%_-_112px)]">
           <BarraBusqueda />
           <ul className="w-full flex flex-col gap-10 items-start">
             {listadoNav.map(({ id, destino, nombre }) => (
