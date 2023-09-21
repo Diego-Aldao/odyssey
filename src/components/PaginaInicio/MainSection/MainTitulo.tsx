@@ -8,6 +8,7 @@ const MainTitulo = () => {
       variants={varianteMainTitulo}
       initial="initialContenedor"
       whileInView="whileInViewContenedor"
+      viewport={{ once: true }}
       className="flex flex-col w-full gap-4 xl:gap-6 xs:col-span-1 xs:min-h-[320px] md:col-span-2 md:mx-0 max-w-[500px] mx-auto md:max-w-[650px] z-[2] relative md:col-start-1"
     >
       <h1 className="main_titulo">
@@ -16,6 +17,7 @@ const MainTitulo = () => {
             variants={varianteMainTitulo}
             initial="initialTitulo"
             whileInView="whileInViewTitulo"
+            viewport={{ once: true }}
             transition={{
               delay: 0.2,
               transition,
@@ -30,6 +32,7 @@ const MainTitulo = () => {
             variants={varianteMainTitulo}
             initial="initialTitulo"
             whileInView="whileInViewTitulo"
+            viewport={{ once: true }}
             transition={{
               delay: 0.25,
               transition,
@@ -44,6 +47,7 @@ const MainTitulo = () => {
             variants={varianteMainTitulo}
             initial="initialTitulo"
             whileInView="whileInViewTitulo"
+            viewport={{ once: true }}
             transition={{
               delay: 0.3,
               transition,
@@ -58,6 +62,7 @@ const MainTitulo = () => {
         variants={varianteMainTitulo}
         initial="initialTitulo"
         whileInView="whileInViewTitulo"
+        viewport={{ once: true }}
         transition={transition}
         className="text-center xs:text-left text-sm italic font-semibold md:text-left md:text-base lg:text-xl flex flex-col text-main-black"
       >
@@ -68,6 +73,7 @@ const MainTitulo = () => {
         variants={varianteMainTitulo}
         initial="initialButton"
         whileInView="whileInViewButton"
+        viewport={{ once: true }}
         transition={{ transition, delay: 0 }}
         className="hidden xs:flex items-center justify-center item-skew-izquierda relative bg-main-black text-main-color-background w-fit -left-4 px-10 pl-4 capitalize py-1 text-lg md:-left-6 md:pl-6 md:text-xl xl:text-2xl md:py-2 md:px-16 lg:-left-10 lg:pl-10 lg:px-20"
       >
@@ -76,6 +82,7 @@ const MainTitulo = () => {
             className="relative block"
             initial="initialButtonText"
             whileInView="whileInViewButtonText"
+            viewport={{ once: true }}
             variants={varianteMainTitulo}
             transition={transition}
           >
