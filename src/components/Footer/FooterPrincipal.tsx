@@ -2,57 +2,53 @@ import { Icon } from "@iconify/react";
 import IconoHeader from "../Layout/IconoHeader";
 import downloadIos from "../../assets/iOS.png";
 import downloadGoogle from "../../assets/googleplay.png";
-import imagenFooter from "../../assets/ImagenFooterPrincipal.png";
-import topAnimes from "../../mocks/AnimeTopAllTime.json";
-import topAnimesAhora from "../../mocks/AnimeTopEnEmision.json";
-import topPersonajes from "../../mocks/PersonajeTop.json";
+import imagenFooter from "../../assets/mainFooterLeft.png";
+import imagenFooter2 from "../../assets/mainFooterRight.png";
+import { motion } from "framer-motion";
+import {
+  transition,
+  varianteFooterPrincipal,
+} from "../../VariantesFramerMotion";
 
 const FooterPrincipal = () => {
   return (
-    <footer className="bg-main-color-background px-4 py-10 flex flex-col gap-5 rounded-b-xl footer-border relative">
-      <div className="imagen-footer absolute bottom-0 h-[800px] right-0 hidden lg:block">
-        <img src={imagenFooter} alt="" />
-      </div>
+    <footer className="footer_principal overflow-hidden bg-main-color-background px-4 pt-10 pb-2 flex flex-col gap-2 md:gap-4 rounded-b-xl footer-border relative items-center lg:pt-20 lg:gap-6">
+      <motion.div
+        initial="initialLeft"
+        whileInView="whileInViewLeft"
+        variants={varianteFooterPrincipal}
+        viewport={{ amount: 0.7, once: true }}
+        transition={transition}
+        className="imagen-footer absolute top-10  h-[25vw] max-h-[250px] left-1 hidden lg:block"
+      >
+        <img src={imagenFooter} alt="imagen footer odyssey" />
+      </motion.div>
+      <motion.div
+        initial="initialRight"
+        whileInView="whileInViewRight"
+        variants={varianteFooterPrincipal}
+        viewport={{ amount: 0.7, once: true }}
+        transition={transition}
+        className="imagen-footer absolute top-10  h-[25vw] max-h-[250px] right-1 hidden lg:block"
+      >
+        <img src={imagenFooter2} alt="imagen footer odyssey" />
+      </motion.div>
       <div className="logo flex flex-col gap-1 md:gap-2">
         <IconoHeader
           clasesTexto={
-            "w-full text-4xl justify-center md:text-6xl xl:text-7xl gap-2"
+            "w-full text-4xl justify-center md:text-6xl lg:text-7xl gap-2"
           }
-          clasesIcono={"h-[36px] md:h-12 xl:h-14 mt-2 md:mt-4"}
+          clasesIcono={"h-[36px] md:h-12 lg:h-14 mt-2 md:mt-4"}
         />
-        <p className="text-center font-bold capitalize text-sm md:text-base">
+        <p className="text-center font-bold capitalize text-xs md:text-sm lg:text-base">
           comunidad anime
         </p>
       </div>
-      <div className="listas hidden md:flex items-center justify-center w-full gap-5 mx-auto z-10">
-        <ul className="flex flex-col gap-1 text-sm">
-          <li>
-            <p className="capitalize font-bold mb-1">top animes</p>
-          </li>
-          {topAnimes.data.slice(0, 5).map((anime) => (
-            <li key={anime.mal_id}>{anime.title}</li>
-          ))}
-        </ul>
-        <ul className="flex flex-col gap-1 text-sm">
-          <li>
-            <p className="capitalize font-bold mb-1">top animes en emision</p>
-          </li>
-          {topAnimesAhora.data.slice(0, 5).map((anime) => (
-            <li key={anime.mal_id}>{anime.title}</li>
-          ))}
-        </ul>
-        <ul className="flex flex-col gap-1 text-sm">
-          <li>
-            <p className="capitalize font-bold mb-1">top personajes</p>
-          </li>
-          {topPersonajes.data.slice(0, 5).map((personaje) => (
-            <li key={personaje.mal_id}>{personaje.name}</li>
-          ))}
-        </ul>
-      </div>
       <div className="interaccion flex flex-col gap-5  items-center md:flex-row md:justify-center md:gap-10 py-5 relative">
         <div className="redes flex flex-col items-center gap-2 md:flex-row">
-          <p className="capitalize font-bold text-lg">siguenos</p>
+          <p className="capitalize font-bold text-lg lg:text-main-color-background lg:drop-shadow-[0px_0px_5px_#000] xl:drop-shadow-none xl:text-main-black">
+            siguenos
+          </p>
           <ul className="flex gap-2 text-2xl md:text-3xl">
             <li>
               <Icon icon="mdi:instagram" />
@@ -71,13 +67,24 @@ const FooterPrincipal = () => {
         <div className="app flex flex-col items-center gap-2 md:flex-row">
           <p className="capitalize font-bold text-lg">descarga la app</p>
           <div className="w-[120px] h-[40px] md:w-[100px] md:h-[30px]">
-            <img src={downloadIos} className="object-contain" alt="" />
+            <img
+              src={downloadIos}
+              className="object-contain"
+              alt="imagen boton descarga ios"
+            />
           </div>
           <div className="w-[120px] h-[40px] md:w-[100px] md:h-[30px]">
-            <img src={downloadGoogle} className="object-contain" alt="" />
+            <img
+              src={downloadGoogle}
+              className="object-contain"
+              alt="imagen boton descarga android"
+            />
           </div>
         </div>
       </div>
+      <p className="capitalize text-sm font-bold">
+        odyssey: comunidad anime &copy; 2023
+      </p>
     </footer>
   );
 };
