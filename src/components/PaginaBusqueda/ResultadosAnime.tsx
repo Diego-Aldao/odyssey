@@ -17,11 +17,11 @@ const ResultadosAnime = ({ query }: Props) => {
 
   return (
     <AnimatePresence>
-      {loading || !respuestaApi ? (
+      {loading ? (
         <Loading key={"loading"} />
       ) : (
         <>
-          {respuestaApi.data.length >= 1 ? (
+          {respuestaApi && respuestaApi.data.length >= 1 ? (
             <motion.div
               initial="initial"
               animate="animate"
@@ -36,6 +36,7 @@ const ResultadosAnime = ({ query }: Props) => {
                   imagen={anime.images.webp.image_url}
                   id={anime.mal_id}
                   tipo="anime"
+                  key={anime.mal_id}
                 >
                   <>
                     <p className="text-xs font-semibold">{anime.type}</p>

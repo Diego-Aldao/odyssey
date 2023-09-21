@@ -14,26 +14,24 @@ const PersonajesTop = () => {
   );
 
   return (
-    <LazyLoad
-      offset={300}
-      className="min-h-[480px] bg-main-color-background rounded-xl"
-    >
+    <LazyLoad offset={300} className="min-h-[300px] bg-main-color-background">
       <SubSectionContent subtitulo="top personajes" destino="tops/personajes">
-        {loading || !respuestaApi ? (
+        {loading && !respuestaApi ? (
           <Loading customClases="max-h-[400px] mt-0" />
         ) : (
           <SubSectionSwiper>
             <>
-              {respuestaApi.data.map((item) => (
-                <SwiperSlide key={item.mal_id}>
-                  <SectionCard
-                    id={item.mal_id}
-                    titulo={item.name}
-                    imagenUrl={item.images.webp.image_url}
-                    tipo="personaje"
-                  />
-                </SwiperSlide>
-              ))}
+              {respuestaApi &&
+                respuestaApi.data.map((item) => (
+                  <SwiperSlide key={item.mal_id}>
+                    <SectionCard
+                      id={item.mal_id}
+                      titulo={item.name}
+                      imagenUrl={item.images.webp.image_url}
+                      tipo="personaje"
+                    />
+                  </SwiperSlide>
+                ))}
             </>
           </SubSectionSwiper>
         )}

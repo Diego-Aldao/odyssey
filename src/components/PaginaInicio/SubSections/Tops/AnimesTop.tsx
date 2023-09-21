@@ -14,26 +14,24 @@ const AnimesTopEmision = () => {
   );
 
   return (
-    <LazyLoad
-      offset={500}
-      className="min-h-[480px] bg-main-color-background rounded-xl"
-    >
+    <LazyLoad offset={500} className="min-h-[300px]">
       <SubSectionContent subtitulo="top en emision" destino="tops/anime">
-        {loading || !respuestaApi ? (
+        {loading ? (
           <Loading customClases="loading_height_subSection" />
         ) : (
           <SubSectionSwiper>
             <>
-              {respuestaApi.data.map((item) => (
-                <SwiperSlide key={item.mal_id}>
-                  <SectionCard
-                    id={item.mal_id}
-                    titulo={item.title}
-                    imagenUrl={item.images.webp.image_url}
-                    tipo="anime"
-                  />
-                </SwiperSlide>
-              ))}
+              {respuestaApi &&
+                respuestaApi.data.map((item) => (
+                  <SwiperSlide key={item.mal_id}>
+                    <SectionCard
+                      id={item.mal_id}
+                      titulo={item.title}
+                      imagenUrl={item.images.webp.image_url}
+                      tipo="anime"
+                    />
+                  </SwiperSlide>
+                ))}
             </>
           </SubSectionSwiper>
         )}
