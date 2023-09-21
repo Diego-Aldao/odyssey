@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import imagenLoading from "../../assets/ImagenLoading.png";
 import { transition } from "../../VariantesFramerMotion";
-import LazyLoad from "react-lazy-load";
 import LazyLoadImage from "./LazyLoadImage";
 
 const variants = {
