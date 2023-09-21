@@ -145,3 +145,5 @@ export const BASE_URL_ANIME = "https://api.jikan.moe/v4/anime";
 export const BASE_URL_CHARACTER = "https://api.jikan.moe/v4/characters";
 
 export const BASE_URL_PEOPLE = "https://api.jikan.moe/v4/people";
+
+export const BASE_TITLE = "Oddysey: Comunidad Anime";
