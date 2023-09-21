@@ -11,8 +11,8 @@ import TopsAnime from "./components/PaginaTops/TopsAnime";
 import DetallePersona from "./components/PaginaDetalle/DetallePersona/DetallePersona";
 import DetalleAnime from "./components/PaginaDetalle/DetalleAnime/DetalleAnime";
 import DetallePersonaje from "./components/PaginaDetalle/DetallePersonaje/DetallePersonaje";
-import PaginaBusqusqueda from "./pages/PaginaBusqusqueda";
 import PaginaNotFound from "./pages/PaginaNotFound";
+import PaginaBusqueda from "./pages/PaginaBusqueda";
 
 const router = createBrowserRouter([
   {
@@ -73,7 +73,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/busqueda/:query/:tipo?",
-    element: <PaginaBusqusqueda />,
+    element: <PaginaBusqueda />,
   },
 ]);
 
