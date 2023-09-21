@@ -9,7 +9,7 @@ import ListadoSinResultados from "./ListadoSinResultados";
 import MotionUnorderedList from "../../FramerMotion/MotionUnorderedList";
 
 type Props = {
-  visibleContent?: string;
+  visibleContent: string;
   id?: string;
 };
 

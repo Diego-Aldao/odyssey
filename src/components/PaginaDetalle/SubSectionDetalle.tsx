@@ -6,7 +6,7 @@ import {
 type Props = {
   children: JSX.Element;
   titulo: string;
-  visibleContent?: string;
+  visibleContent: string;
 };
 const SubSectionDetalle: React.FC<Props> = ({
   titulo,

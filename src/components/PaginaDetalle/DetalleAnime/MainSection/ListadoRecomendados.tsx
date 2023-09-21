@@ -13,7 +13,7 @@ import MotionUnorderedList from "../../FramerMotion/MotionUnorderedList";
 import { Link } from "react-router-dom";
 
 type Props = {
-  visibleContent?: string;
+  visibleContent: string;
   id?: string;
 };
 
