@@ -23,7 +23,6 @@ const SubSectionSwiper = ({ children, noBackground }: Props) => {
         slidesPerView={noBackground ? 1 : 2}
         modules={[FreeMode]}
         freeMode={true}
-        lazyPreloadPrevNext={1}
         breakpoints={{
           580: {
             slidesPerView: noBackground ? 2 : 3.2,
