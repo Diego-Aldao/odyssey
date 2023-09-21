@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react";
-import NavDesktop from "./NavDesktop";
-import NavMobile from "./NavMobile";
+import NavDesktop from "./NavDesktop/NavDesktop";
+import NavMobile from "./NavMobile/NavMobile";
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 
@@ -34,7 +34,6 @@ const NavegacionPrincipal = () => {
         {navVisibility && (
           <NavMobile
             handleVisibility={handleVisibility}
-            navVisibility={navVisibility}
             setNavVisibility={setNavVisibility}
           />
         )}
