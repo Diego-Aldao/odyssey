@@ -23,7 +23,7 @@ const SubSectionContent: React.FC<Props> = ({
   return (
     <div
       className={`${
-        noBackground ? "bg-main-black" : ""
+        noBackground ? "bg-main-black" : "bg-main-color-background"
       } px-4 md:px-6 lg:px-10 py-10 flex flex-col gap-10 overflow-hidden`}
     >
       {destino && (

@@ -14,7 +14,7 @@ const AsideDetalle: React.FC<Props> = ({
   children,
 }) => {
   return (
-    <aside className="hidden md:flex flex-col gap-10 z-20 relative col-start-1 w-full lg:mt-10">
+    <aside className="hidden md:flex flex-col gap-10 z-[1] relative col-start-1 w-full md:mt-10">
       <motion.div
         variants={variantesAside}
         initial="initialContenedor"

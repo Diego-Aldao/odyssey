@@ -27,7 +27,7 @@ const FiltroSecciones = ({
   };
 
   return (
-    <ul className="hidden lg:flex col-span-4 row-start-1 col-start-1 z-20 bg-main-black text-main-color-background items-center justify-center gap-3 xl:gap-5 w-fit mx-auto px-5 py-3 item-skew-x relative">
+    <ul className="hidden md:flex col-span-4 row-start-1 col-start-1 z-[1] bg-main-black text-main-color-background items-center justify-center gap-3 xl:gap-5 w-fit mx-auto px-5 py-2 pt-3 item-skew-x relative">
       {listaFiltros.map((filtro) => (
         <motion.li
           variants={variantesNavegaciones}
@@ -44,7 +44,7 @@ const FiltroSecciones = ({
           onClick={() => {
             handleClick(filtro);
           }}
-          className="capitalize cursor-pointer"
+          className="capitalize cursor-pointer text-xs lg:text-sm flex flex-col gap-1"
         >
           {filtro}
           <div className="animacion  w-full h-[2px] flex gap-1 lg:gap-2">
