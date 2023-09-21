@@ -7,6 +7,10 @@
 
 /*GENERALES*/
 
+* {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     background: #23210f;
@@ -82,12 +86,11 @@ img {
 }
 
 .main_section {
-    @apply grid gap-10 xs:gap-0 bg-main-color-background w-full rounded-b-2xl px-4 md:px-6 lg:px-10 py-8 lg:py-10 md:pt-14 lg:pt-20 xs:grid xs:grid-cols-[300px,_1fr,_1fr] relative md:grid-rows-[1fr,100px,200px] lg:grid-rows-[1fr,80px,200px] xl:grid-rows-[1fr,140px,200px] overflow-x-hidden
+    @apply grid gap-5 xs:gap-0 bg-main-color-background w-full rounded-b-2xl px-4 md:px-6 lg:px-10 py-8 lg:py-10 md:pt-14 lg:pt-20 xs:grid xs:grid-cols-[1fr,1fr] lg:grid-cols-[1fr,_1fr,_1fr] xs:grid-rows-[1fr,_170px] relative md:gap-y-20 lg:gap-y-10 lg:gap-x-5 lg:grid-rows-[1fr,_350px] overflow-x-hidden
 }
 
 .main_titulo{
-    @apply font-chivo text-[42px] text-4xl uppercase md:text-[80px] lg:text-8xl -tracking-[1px] lg:-tracking-[5px] xl:text-[112px] xl:-tracking-[10px] xl:leading-[0.85]  xs:text-5xl  text-left md:text-left
-    md:text-main-color-background md:drop-shadow-[0px_0px_8px_#000000] max-w-[420px] xs:max-w-[300px] md:max-w-[600px] md:[text-shadow:_5px_5px_#23210f]
+    @apply font-chivo text-5xl uppercase md:text-[80px] lg:text-8xl -tracking-[1px] lg:-tracking-[5px] xl:text-[112px] xl:-tracking-[10px] xl:leading-[0.85]  xs:text-5xl  md:text-left md:text-main-color-background md:drop-shadow-[0px_0px_8px_#000000] md:[text-shadow:_5px_5px_#23210f] flex flex-wrap justify-center gap-x-2 xs:block
 }
 .main_button_random{
     @apply rounded-full xs:justify-self-start md:justify-self-center xl:justify-self-end flex items-center justify-center xs:row-start-2 md:col-start-1 md:row-span-2 relative
@@ -98,7 +101,7 @@ img {
 }
 
 .main_info_app{
-    @apply w-full bg-main-white border-2 border-main-black rounded-[20px] p-4 flex justify-between gap-3  xs:w-[calc(100%_-_180px)] xs:max-w-[450px] xs:absolute xs:bottom-[32px] xs:right-[16px] md:relative md:bottom-0 md:right-0 md:w-full  flex-wrap md:max-w-[600px] relative mx-auto md:row-start-3  md:col-span-2 md:col-start-2 max-h-[180px] lg:mr-0 lg:mt-auto
+    @apply w-full bg-main-white border-2 border-main-black rounded-[20px] p-4 flex justify-between gap-3  xs:w-full xs:max-w-[450px] xs:col-span-3 md:col-span-2 flex-wrap md:max-w-[600px] relative mx-auto md:mr-0  max-h-[180px] self-end
 }
 
 .main_info_app_corner{
@@ -106,12 +109,13 @@ img {
 }
 
 .sub_section{
-    @apply w-full mt-20 rounded-xl overflow-hidden bg-main-color-background
+    @apply w-full mt-10 md:mt-20 rounded-xl overflow-hidden min-h-[350px]
 }
 
 .sub_header_interaction{
-    @apply relative bg-main-black text-main-color-background px-4 md:px-6 lg:px-10 h-full items-center justify-center capitalize item-skew-x after:hidden before:-left-[17px] before:md:-left-[25px] rounded-bl-[5px] z-[1] text-sm sm:text-base lg:text-lg
+    @apply relative bg-main-black text-main-color-background px-4 md:px-6 lg:px-10 h-full items-center justify-center capitalize item-skew-x after:hidden before:-left-[17px] before:md:-left-[25px] rounded-bl-[5px] z-[1] text-sm sm:text-base lg:text-lg flex
 }
+
 
 /*MAIN SECTION*/
 
@@ -168,13 +172,13 @@ img {
 .section_card:after{
     content: "";
     position: absolute;
-    left: 10px;
-    top: -6px;
+    left: 8px;
+    top: -7px;
     width: 13px;
     height: 50px;
     background: #e6e4d5;
     transform: rotate(43deg);
-    border-right: 1.8px solid black;
+    border-right: 2px solid #23210f;
 }
 
 .section_card_episodios{
@@ -213,7 +217,7 @@ img {
     border-bottom-right-radius: 0px;
 }
 
-.main_section, .sub_section, .section_sub_paginas, .footer_principal{
+.main_section, .footer_principal{
     background-image: 
     url("./assets/PatronBackground.png");
     background-position: -15% center;
@@ -245,7 +249,7 @@ img {
 /*PAGINA DETALLE */
 
 .main_detalle{
-    @apply px-4 md:px-6 lg:px-10 relative bg-main-color-background  pb-10 md:grid md:grid-cols-3 lg:grid-cols-4 md:pt-10 lg:pt-0 gap-2 md:gap-7 lg:gap-10 border-4 border-main-color-background border-t-[10px] md:border-t-[20px]
+    @apply px-4 md:px-6 lg:px-10 relative bg-main-color-background  pb-10 md:grid md:grid-cols-3 lg:grid-cols-4 md:pt-10 md:pt-0 gap-x-2 md:gap-x-7 lg:gap-x-10 border-4 border-main-color-background border-t-[10px] md:border-t-[20px]
 }
 
 .subtitulo-detalle{
@@ -297,4 +301,10 @@ img {
     position: absolute;
     left: 0px;
     top: 0px;
+}
+
+/*LOADING*/
+
+.loading_height_subSection{
+    @apply max-h-[70vw] xs:max-h-[45vw] md:max-h-[35vw] lg:max-h-[25vw] xl:max-h-[300px]
 }
