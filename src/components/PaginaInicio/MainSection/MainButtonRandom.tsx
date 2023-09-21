@@ -31,7 +31,7 @@ const MainButtonRandom = () => {
         variants={varianteMainButtonRandom}
         viewport={{ once: true }}
         transition={transition}
-        className="border-b-2 border-r-2 -left-4 border-main-black font-bold italic capitalize pl-2 py-1 mt-5  xl:text-xl  rounded-br-lg item-skew-izquierda relative bg-main-color-background z-[1] after:bg-main-color-background after:border-main-black after:border-b-2 after:border-r-2 after:rounded-bl-none after:top-[0px] after:h-[34px] after:xl:h-[38px]"
+        className="border-b-2 border-r-2 -left-4 border-main-black font-bold italic capitalize pl-2 py-1 mt-5  xl:text-xl  rounded-br-lg item-skew-izquierda relative bg-main-color-background z-[1] after:bg-main-color-background after:border-main-black after:border-b-2 after:border-r-2 after:rounded-bl-none after:top-[0px] after:h-[34px] after:xl:h-[38px] cursor-pointer"
       >
         <motion.span
           initial="initial"
