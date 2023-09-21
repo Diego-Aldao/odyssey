@@ -160,3 +160,10 @@ export const varianteFooterPrincipal = {
   initialRight: { opacity: 0, x: 50 },
   whileInViewRight: { opacity: 1, x: 0 },
 };
+
+export const varianteMainButtonRandom = {
+  initial: { opacity: 0, y: 50 },
+  whileInView: { opacity: 1, y: 0 },
+  initialP: { opacity: 0, x: -50 },
+  whileInViewP: { opacity: 1, x: 0 },
+};
