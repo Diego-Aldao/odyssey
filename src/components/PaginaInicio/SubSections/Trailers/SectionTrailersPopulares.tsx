@@ -19,7 +19,7 @@ const SectionTrailersPopulares = ({ noBackground }: Props) => {
   );
 
   return (
-    <SubSection>
+    <SubSection noBackground={true}>
       <>
         <SubSectionHeader
           destino="trailers"
