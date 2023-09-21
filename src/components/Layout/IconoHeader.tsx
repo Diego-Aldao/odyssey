@@ -20,7 +20,8 @@ const IconoHeader: React.FC<Props> = ({ clasesTexto, clasesIcono }) => {
       >
         <span className="font-semibold">Odyssey</span>
         <motion.span
-          animate="animate"
+          whileInView="animate"
+          viewport={{ once: true, amount: 1 }}
           variants={variantesIconoHeader}
           transition={{ duration: 0.1, repeat: 2, transition }}
         >
