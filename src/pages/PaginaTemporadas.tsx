@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import MainLayout from "../layout/MainLayout";
 import SectionSubPaginas from "../components/PaginasSecundarias/SectionSubPaginas";
 import CardInfo from "../components/PaginaInicio/SubSections/SectionCards/CardInfo/CardInfo";
@@ -17,9 +17,8 @@ import { useParams } from "react-router-dom";
 import { ApiResponseTemporada, MainData } from "../types";
 import ImagenHeaderTemporada from "../components/PaginaTemporadas/ImagenHeaderTemporada";
 import TituloHeaderMotion from "../components/FramerMotion/TituloHeaderMotion";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import Loading from "../components/Generales/Loading";
-import { VarianteSections, transition } from "../VariantesFramerMotion";
 
 const PaginaTemporadas = () => {
   const [currentFiltro, setCurrentFiltro] = useState<string>();
@@ -30,6 +29,10 @@ const PaginaTemporadas = () => {
     `${BASE_URL_SEASONS}${anio ? `/${anio}` : ""}${season ? `/${season}` : ""}`
   );
   const { respuestaApi, loading } = useFetch<ApiResponseTemporada>(currentUrl);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     if (btnVisible || !respuestaApi) return;
@@ -91,15 +94,7 @@ const PaginaTemporadas = () => {
             <Grids tipoDeGrid="detalle" key={"grid"}>
               <>
                 {currentData?.map((item) => (
-                  <motion.div
-                    initial="initial"
-                    animate="animate"
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={transition}
-                    variants={VarianteSections}
-                    key={item.mal_id}
-                    className="w-full relative flex"
-                  >
+                  <React.Fragment key={item.mal_id}>
                     <CardInfo titulo={item.title} id={item.mal_id} tipo="anime">
                       <>
                         <SecondaryInfo
@@ -125,7 +120,7 @@ const PaginaTemporadas = () => {
                         />
                       </>
                     </CardInfo>
-                  </motion.div>
+                  </React.Fragment>
                 ))}
               </>
             </Grids>

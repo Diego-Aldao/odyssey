@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import MainLayout from "../layout/MainLayout";
 import MainTitulo from "../components/PaginaInicio/MainSection/MainTitulo";
 import MainButtonRandom from "../components/PaginaInicio/MainSection/MainButtonRandom";
@@ -14,6 +15,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { transition, variantesMainPage } from "../VariantesFramerMotion";
 
 const PaginaInicio = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <MainLayout>
       <>
@@ -32,7 +37,6 @@ const PaginaInicio = () => {
             <MainInfoApp />
           </motion.section>
         </AnimatePresence>
-
         <SectionEpisodiosRecientes />
         <SectionAnimeTemporada />
         <SectionTrailersPopulares noBackground={true} />

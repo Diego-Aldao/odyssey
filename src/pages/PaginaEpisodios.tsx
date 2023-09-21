@@ -23,6 +23,10 @@ const PaginaEpisodios = () => {
   const { respuestaApi, loading } = useFetch<ApiResponseEpisodios>(currentUrl);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     if (btnVisible || !respuestaApi) return;
     setCurrentData(respuestaApi.data.slice(0));
   }, [btnVisible]);

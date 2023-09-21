@@ -23,6 +23,10 @@ const PaginaTrailers = () => {
   const { respuestaApi, loading } = useFetch<ApiResponseTrailers>(currentUrl);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     if (btnVisible || !respuestaApi) return;
     setCurrentData(respuestaApi.data.slice(0));
   }, [btnVisible]);

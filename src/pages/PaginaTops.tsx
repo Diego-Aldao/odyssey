@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import SectionSubPaginas from "../components/PaginasSecundarias/SectionSubPaginas";
 import MainLayout from "../layout/MainLayout";
 import { useState } from "react";
@@ -8,7 +9,11 @@ import ImagenHeaderTops from "../components/PaginaTops/ImagenHeaderTops";
 import TituloHeaderMotion from "../components/FramerMotion/TituloHeaderMotion";
 
 const PaginaTops = () => {
-  const [btnVisible, setBtnVisible] = useState<boolean>(true);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const [btnVisible, setBtnVisible] = useState<boolean>(false);
 
   return (
     <MainLayout>
