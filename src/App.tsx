@@ -13,6 +13,7 @@ import DetalleAnime from "./components/PaginaDetalle/DetalleAnime/DetalleAnime";
 import DetallePersonaje from "./components/PaginaDetalle/DetallePersonaje/DetallePersonaje";
 import PaginaNotFound from "./pages/PaginaNotFound";
 import PaginaBusqueda from "./pages/PaginaBusqueda";
+import { DarkModeContextProvider } from "./context/DarkModeContext";
 
 const router = createBrowserRouter([
   {
@@ -79,8 +80,10 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <div className="bg-main-black w-full xs:border-4 rounded-xl max-w-[1300px] mx-auto border-main-color-background xs:p-3">
-      <RouterProvider router={router} />
+    <div className="bg-main-black w-full max-w-[1300px] rounded-md mx-auto p-1 md:p-2">
+      <DarkModeContextProvider>
+        <RouterProvider router={router} />
+      </DarkModeContextProvider>
     </div>
   );
 }
