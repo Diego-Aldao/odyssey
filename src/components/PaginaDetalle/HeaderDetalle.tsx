@@ -16,7 +16,7 @@ const HeaderDetalle = ({ titulo, children }: Props) => {
         initial="initial"
         animate="animate"
         transition={transition}
-        className="text-[42px] leading-10 uppercase font-bold font-chivo text-center md:text-left xs:text-5xl lg:text-6xl xl:text-7xl text-main-color-background drop-shadow-[0px_0px_8px_#000000]"
+        className="text-[42px] leading-10 uppercase font-bold font-chivo text-center md:text-left xs:text-5xl lg:text-6xl xl:text-7xl text-main-color-background-static drop-shadow-[0px_0px_8px_#000000]"
       >
         {titulo}
       </motion.h1>

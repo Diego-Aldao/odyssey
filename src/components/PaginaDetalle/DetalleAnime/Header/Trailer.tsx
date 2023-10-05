@@ -25,7 +25,7 @@ const Trailer = ({ handleClick, imagen }: Props) => {
             initial="initialBoton"
             animate="animateBoton"
             transition={transition}
-            className="text-left capitalize font-bold"
+            className="text-left capitalize font-medium text-main-black"
           >
             trailer
           </motion.p>

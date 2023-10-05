@@ -36,14 +36,14 @@ const HeaderAnime = ({
         <div className="flex gap-4 items-start justify-center md:justify-start mt-5">
           {score !== null && (
             <p className="text-xl hidden lg:flex flex-col gap-2 justify-start rounded-sm">
-              <span className="flex items-center gap-1 text-3xl drop-shadow-[0px_0px_3px_#000] text-main-color-background">
+              <span className="flex items-center gap-1 text-3xl drop-shadow-[0px_0px_3px_#000] text-main-color-background-static">
                 <Icon
                   icon="ph:star-bold"
                   className="h-[22px] w-[22px] drop-shadow-[0px_0px_10px_#000]"
                 />
                 {score}
               </span>
-              <span className="text-xs text-main-color-background drop-shadow-[0px_0px_3px_#000]">
+              <span className="text-xs text-main-color-background-static drop-shadow-[0px_0px_3px_#000]">
                 ({personasScore?.toLocaleString()})
               </span>
             </p>

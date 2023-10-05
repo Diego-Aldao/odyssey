@@ -28,7 +28,7 @@ const CardInfo: React.FC<Props> = ({ titulo, id, tipo, children }) => {
         className="w-full relative flex"
       >
         <article className="relative flex flex-col gap-2 xs:gap-3 md:rounded-none  bg-main-color-background w-full">
-          <h3 className=" flex-auto h-full w-full font-bold text-xs xs:text-sm md:text-base xl:text-lg flex items-center justify-center">
+          <h3 className="flex-auto h-full w-full font-bold text-xs xs:text-sm md:text-base xl:text-lg flex items-center justify-center text-main-black">
             <span className="line-clamp-2 text-center">{titulo}</span>
           </h3>
           {children}

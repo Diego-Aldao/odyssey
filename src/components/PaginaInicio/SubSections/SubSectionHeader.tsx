@@ -26,14 +26,14 @@ const SubSectionHeader: React.FC<Props> = ({
       className={`w-full h-14 lg:h-[70px] ${
         noBackground
           ? "bg-main-black text-main-color-background"
-          : "bg-main-color-background"
+          : "bg-main-color-background text-main-black"
       }  pl-4 md:pl-6 lg:pl-10 rounded-xl rounded-b-none flex items-center justify-between`}
     >
-      <h3 className="uppercase font-semibold font-chivo text-sm xs:text-lg sm:text-xl md:text-2xl lg:text-4xl flex gap-2 sm:gap-4 lg:gap-6 items-center">
+      <h3 className="uppercase font-semibold font-chivo text-sm xs:text-lg sm:text-xl md:text-2xl lg:text-4xl flex gap-2 sm:gap-4 lg:gap-6 items-center  rounded-t-2xl">
         {titulo}
         {nombreIcono && (
           <span className="">
-            <Icon icon={nombreIcono} className="h-[20px] xs:h-full " />
+            <Icon icon={nombreIcono} className="h-[20px] xs:h-full" />
           </span>
         )}
       </h3>
@@ -56,8 +56,10 @@ const SubSectionHeader: React.FC<Props> = ({
             transition={transition}
             viewport={{ once: true }}
           >
-            <span className="flex md:hidden">ver mas</span>
-            <span className="hidden md:flex">{nombreInteraccion}</span>
+            <span className="flex md:hidden font-medium">ver mas</span>
+            <span className="hidden md:flex font-medium">
+              {nombreInteraccion}
+            </span>
           </motion.p>
         </motion.div>
       </Link>

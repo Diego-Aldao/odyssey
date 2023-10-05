@@ -10,7 +10,7 @@ const PersonajeInfo = ({ info }: Props) => {
       titulo={"Informacion principal"}
       visibleContent="general"
     >
-      <p className="whitespace-pre-line">{info}</p>
+      <p className="whitespace-pre-line text-main-black">{info}</p>
     </SubSectionDetalle>
   );
 };

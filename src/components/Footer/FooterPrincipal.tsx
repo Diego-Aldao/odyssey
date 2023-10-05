@@ -43,18 +43,18 @@ const FooterPrincipal = () => {
           clasesTexto={
             "w-full text-4xl justify-center md:text-6xl lg:text-7xl gap-2"
           }
-          clasesIcono={"h-[36px] md:h-12 lg:h-14 mt-2 md:mt-4"}
+          clasesIcono={"h-[36px] md:h-12 lg:h-14 mt-2 md:mt-4 text-main-black"}
         />
-        <p className="text-center font-bold capitalize text-xs md:text-sm lg:text-base">
+        <p className="text-center text-main-black font-bold capitalize text-xs md:text-sm lg:text-base">
           comunidad anime
         </p>
       </div>
       <div className="interaccion flex flex-col gap-5  items-center md:flex-row md:justify-center md:gap-10 py-5 relative">
         <div className="redes flex flex-col items-center gap-2 md:flex-row">
-          <p className="capitalize font-bold text-lg lg:text-main-color-background lg:drop-shadow-[0px_0px_5px_#000] xl:drop-shadow-none xl:text-main-black">
+          <p className="capitalize font-bold text-lg text-main-black lg:text-main-color-background-static lg:drop-shadow-[0px_0px_5px_#000] xl:drop-shadow-none xl:text-main-black">
             siguenos
           </p>
-          <ul className="flex gap-2 text-2xl md:text-3xl">
+          <ul className="flex gap-2 text-2xl md:text-3xl text-main-black">
             <li>
               <Icon icon="mdi:instagram" />
             </li>
@@ -70,9 +70,11 @@ const FooterPrincipal = () => {
           </ul>
         </div>
         <div className="app flex flex-col items-center gap-2 md:flex-row">
-          <p className="capitalize font-bold text-lg">descarga la app</p>
+          <p className="capitalize font-bold text-lg text-main-black">
+            descarga la app
+          </p>
           <div className="w-[120px] h-[40px] md:w-[100px] md:h-[30px]">
-            <LazyLoadImage>
+            <LazyLoadImage customClases="rounded-md">
               <img
                 src={downloadIos}
                 className="object-contain"
@@ -81,7 +83,7 @@ const FooterPrincipal = () => {
             </LazyLoadImage>
           </div>
           <div className="w-[120px] h-[40px] md:w-[100px] md:h-[30px]">
-            <LazyLoadImage>
+            <LazyLoadImage customClases="rounded-md">
               <img
                 src={downloadGoogle}
                 className="object-contain"
@@ -91,7 +93,7 @@ const FooterPrincipal = () => {
           </div>
         </div>
       </div>
-      <p className="capitalize text-sm font-bold">
+      <p className="capitalize text-sm font-bold text-main-black">
         odyssey: comunidad anime &copy; 2023
       </p>
     </footer>

@@ -9,7 +9,7 @@ type Props = {
 const MotionUnorderedList = ({ children, clases }: Props) => {
   return (
     <motion.ul
-      className={clases}
+      className={`text-main-black ${clases}`}
       initial="initial"
       animate="animate"
       exit="exit"

@@ -22,7 +22,7 @@ const MainInfoAnime = ({ tipo, episodios, fecha, miembros }: Props) => {
       year: "numeric",
     });
   return (
-    <ul className="flex flex-col gap-2 h-full">
+    <ul className="flex flex-col gap-2 h-full text-main-black">
       <li className="text-xs xs:text-sm lg:text-base capitalize">
         {currentTipo}{" "}
         {currentTipo !== "movie" && episodios && `de ${episodios} episodios`}

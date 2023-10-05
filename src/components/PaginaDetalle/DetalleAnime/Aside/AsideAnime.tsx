@@ -7,7 +7,7 @@ type Props = {
 
 const AsideAnime = ({ data }: Props) => {
   return (
-    <ul className="flex flex-col gap-2 mt-5">
+    <ul className="flex flex-col gap-2 mt-5 text-main-black">
       {data.map((item) => (
         <React.Fragment key={item.nombre}>
           {!Array.isArray(item.data) ? (

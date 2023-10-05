@@ -18,7 +18,7 @@ const LinkNavMobile = ({ nombre, id, handleDestino, destino }: Props) => {
       onClick={() => {
         handleDestino(destino);
       }}
-      className="item-skew-izquierda z-[2] relative -left-4 after:bg-main-color-background text-main-black bg-main-color-background pl-4 py-2 capitalize font-semibold text-lg px-10"
+      className="item-skew-izquierda z-[2] relative -left-4 text-main-color-background bg-main-black pl-4 py-2 capitalize font-semibold text-lg px-10"
       key={id}
     >
       {nombre}

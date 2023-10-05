@@ -27,8 +27,8 @@ const MainInfo: React.FC<Props> = ({
         </LazyLoadImage>
       </div>
       <div className="main-info-data hidden md:flex md:w-1/2 flex-col gap-4 justify-start">
-        <p className="line-clamp-[5] text-sm">{sinopsis}</p>
-        <ul className="text-xs flex flex-col gap-2">
+        <p className="line-clamp-[5] text-sm text-main-black">{sinopsis}</p>
+        <ul className="text-xs flex flex-col gap-2 text-main-black">
           <li>
             <span className="font-medium capitalize">estudio: </span>
             {estudios.map((estudio) => (

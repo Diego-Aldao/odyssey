@@ -4,7 +4,7 @@ type Props = {
 
 const MainInfoPersona = ({ nombreSecundario }: Props) => {
   return (
-    <ul className="flex flex-col gap-2 h-full">
+    <ul className="flex flex-col gap-2 h-full text-main-black">
       <li className="capitalize max-w-[350px]">{nombreSecundario}</li>
     </ul>
   );

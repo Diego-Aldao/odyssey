@@ -51,7 +51,7 @@ const ListadoRecomendados = ({ visibleContent, id }: Props) => {
                   <>
                     {respuestaApi.data.map((recomendacion) => (
                       <SwiperSlide key={recomendacion.entry.mal_id}>
-                        <MotionListItem clases="flex flex-col mb-5">
+                        <MotionListItem clases="flex flex-col mb-5 text-main-black">
                           <Link
                             to={`/detalle/anime/${recomendacion.entry.mal_id}`}
                           >
