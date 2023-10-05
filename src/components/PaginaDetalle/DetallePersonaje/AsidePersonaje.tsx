@@ -7,7 +7,7 @@ type Props = {
 
 const AsidePersonaje = ({ dataAside }: Props) => {
   return (
-    <ul className="flex flex-col gap-2 my-5">
+    <ul className="flex flex-col gap-2 my-5 text-main-black">
       {dataAside.map((item) => (
         <li>
           <Link

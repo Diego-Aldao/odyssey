@@ -13,7 +13,7 @@ const DoblajesPersona = ({ voces }: Props) => {
       titulo={"roles de actuación de voz"}
       visibleContent="general"
     >
-      <ul className="flex flex-col gap-5 lg:gap-3">
+      <ul className="flex flex-col gap-5 lg:gap-3 text-main-black">
         {voces.slice(0, 10).map((rol) => (
           <MotionListItem
             key={rol.character.mal_id}

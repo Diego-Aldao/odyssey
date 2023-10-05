@@ -200,14 +200,18 @@ const DetalleAnime = () => {
                 titulo="sinopsis"
                 visibleContent={visibleContent}
               >
-                <p className="mb-10">{respuestaApi.data.synopsis}</p>
+                <p className="mb-10 text-main-black">
+                  {respuestaApi.data.synopsis}
+                </p>
               </SubSectionDetalle>
               {respuestaApi.data.background && (
                 <SubSectionDetalle
                   titulo="background"
                   visibleContent={visibleContent}
                 >
-                  <p className="mb-10">{respuestaApi.data.background}</p>
+                  <p className="mb-10 text-main-black">
+                    {respuestaApi.data.background}
+                  </p>
                 </SubSectionDetalle>
               )}
               <EpisodiosDetalle visibleContent={visibleContent} id={id} />

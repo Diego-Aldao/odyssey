@@ -22,12 +22,15 @@ const LinkBusquedaDesktop = ({ handleClick }: Props) => {
       className="h-full rounded-sm relative px-1 lg:px-2 xl:px-3 overflow-hidden flex flex-col items-center justify-center cursor-pointer"
     >
       <p className="flex gap-2 items-center mb-1">
-        <span className="hidden xl:block capitalize text-[13px] lg:text-lg">
+        <span className="hidden xl:block capitalize text-[13px] lg:text-lg text-main-color-background font-medium">
           buscar{" "}
         </span>
-        <Icon icon="mingcute:search-3-line" className="h-4 w-4 lg:h-5 lg:w-5" />
+        <Icon
+          icon="mingcute:search-3-line"
+          className="h-4 w-4 lg:h-5 lg:w-5 text-main-color-background"
+        />
       </p>
-      <div className="animacion  w-full h-[2px] flex gap-1 lg:gap-2">
+      <div className="animacion w-full h-[2px] flex gap-1 lg:gap-2">
         <motion.div
           variants={variantesNavegacionesLinea}
           transition={transition}

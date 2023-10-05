@@ -18,7 +18,7 @@ const ListadoSinResultados = ({ nombreSeccion }: Props) => {
       transition={transition}
       className="h-[100px] flex items-center justify-center"
     >
-      <p className="uppercase text-sm font-bold lg:text-lg">
+      <p className="uppercase text-sm font-bold lg:text-lg text-main-black">
         no se encontraron {nombreSeccion}
       </p>
     </motion.div>

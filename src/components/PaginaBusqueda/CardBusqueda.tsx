@@ -28,7 +28,7 @@ const CardBusqueda = ({ id, imagen, titulo, children, tipo }: Props) => {
             <img src={imagen} alt="" />
           </LazyLoadImage>
         </div>
-        <div className="info w-fit flex flex-col gap-1">
+        <div className="info w-fit flex flex-col gap-1 text-main-black">
           <h3 className="text-sm font-bold md:text-base">{titulo}</h3>
           {children}
         </div>

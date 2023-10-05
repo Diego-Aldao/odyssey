@@ -47,8 +47,8 @@ const CardTable: React.FC<Props> = ({
       className="h-[120px] max-w-[50px] border-2 border-main-black cursor-pointer bg-main-color-background"
       onClick={handleNavigation}
     >
-      <td className="hidden md:table-cell  border-l-2 border-main-black">
-        <span className="flex items-center justify-center h-full text-5xl font-bold">
+      <td className="hidden md:table-cell border-l-2 border-main-black">
+        <span className="flex items-center justify-center h-full text-5xl font-bold text-main-black">
           {posicionReal}
         </span>
       </td>
@@ -69,7 +69,7 @@ const CardTable: React.FC<Props> = ({
             </LazyLoadImage>
           </div>
           <div className="info flex flex-col gap-2 w-full">
-            <h3 className="text-sm font-bold xs:text-base lg:text-xl">
+            <h3 className="text-sm font-bold xs:text-base lg:text-xl text-main-black">
               {titulo}
             </h3>
             {children}
@@ -78,7 +78,7 @@ const CardTable: React.FC<Props> = ({
       </td>
       <td className="hidden md:table-cell">
         <p
-          className={`flex gap-1 text-lg font-semibold lg:text-xl items-center ${
+          className={`flex gap-1 text-lg font-semibold lg:text-xl items-center text-main-black ${
             score ? "justify-start" : "justify-center"
           }`}
         >
@@ -93,7 +93,7 @@ const CardTable: React.FC<Props> = ({
         </p>
       </td>
       <td className="hidden md:table-cell">
-        <span className="flex items-center justify-center h-full font-semibold lg:text-lg">
+        <span className="flex items-center justify-center h-full font-semibold lg:text-lg text-main-black">
           {favoritos.toLocaleString()}
         </span>
       </td>

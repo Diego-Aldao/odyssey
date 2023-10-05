@@ -13,7 +13,7 @@ const OtrosRolesPersona = ({ otrosRolesAnime }: Props) => {
       titulo="otros roles en el anime"
       visibleContent="general"
     >
-      <ul className="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
+      <ul className="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 text-main-black">
         {otrosRolesAnime.map((rol) => (
           <MotionListItem clases="" key={rol.anime.mal_id}>
             <Link

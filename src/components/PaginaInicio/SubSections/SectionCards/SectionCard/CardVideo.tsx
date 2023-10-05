@@ -50,7 +50,7 @@ const CardVideo: React.FC<Props> = ({
         }`}
       >
         <Link to={`/detalle/${tipo}/${id}/trailer`} className="absolute">
-          <div className="play bg-main-black text-main-color-background rounded-lg px-5 capitalize flex items-center justify-center gap-4 py-1 border-[1px] border-main-color-background">
+          <div className="play bg-main-black-static text-main-color-background-static rounded-lg px-5 capitalize flex items-center justify-center gap-4 py-1 border-[1px] border-main-color-background-static">
             ver video
             <Icon
               icon="streamline:entertainment-control-button-play-button-television-buttons-movies-play-tv-video-controls"

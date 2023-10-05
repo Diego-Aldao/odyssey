@@ -39,10 +39,11 @@ const MainButtonRandom = () => {
           variants={varianteMainButtonRandom}
           viewport={{ once: true }}
           transition={transition}
-          className="flex gap-3 items-center justify-start"
+          className="flex gap-3 items-center justify-start text-main-black"
           onClick={handleClick}
         >
-          descubrir anime <Icon icon="cil:arrow-right" className="w-5 h-5" />
+          descubrir anime{" "}
+          <Icon icon="cil:arrow-right" className="w-5 h-5 text-main-black" />
         </motion.span>
       </motion.p>
     </div>

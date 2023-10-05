@@ -15,7 +15,7 @@ const SecondaryInfo: React.FC<Props> = ({
 }) => {
   return (
     <div className="info-secundaria hidden  w-full md:flex flex-col gap-2">
-      <div className="info-numeros flex gap-2 items-center justify-center text-xs">
+      <div className="info-numeros flex gap-2 items-center justify-center text-xs text-main-black">
         <p>
           {fecha.month}/{fecha.day}/{fecha.year}
         </p>
