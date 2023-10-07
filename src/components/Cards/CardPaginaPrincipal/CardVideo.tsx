@@ -1,11 +1,8 @@
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import {
-  varianteCards,
-  transition,
-} from "../../../../../VariantesFramerMotion";
-import LazyLoadImage from "../../../../Generales/LazyLoadImage";
+import { varianteCards, transition } from "../../../VariantesFramerMotion";
+import LazyLoadImage from "../../Generales/LazyLoadImage";
 
 type Props = {
   imagen?: string;

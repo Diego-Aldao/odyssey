@@ -1,7 +1,7 @@
 import React from "react";
 import CardImagen from "./CardImagen";
 import CardVideo from "./CardVideo";
-import { Entry } from "../../../../../types";
+import { Entry } from "../../../types";
 import { Link } from "react-router-dom";
 
 type Props = {
@@ -15,7 +15,7 @@ type Props = {
   seccion?: string;
 };
 
-const SectionCard: React.FC<Props> = ({
+const CardPaginaPrincipal: React.FC<Props> = ({
   id,
   titulo,
   imagenUrl,
@@ -50,4 +50,4 @@ const SectionCard: React.FC<Props> = ({
   );
 };
 
-export default SectionCard;
+export default CardPaginaPrincipal;

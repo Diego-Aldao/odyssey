@@ -1,4 +1,4 @@
-import { Aired } from "../../../../../types";
+import { Aired } from "../../../types";
 
 type Props = {
   tipo: string;

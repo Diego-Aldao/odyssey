@@ -1,11 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { motion } from "framer-motion";
-import {
-  transition,
-  varianteCards,
-} from "../../../../../VariantesFramerMotion";
-import LazyLoadImage from "../../../../Generales/LazyLoadImage";
+import { transition, varianteCards } from "../../../VariantesFramerMotion";
+import LazyLoadImage from "../../Generales/LazyLoadImage";
 
 type Props = {
   id: number;
@@ -19,7 +16,7 @@ type Props = {
   children: JSX.Element;
 };
 
-const CardTable: React.FC<Props> = ({
+const CardTops: React.FC<Props> = ({
   id,
   titulo,
   imagen,
@@ -101,4 +98,4 @@ const CardTable: React.FC<Props> = ({
   );
 };
 
-export default CardTable;
+export default CardTops;

@@ -1,5 +1,5 @@
-import { Generic } from "../../../../../types";
-import LazyLoadImage from "../../../../Generales/LazyLoadImage";
+import { Generic } from "../../../types";
+import LazyLoadImage from "../../Generales/LazyLoadImage";
 type Props = {
   imagen: string;
   sinopsis: string;

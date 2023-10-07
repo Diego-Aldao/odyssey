@@ -1,4 +1,4 @@
-import { From, Generic } from "../../../../../types";
+import { From, Generic } from "../../../types";
 
 type Props = {
   fecha: From;

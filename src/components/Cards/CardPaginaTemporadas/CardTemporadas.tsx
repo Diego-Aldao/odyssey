@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import {
-  transition,
-  varianteCards,
-} from "../../../../../VariantesFramerMotion";
+import { transition, varianteCards } from "../../../VariantesFramerMotion";
 
 type Props = {
   titulo: string;
@@ -12,7 +9,7 @@ type Props = {
   tipo: string;
 };
 
-const CardInfo: React.FC<Props> = ({ titulo, id, tipo, children }) => {
+const CardTemporadas: React.FC<Props> = ({ titulo, id, tipo, children }) => {
   const currentTipo = tipo === "TV" ? "anime" : tipo?.toLowerCase();
   return (
     <motion.div
@@ -38,4 +35,4 @@ const CardInfo: React.FC<Props> = ({ titulo, id, tipo, children }) => {
   );
 };
 
-export default CardInfo;
+export default CardTemporadas;

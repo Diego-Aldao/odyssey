@@ -1,7 +1,7 @@
 import React from "react";
 import { Icon } from "@iconify/react";
-import { Entry } from "../../../../../types";
-import LazyLoadImage from "../../../../Generales/LazyLoadImage";
+import { Entry } from "../../../types";
+import LazyLoadImage from "../../Generales/LazyLoadImage";
 
 type PropsEpisodio = {
   info: Entry[];

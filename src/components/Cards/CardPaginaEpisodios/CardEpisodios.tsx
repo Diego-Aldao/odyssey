@@ -1,12 +1,9 @@
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import { Entry } from "../../../../../types";
+import { Entry } from "../../../types";
 import { motion } from "framer-motion";
-import {
-  varianteCards,
-  transition,
-} from "../../../../../VariantesFramerMotion";
-import LazyLoadImage from "../../../../Generales/LazyLoadImage";
+import { varianteCards, transition } from "../../../VariantesFramerMotion";
+import LazyLoadImage from "../../Generales/LazyLoadImage";
 
 type Props = {
   id: number;
@@ -14,7 +11,7 @@ type Props = {
   imagen?: string;
   episodios: Entry[];
 };
-const CardEpisodio = ({ id, titulo, imagen, episodios }: Props) => {
+const CardEpisodios = ({ id, titulo, imagen, episodios }: Props) => {
   return (
     <Link to={`/detalle/anime/${id}/episodios`}>
       <motion.div
@@ -51,4 +48,4 @@ const CardEpisodio = ({ id, titulo, imagen, episodios }: Props) => {
   );
 };
 
-export default CardEpisodio;
+export default CardEpisodios;
