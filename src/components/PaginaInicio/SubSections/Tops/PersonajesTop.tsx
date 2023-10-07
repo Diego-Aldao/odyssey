@@ -1,5 +1,5 @@
 import { SwiperSlide } from "swiper/react";
-import SectionCard from "../SectionCards/SectionCard/SectionCard";
+import CardPaginaPrincipal from "../../../Cards/CardPaginaPrincipal/CardPaginaPrincipal";
 import { ApiResponseTopPersonaje } from "../../../../types";
 import useFetch from "../../../../hooks/useFetch";
 import { BASE_URL_TOPS } from "../../../../constants";
@@ -24,7 +24,7 @@ const PersonajesTop = () => {
               {respuestaApi &&
                 respuestaApi.data.map((item) => (
                   <SwiperSlide key={item.mal_id}>
-                    <SectionCard
+                    <CardPaginaPrincipal
                       id={item.mal_id}
                       titulo={item.name}
                       imagenUrl={item.images.webp.image_url}

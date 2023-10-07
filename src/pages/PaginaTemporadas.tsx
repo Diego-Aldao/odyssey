@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import MainLayout from "../layout/MainLayout";
 import SectionSubPaginas from "../components/PaginasSecundarias/SectionSubPaginas";
-import CardInfo from "../components/PaginaInicio/SubSections/SectionCards/CardInfo/CardInfo";
+import CardTemporadas from "../components/Cards/CardPaginaTemporadas/CardTemporadas";
 import Filtros from "../components/PaginasSecundarias/Filtros";
-import SecondaryInfo from "../components/PaginaInicio/SubSections/SectionCards/CardInfo/SecondaryInfo";
-import MainInfo from "../components/PaginaInicio/SubSections/SectionCards/CardInfo/MainInfo";
-import Footer from "../components/PaginaInicio/SubSections/SectionCards/CardInfo/Footer";
+import SecondaryInfo from "../components/Cards/CardPaginaTemporadas/SecondaryInfo";
+import MainInfo from "../components/Cards/CardPaginaTemporadas/MainInfo";
+import Footer from "../components/Cards/CardPaginaTemporadas/Footer";
 import {
   BASE_URL_SEASONS,
   MAIN_FILTERS_SEASONS,
@@ -53,7 +53,7 @@ const PaginaTemporadas = () => {
   useEffect(() => {
     if (!respuestaApi) return;
     if (btnVisible) {
-      setCurrentData(respuestaApi.data.slice(0, 20));
+      setCurrentData(respuestaApi.data.slice(0, 18));
     } else {
       setCurrentData(respuestaApi.data.slice(0));
     }
@@ -106,12 +106,15 @@ const PaginaTemporadas = () => {
               <>
                 {currentData?.map((item) => (
                   <React.Fragment key={item.mal_id}>
-                    <CardInfo titulo={item.title} id={item.mal_id} tipo="anime">
+                    <CardTemporadas
+                      titulo={item.title}
+                      id={item.mal_id}
+                      tipo="anime"
+                    >
                       <>
                         <SecondaryInfo
                           fecha={item.aired.prop.from}
                           episodios={item.episodes}
-                          duracion={item.duration}
                           generos={item.genres}
                         />
                         <MainInfo
@@ -130,7 +133,7 @@ const PaginaTemporadas = () => {
                           episodios={item.episodes}
                         />
                       </>
-                    </CardInfo>
+                    </CardTemporadas>
                   </React.Fragment>
                 ))}
               </>

@@ -8,7 +8,7 @@ import { ApiResponseTrailers, DataTrailers } from "../types";
 import useFetch from "../hooks/useFetch";
 import { useParams } from "react-router-dom";
 import ImagenHeaderTrailers from "../components/PaginaTrailers/ImagenHeaderTrailers";
-import CardVideo from "../components/PaginaInicio/SubSections/SectionCards/SectionCard/CardVideo";
+import CardVideo from "../components/Cards/CardPaginaPrincipal/CardVideo";
 import TituloHeaderMotion from "../components/FramerMotion/TituloHeaderMotion";
 import Loading from "../components/Generales/Loading";
 import useTitle from "../hooks/useTitle";

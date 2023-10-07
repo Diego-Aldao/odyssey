@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import { ApiResponseEpisodios, DataEpisodios } from "../types";
 import ImagenHeaderEpisodios from "../components/PaginaEpisodios/ImagenHeaderEpisodios";
-import CardEpisodio from "../components/PaginaInicio/SubSections/SectionCards/CardEpisodio/CardEpisodio";
+import CardEpisodios from "../components/Cards/CardPaginaEpisodios/CardEpisodios";
 import TituloHeaderMotion from "../components/FramerMotion/TituloHeaderMotion";
 import Loading from "../components/Generales/Loading";
 import { AnimatePresence } from "framer-motion";
@@ -75,7 +75,7 @@ const PaginaEpisodios = () => {
               <>
                 {currentData.map((item) => (
                   <React.Fragment key={item.entry.mal_id}>
-                    <CardEpisodio
+                    <CardEpisodios
                       id={item.entry.mal_id}
                       imagen={item.entry.images?.webp.image_url}
                       episodios={item.episodes}

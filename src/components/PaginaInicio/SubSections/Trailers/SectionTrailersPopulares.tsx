@@ -1,5 +1,5 @@
 import { SwiperSlide } from "swiper/react";
-import SectionCard from "../SectionCards/SectionCard/SectionCard";
+import CardPaginaPrincipal from "../../../Cards/CardPaginaPrincipal/CardPaginaPrincipal";
 import useFetch from "../../../../hooks/useFetch";
 import { ApiResponseTrailers } from "../../../../types";
 import { BASE_URL_TRAILERS } from "../../../../constants";
@@ -36,7 +36,7 @@ const SectionTrailersPopulares = ({ noBackground }: Props) => {
               <>
                 {respuestaApi.data.map((item) => (
                   <SwiperSlide key={item.entry.mal_id}>
-                    <SectionCard
+                    <CardPaginaPrincipal
                       noBackground={noBackground}
                       id={item.entry.mal_id}
                       titulo={item.entry.title}
