@@ -74,15 +74,11 @@ const CardTops: React.FC<Props> = ({
         </div>
       </td>
       <td className="hidden md:table-cell">
-        <p
-          className={`flex gap-1 text-lg font-semibold lg:text-xl items-center text-main-black ${
-            score ? "justify-start" : "justify-center"
-          }`}
-        >
+        <p className="flex gap-1 text-lg font-semibold lg:text-xl items-center text-main-black justify-center">
           {score ? (
             <>
               <Icon icon="ph:star-bold" />
-              <span>{score}</span>
+              <span className="pr-2">{score}</span>
             </>
           ) : (
             <span className="text-base">{sideInfo}</span>
