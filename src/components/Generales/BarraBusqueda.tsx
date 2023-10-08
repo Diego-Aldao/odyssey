@@ -4,7 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { transition, varianteBarraBusqueda } from "../../VariantesFramerMotion";
 
-const BarraBusqueda = () => {
+type Props = {
+  barraMobile?: boolean;
+};
+
+const BarraBusqueda = ({ barraMobile }: Props) => {
   const navigate = useNavigate();
   const [value, setValue] = useState<string | number>("");
 
@@ -20,23 +24,32 @@ const BarraBusqueda = () => {
 
   return (
     <motion.form
+      id="busqueda"
       initial="initialForm"
       animate="animateForm"
       exit="exitForm"
       transition={transition}
       variants={varianteBarraBusqueda}
       onSubmit={handleSubmit}
-      className="w-full rounded-md overflow-hidden flex items-center  text-main-black h-10 bg-main-color-background border-2 border-main-color-background max-w-[700px]"
+      className={`w-full rounded-md overflow-hidden flex items-center text-main-black h-10 bg-main-color-background border-2 ${
+        barraMobile
+          ? "border-main-black max-w-[400px]"
+          : "border-main-color-background  max-w-[700px]"
+      }`}
     >
       <input
         onChange={handleChange}
         value={value}
         type="text"
-        className="flex-1 h-full placeholder:capitalize bg-transparent border-transparent -outline-offset-2 px-1 outline-main-black mx-1"
+        className="flex-1 h-full placeholder:capitalize bg-transparent border-transparent -outline-offset-2 px-1 outline-main-black"
         placeholder="naruto, shingeki, jujut..."
       />
-      <button className="h-full flex items-center justify-center bg-main-black gap-2 px-2 rounded-md ">
-        <p className="text-main-color-background capitalize text-lg hidden md:block">
+      <button className="h-full flex items-center justify-center bg-main-black gap-2 px-2 rounded-sm">
+        <p
+          className={`text-main-color-background capitalize text-lg hidden ${
+            barraMobile ? "xs:block" : "md:block"
+          }`}
+        >
           buscar
         </p>
         <Icon
