@@ -29,7 +29,7 @@ const Trailer = ({ handleClick, imagen }: Props) => {
           >
             trailer
           </motion.p>
-          <div className="video relative rounded-lg border-2 border-main-black overflow-hidden ml-auto flex items-center justify-center max-w-[200px] h-[112px]">
+          <div className="video relative rounded-lg border-2 border-main-black overflow-hidden ml-auto flex items-center justify-center min-w-[195px] max-w-[200px] h-[112px]">
             <motion.div
               initial="initialBoton"
               animate="animateBoton"
