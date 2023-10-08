@@ -22,7 +22,7 @@ export type InfoAside = {
 
 export type InfoTags = {
   nombre?: string;
-  data?: string | number | Generic[];
+  data?: string;
   icono?: JSX.Element;
   primerItem?: boolean;
   ocultoMovile?: boolean;
