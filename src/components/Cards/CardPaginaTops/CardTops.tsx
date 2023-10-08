@@ -1,11 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { motion } from "framer-motion";
-import {
-  transition,
-  varianteCards,
-} from "../../../../../VariantesFramerMotion";
-import LazyLoadImage from "../../../../Generales/LazyLoadImage";
+import { transition, varianteCards } from "../../../VariantesFramerMotion";
+import LazyLoadImage from "../../Generales/LazyLoadImage";
 
 type Props = {
   id: number;
@@ -19,7 +16,7 @@ type Props = {
   children: JSX.Element;
 };
 
-const CardTable: React.FC<Props> = ({
+const CardTops: React.FC<Props> = ({
   id,
   titulo,
   imagen,
@@ -77,15 +74,11 @@ const CardTable: React.FC<Props> = ({
         </div>
       </td>
       <td className="hidden md:table-cell">
-        <p
-          className={`flex gap-1 text-lg font-semibold lg:text-xl items-center text-main-black ${
-            score ? "justify-start" : "justify-center"
-          }`}
-        >
+        <p className="flex gap-1 text-lg font-medium lg:text-xl items-center text-main-black justify-center">
           {score ? (
             <>
               <Icon icon="ph:star-bold" />
-              <span>{score}</span>
+              <span className="pr-2">{score}</span>
             </>
           ) : (
             <span className="text-base">{sideInfo}</span>
@@ -93,7 +86,7 @@ const CardTable: React.FC<Props> = ({
         </p>
       </td>
       <td className="hidden md:table-cell">
-        <span className="flex items-center justify-center h-full font-semibold lg:text-lg text-main-black">
+        <span className="flex items-center justify-center h-full font-medium lg:text-lg text-main-black">
           {favoritos.toLocaleString()}
         </span>
       </td>
@@ -101,4 +94,4 @@ const CardTable: React.FC<Props> = ({
   );
 };
 
-export default CardTable;
+export default CardTops;

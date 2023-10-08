@@ -1,36 +1,23 @@
-import { From, Generic } from "../../../../../types";
+import { From, Generic } from "../../../types";
 
 type Props = {
   fecha: From;
   episodios: number | null;
-  duracion: string;
   generos: Generic[];
 };
 
-const SecondaryInfo: React.FC<Props> = ({
-  fecha,
-  episodios,
-  duracion,
-  generos,
-}) => {
+const SecondaryInfo: React.FC<Props> = ({ fecha, episodios, generos }) => {
   return (
     <div className="info-secundaria hidden  w-full md:flex flex-col gap-2">
       <div className="info-numeros flex gap-2 items-center justify-center text-xs text-main-black">
         <p>
-          {fecha.month}/{fecha.day}/{fecha.year}
+          {fecha.day}/{fecha.month}/{fecha.year}
         </p>
-        {episodios ||
-          (duracion !== "Unknown" && (
-            <>
-              |
-              <p>
-                {episodios ? "eps" : ""}
-                <span className="inline-block ml-1">
-                  {duracion !== "Unknown" && duracion}
-                </span>
-              </p>
-            </>
-          ))}
+        {episodios && (
+          <p className="capitalize">
+            | {episodios} {episodios > 1 ? "episodios" : "Episodio"}
+          </p>
+        )}
       </div>
       <ul className="info-generos flex gap-2 items-center justify-center text-xs">
         {generos.map((genero) => (

@@ -2,9 +2,9 @@ import React from "react";
 import useFetch from "../../hooks/useFetch";
 import { ApiResponseTopPersona } from "../../types";
 import { BASE_URL_TOPS } from "../../constants";
-import CardTable from "../PaginaInicio/SubSections/SectionCards/CardTable/CardTable";
+import CardTops from "../Cards/CardPaginaTops/CardTops";
 import Grids from "../PaginasSecundarias/Grids";
-import MainInfoPersona from "../PaginaInicio/SubSections/SectionCards/CardTable/MainInfoPersona";
+import MainInfoPersona from "../Cards/CardPaginaTops/MainInfoPersona";
 import { AnimatePresence } from "framer-motion";
 import Loading from "../Generales/Loading";
 import useTitle from "../../hooks/useTitle";
@@ -44,7 +44,7 @@ const TopsPersonas = () => {
                 });
               return (
                 <React.Fragment key={item.mal_id}>
-                  <CardTable
+                  <CardTops
                     id={item.mal_id}
                     tipo={"persona"}
                     posicion={index}
@@ -56,7 +56,7 @@ const TopsPersonas = () => {
                     <MainInfoPersona
                       nombreSecundario={`${item.given_name} ${item.family_name}`}
                     />
-                  </CardTable>
+                  </CardTops>
                 </React.Fragment>
               );
             })}

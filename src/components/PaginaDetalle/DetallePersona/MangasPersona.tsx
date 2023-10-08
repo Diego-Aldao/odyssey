@@ -17,8 +17,8 @@ const MangasPersona = ({ mangas }: Props) => {
                 <img src={item.manga.images.webp.image_url} alt="" />
               </div>
               <div className="flex flex-col gap-2">
-                <p className="text-sm font-semibold">{item.manga.title}</p>
-                <p className="text-xs font-semibold capitalize">
+                <p className="text-sm font-medium">{item.manga.title}</p>
+                <p className="text-xs font-medium capitalize">
                   posicion:
                   <span className="font-normal"> {item.position}</span>
                 </p>

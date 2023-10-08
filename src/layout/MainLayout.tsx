@@ -1,6 +1,6 @@
 import { transition, varianteMainLayout } from "../VariantesFramerMotion";
 import FooterPrincipal from "../components/Footer/FooterPrincipal";
-import BotonLogin from "../components/Layout/BotonLogin";
+import BotonDarkMode from "../components/Generales/BotonDarkMode";
 import IconoHeader from "../components/Layout/IconoHeader";
 import NavegacionPrincipal from "../components/NavegacionPrincipal/NavegacionPrincipal";
 import { motion } from "framer-motion";
@@ -17,11 +17,11 @@ const MainLayout: React.FC<Props> = ({ children }) => {
         animate="animate"
         variants={varianteMainLayout}
         transition={transition}
-        className="bg-main-color-background rounded-t-2xl flex items-center h-14 justify-between pl-4 md:px-6 lg:px-10"
+        className="bg-main-color-background rounded-t-2xl flex items-center h-14 justify-between pl-4 md:px-6  lg:px-10"
       >
         <IconoHeader />
         <NavegacionPrincipal />
-        <BotonLogin />
+        <BotonDarkMode clasesCustom="md:ml-3 hidden md:flex" />
       </motion.header>
       {children}
       <FooterPrincipal />

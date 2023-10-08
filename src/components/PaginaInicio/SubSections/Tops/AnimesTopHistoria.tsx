@@ -1,5 +1,5 @@
 import { SwiperSlide } from "swiper/react";
-import SectionCard from "../SectionCards/SectionCard/SectionCard";
+import CardPaginaPrincipal from "../../../Cards/CardPaginaPrincipal/CardPaginaPrincipal";
 import useFetch from "../../../../hooks/useFetch";
 import { BASE_URL_TOPS } from "../../../../constants";
 import { ApiResponseTops } from "../../../../types";
@@ -24,7 +24,7 @@ const AnimesTopHistoria = () => {
               {respuestaApi &&
                 respuestaApi.data.map((item) => (
                   <SwiperSlide key={item.mal_id}>
-                    <SectionCard
+                    <CardPaginaPrincipal
                       id={item.mal_id}
                       titulo={item.title}
                       imagenUrl={item.images.webp.image_url}

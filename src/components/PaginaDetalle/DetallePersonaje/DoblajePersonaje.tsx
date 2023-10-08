@@ -23,7 +23,7 @@ const DoblajePersonaje = ({ dataDoblaje }: Props) => {
                   <img src={item.person.images.jpg.image_url} alt="" />
                 </div>
                 <div className="flex flex-col gap-1 ">
-                  <p className="text-sm lg:text-base font-semibold">
+                  <p className="text-sm lg:text-base font-medium">
                     {item.person.name}
                   </p>
                   <p className="text-xs lg:text-sm">{item.language}</p>

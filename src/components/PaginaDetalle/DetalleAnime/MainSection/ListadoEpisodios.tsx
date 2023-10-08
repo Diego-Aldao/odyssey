@@ -50,7 +50,7 @@ const ListadoEpisodios = ({ visibleContent, id }: Props) => {
                       clases="mb-5 flex flex-col max-w-sm mx-auto w-full"
                     >
                       <>
-                        <p className="capitalize font-semibold">
+                        <p className="capitalize font-medium">
                           episodio {episodio.mal_id}
                         </p>
                         <div className="rounded-xl overflow-hidden border-2 border-main-black my-1 min-h-[150px] md:min-h-[100px]">

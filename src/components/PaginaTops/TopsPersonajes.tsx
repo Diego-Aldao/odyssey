@@ -2,9 +2,9 @@ import React from "react";
 import useFetch from "../../hooks/useFetch";
 import { ApiResponseTopPersonaje } from "../../types";
 import { BASE_URL_TOPS } from "../../constants";
-import CardTable from "../PaginaInicio/SubSections/SectionCards/CardTable/CardTable";
+import CardTops from "../Cards/CardPaginaTops/CardTops";
 import Grids from "../PaginasSecundarias/Grids";
-import MainInfoPersonaje from "../PaginaInicio/SubSections/SectionCards/CardTable/MainInfoPersonaje";
+import MainInfoPersonaje from "../Cards/CardPaginaTops/MainInfoPersonaje";
 import { AnimatePresence } from "framer-motion";
 import Loading from "../Generales/Loading";
 import useTitle from "../../hooks/useTitle";
@@ -35,7 +35,7 @@ const TopsPersonajes = () => {
           <>
             {respuestaApi.data.map((item, index) => (
               <React.Fragment key={item.mal_id}>
-                <CardTable
+                <CardTops
                   id={item.mal_id}
                   tipo={"personaje"}
                   posicion={index}
@@ -45,7 +45,7 @@ const TopsPersonajes = () => {
                   sideInfo={item.name_kanji}
                 >
                   <MainInfoPersonaje sobrenombres={item.nicknames} />
-                </CardTable>
+                </CardTops>
               </React.Fragment>
             ))}
           </>

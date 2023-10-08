@@ -1,6 +1,6 @@
 import SubSectionContent from "../SubSectionContent";
 import { SwiperSlide } from "swiper/react";
-import SectionCard from "../SectionCards/SectionCard/SectionCard";
+import CardPaginaPrincipal from "../../../Cards/CardPaginaPrincipal/CardPaginaPrincipal";
 import useFetch from "../../../../hooks/useFetch";
 import { ApiResponseEpisodios } from "../../../../types";
 import { BASE_URL_EPISODES } from "../../../../constants";
@@ -33,7 +33,7 @@ const SectionEpisodiosRecientes = () => {
               <>
                 {respuestaApi.data.map((item) => (
                   <SwiperSlide key={item.entry.mal_id}>
-                    <SectionCard
+                    <CardPaginaPrincipal
                       id={item.entry.mal_id}
                       titulo={item.entry.title}
                       episodios={item.episodes}

@@ -15,10 +15,12 @@ const IconoHeader: React.FC<Props> = ({ clasesTexto, clasesIcono }) => {
         className={`h-full flex items-center ${
           clasesTexto
             ? clasesTexto
-            : "w-3/4 gap-1 lg:gap-2 md:w-2/12 lg:w-fit lg:pr-3 text-2xl md:text-base lg:text-2xl xl:text-3xl"
+            : "w-3/4 gap-1 lg:gap-2 md:justify-center md:w-[75px] lg:w-fit md:mr-3 text-2xl md:text-lg lg:text-2xl xl:text-3xl"
         }`}
       >
-        <span className="font-semibold">Odyssey</span>
+        <span className="font-semibold md:hidden lg:inline-block text-main-black">
+          Odyssey
+        </span>
         <motion.span
           whileInView="animate"
           whileHover="animate"
@@ -28,7 +30,11 @@ const IconoHeader: React.FC<Props> = ({ clasesTexto, clasesIcono }) => {
         >
           <Icon
             icon="game-icons:mine-explosion"
-            className={clasesIcono ? clasesIcono : " w-6 h-6 lg:w-8 lg:h-8"}
+            className={
+              clasesIcono
+                ? clasesIcono
+                : " w-6 h-6 md:w-9 md:h-9 text-main-black"
+            }
           />
         </motion.span>
       </div>

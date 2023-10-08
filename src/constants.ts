@@ -1,17 +1,17 @@
 export const MAIN_FILTERS_SEASONS = [
   {
-    nombre: "verano 2023",
+    nombre: "otoño 2023",
     query: "now",
     id: 1,
   },
   {
-    nombre: "otoño 2023",
-    query: "2023/fall",
+    nombre: "invierno 2024",
+    query: "2024/winter",
     id: 2,
   },
   {
-    nombre: "invierno 2024",
-    query: "2024/winter",
+    nombre: "primavera 2024",
+    query: "2024/spring",
     id: 3,
   },
 ];

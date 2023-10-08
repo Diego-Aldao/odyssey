@@ -24,8 +24,8 @@ const OtrosRolesPersona = ({ otrosRolesAnime }: Props) => {
                 <img src={rol.anime.images.webp.image_url} alt="" />
               </div>
               <div className="flex flex-col gap-2">
-                <p className="text-sm font-semibold">{rol.anime.title}</p>
-                <p className="text-xs font-semibold capitalize">
+                <p className="text-sm font-medium">{rol.anime.title}</p>
+                <p className="text-xs font-medium capitalize">
                   posicion:
                   <span className="font-normal"> {rol.position}</span>
                 </p>
