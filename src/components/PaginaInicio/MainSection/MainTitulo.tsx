@@ -61,7 +61,7 @@ const MainTitulo = () => {
         whileInView="animateTitulo"
         viewport={{ once: true }}
         transition={transition}
-        className="text-center xs:text-left text-sm italic font-semibold md:text-left md:text-base lg:text-xl flex flex-col text-main-black"
+        className="text-center xs:text-left text-sm italic font-medium md:text-left md:text-base lg:text-xl flex flex-col text-main-black"
       >
         Comienza a rastrear tu anime hoy.
       </motion.p>
@@ -76,7 +76,7 @@ const MainTitulo = () => {
       >
         <Link to="/temporadas/now">
           <motion.span
-            className="relative block"
+            className="relative block font-medium"
             initial="initialButtonText"
             whileInView="whileInViewButtonText"
             viewport={{ once: true }}

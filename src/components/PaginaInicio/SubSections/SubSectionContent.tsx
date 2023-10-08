@@ -36,7 +36,7 @@ const SubSectionContent: React.FC<Props> = ({
             viewport={{ once: true }}
             className="item-skew-izquierda z-[1] relative px-4 md:px-6 lg:px-10 -left-4 md:-left-6 lg:-left-10 py-4 bg-main-black flex items-center capitalize rounded-br-xl "
           >
-            <li className="text-main-color-background text-sm whitespace-nowrap md:text-base relative">
+            <li className="text-main-color-background text-sm whitespace-nowrap md:text-base relative font-medium">
               {subtitulo}
             </li>
           </motion.ul>

@@ -61,18 +61,18 @@ const ResultadosPersonas = ({ query }: Props) => {
                   >
                     <>
                       {persona.given_name && (
-                        <p className="text-xs font-semibold">
+                        <p className="text-xs font-medium">
                           ({persona.given_name} {persona.family_name})
                         </p>
                       )}
                       {fechaCumpleaños && (
-                        <p className="text-xs font-semibold">
+                        <p className="text-xs font-medium">
                           cumpleaños:{" "}
                           <span className="font-normal">{fechaCumpleaños}</span>
                         </p>
                       )}
 
-                      <p className="text-xs capitalize font-semibold">
+                      <p className="text-xs capitalize font-medium">
                         favoritos:{" "}
                         <span className="font-normal">{persona.favorites}</span>
                       </p>

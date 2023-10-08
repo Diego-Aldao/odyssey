@@ -33,7 +33,7 @@ const HeaderAnime = ({
             ({tituloEspañol})
           </p>
         )}
-        <div className="flex gap-4 items-start justify-center md:justify-start mt-5">
+        <div className="flex gap-4 items-start justify-center md:justify-between mt-5">
           {score !== null && (
             <p className="text-xl hidden lg:flex flex-col gap-2 justify-start rounded-sm">
               <span className="flex items-center gap-1 text-3xl drop-shadow-[0px_0px_3px_#000] text-main-color-background-static">

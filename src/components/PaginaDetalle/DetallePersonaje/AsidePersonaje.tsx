@@ -18,7 +18,7 @@ const AsidePersonaje = ({ dataAside }: Props) => {
               <img src={item.anime.images.webp.image_url} alt="" />
             </div>
             <div className="flex flex-col gap-2 w-[calc(100%_-_58px)]">
-              <span className="text-xs line-clamp-2 font-semibold">
+              <span className="text-xs line-clamp-2 font-medium">
                 {item.anime.title}
               </span>
               <span className="text-xs">{item.role}</span>

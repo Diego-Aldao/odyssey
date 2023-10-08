@@ -12,14 +12,14 @@ const AsideAnime = ({ data }: Props) => {
         <React.Fragment key={item.nombre}>
           {!Array.isArray(item.data) ? (
             <li>
-              <span className="capitalize font-semibold">{item.nombre}:</span>{" "}
+              <span className="capitalize font-medium">{item.nombre}:</span>{" "}
               <span className="text-sm">{item.data?.toLocaleString()}</span>
             </li>
           ) : (
             <>
               {item.data.length >= 1 && (
                 <li>
-                  <span className="capitalize font-semibold">
+                  <span className="capitalize font-medium">
                     {item.nombre}:{" "}
                   </span>
                   {item.data.map((obj) => (

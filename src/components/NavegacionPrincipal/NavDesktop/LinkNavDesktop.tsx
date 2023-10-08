@@ -24,9 +24,9 @@ const LinkNavDesktop = ({ texto, destino }: Props) => {
     >
       <Link
         to={destino}
-        className="capitalize text-[13px]  lg:text-[15px] xl:text-lg gap-1 z-[1] h-full rounded-sm relative px-1 lg:px-2 xl:px-3 flex flex-col items-center justify-center"
+        className="text-sm lg:text-[16px] xl:text-lg gap-1 z-[1] h-full rounded-sm relative px-1 lg:px-2 xl:px-3 flex flex-col items-center justify-center font-medium text-main-color-background capitalize"
       >
-        <span>{texto}</span>
+        {texto}
 
         <div className="animacion w-full h-[2px] flex gap-1 lg:gap-2">
           <span

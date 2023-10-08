@@ -45,7 +45,7 @@ const Filtros: React.FC<Props> = ({
                   onClick={() => {
                     setCurrentFiltro(filtro.query);
                   }}
-                  className="capitalize text-main-color-background text-[10px] xs:text-xs md:text-sm lg:text-base"
+                  className="capitalize text-main-color-background font-medium text-[10px] xs:text-xs md:text-sm lg:text-base"
                 >
                   {filtro.nombre}
                 </motion.li>
@@ -55,7 +55,7 @@ const Filtros: React.FC<Props> = ({
                   animate="animateItem"
                   transition={transition}
                   variants={varianteFiltros}
-                  className="capitalize text-main-color-background text-[10px] xs:text-xs md:text-sm lg:text-base"
+                  className="capitalize text-main-color-background font-medium text-[10px] xs:text-xs md:text-sm lg:text-base"
                 >
                   <Link to={`/${pathInicial}/${filtro.query || ""}`}>
                     {filtro.nombre}

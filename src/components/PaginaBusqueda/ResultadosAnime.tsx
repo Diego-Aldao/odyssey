@@ -39,11 +39,11 @@ const ResultadosAnime = ({ query }: Props) => {
                   key={anime.mal_id}
                 >
                   <>
-                    <p className="text-xs font-semibold">{anime.type}</p>
-                    <p className="text-xs capitalize font-semibold">
+                    <p className="text-xs font-medium">{anime.type}</p>
+                    <p className="text-xs capitalize font-medium">
                       score: <span className="font-normal">{anime.score}</span>
                     </p>
-                    <p className="text-xs capitalize font-semibold">
+                    <p className="text-xs capitalize font-medium">
                       miembros:{" "}
                       <span className="font-normal">
                         {anime.members.toLocaleString()}{" "}

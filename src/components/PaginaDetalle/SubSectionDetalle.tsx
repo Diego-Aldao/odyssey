@@ -27,7 +27,7 @@ const SubSectionDetalle: React.FC<Props> = ({
               className="subtitulo-detalle item-skew-izquierda"
             >
               <motion.span
-                className="block relative"
+                className="block relative font-medium"
                 variants={varianteDetalleSecciones}
                 initial="initialSpan"
                 viewport={{ once: true, margin: "-70px" }}

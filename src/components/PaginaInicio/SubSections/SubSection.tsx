@@ -10,11 +10,15 @@ const SubSection = ({ children, lastSection, noBackground }: Props) => {
   return (
     <LazyLoad
       offset={200}
-      className={`min-h-[300px] rounded-t-2xl  ${
+      className={`min-h-[300px] rounded-2xl  ${
         noBackground ? "bg-main-black" : "bg-main-color-background"
       }`}
     >
-      <div className={`sub_section ${lastSection ? "last_section" : ""}`}>
+      <div
+        className={`w-full mt-10 md:mt-20 overflow-hidden min-h-[350px] rounded-tr-none ${
+          lastSection ? " rounded-b-none" : "rounded-xl"
+        }`}
+      >
         {children}
       </div>
     </LazyLoad>

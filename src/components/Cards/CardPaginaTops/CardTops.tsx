@@ -74,7 +74,7 @@ const CardTops: React.FC<Props> = ({
         </div>
       </td>
       <td className="hidden md:table-cell">
-        <p className="flex gap-1 text-lg font-semibold lg:text-xl items-center text-main-black justify-center">
+        <p className="flex gap-1 text-lg font-medium lg:text-xl items-center text-main-black justify-center">
           {score ? (
             <>
               <Icon icon="ph:star-bold" />
@@ -86,7 +86,7 @@ const CardTops: React.FC<Props> = ({
         </p>
       </td>
       <td className="hidden md:table-cell">
-        <span className="flex items-center justify-center h-full font-semibold lg:text-lg text-main-black">
+        <span className="flex items-center justify-center h-full font-medium lg:text-lg text-main-black">
           {favoritos.toLocaleString()}
         </span>
       </td>

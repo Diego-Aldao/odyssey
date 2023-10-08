@@ -22,7 +22,7 @@ const CardEpisodios = ({ id, titulo, imagen, episodios }: Props) => {
         transition={transition}
         className="flex h-full flex-col gap-4 z-[2]"
       >
-        <h3 className="text-center min-h-[45px] max-h-[45px] flex items-center justify-center font-semibold text-main-black">
+        <h3 className="text-center min-h-[45px] max-h-[45px] flex items-center justify-center font-medium text-main-black">
           <span className="line-clamp-2 text-center">{titulo}</span>
         </h3>
         <div className="h-full rounded-xl border-2 border-main-black overflow-hidden">

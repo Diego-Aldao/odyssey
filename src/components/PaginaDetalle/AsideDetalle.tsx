@@ -34,7 +34,7 @@ const AsideDetalle: React.FC<Props> = ({
             initial="initialContenedorTexto"
             animate="animateContenedorTexto"
             transition={transition}
-            className="item-skew-izquierda after:rounded-b-none after:skew-x-[-331deg] relative  capitalize text-lg inline-block text-main-color-background bg-main-black px-2 rounded-t-md rounded-tr-[10px]"
+            className="item-skew-izquierda after:rounded-b-none after:skew-x-[-331deg] relative  capitalize text-lg inline-block text-main-color-background bg-main-black px-2 rounded-t-md rounded-tr-[10px] font-medium"
           >
             <motion.span
               variants={variantesAside}
