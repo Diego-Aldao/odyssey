@@ -49,11 +49,11 @@ const ResultadosPersonaje = ({ query }: Props) => {
                 >
                   <>
                     {personaje.name_kanji && (
-                      <p className="text-xs font-semibold">
+                      <p className="text-xs font-medium">
                         ({personaje.name_kanji})
                       </p>
                     )}
-                    <p className="text-xs capitalize font-semibold">
+                    <p className="text-xs capitalize font-medium">
                       favoritos:{" "}
                       <span className="font-normal">{personaje.favorites}</span>
                     </p>
