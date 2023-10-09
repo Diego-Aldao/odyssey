@@ -29,13 +29,13 @@ El deploy del sitio se puede ver haciendo [click aqui](https://odysseyanime.verc
 A continuacion dejo algunas imagenes del sitio
 
 ### Inicio
-![pagina inicio](/public/Inicio.png)
+![pagina inicio](/public/screenshots/Inicio.png)
 
 ### Pagina Temporadas
-![pagina inicio](/public/Temporadas.png)
+![pagina inicio](/public/screenshots/Temporadas.png)
 
 ### Pagina Detalle
-![pagina inicio](/public/Detalle.png)
+![pagina inicio](/public/screenshots/Detalle.png)
 
 ### Modo Oscuro
-![pagina inicio](/public/DarkMode.png)
+![pagina inicio](/public/screenshots/DarkMode.png)
