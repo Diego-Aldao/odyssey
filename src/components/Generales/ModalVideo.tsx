@@ -24,20 +24,20 @@ const ModalVideo = ({ titulo, url, modalVisibility, handleClick }: Props) => {
         animate="animateButton"
         variants={varianteModalVideo}
         transition={transition}
-        className="flex flex-col gap-2 xs:pt-0 rounded-lg w-full mx-4 bg-main-color-background max-w-[600px] h-[65vw] max-h-[400px] md:max-h-[600px] md:max-w-[800px] items-center xs:border-4 border-main-black"
+        className="flex flex-col gap-2 xs:pt-0 rounded-lg w-full mx-4 bg-main-color-background max-w-[600px] h-[75vw] max-h-[400px] md:max-h-[600px] md:max-w-[800px] items-center xs:border-4 border-main-black overflow-hidden"
       >
-        <div className="header flex w-full items-center justify-center">
-          <p className="text-sm md:text-lg bg-main-black item-skew-x relative text-main-color-background w-fit z-[1] py-1 capitalize hidden xs:flex ml-auto">
+        <div className="header flex w-full items-start justify-center relative min-h-[30px] md:min-h-[40px]">
+          <p className="text-sm md:text-lg bg-main-black item-skew-x relative text-main-color-background w-fit z-[1] py-1 capitalize hidden xs:flex">
             {titulo} trailer
           </p>
           <div
             onClick={handleClick}
-            className="bg-main-black text-main-color-background self-end justify-self-end ml-auto h-full flex items-center justify-center px-4 relative -right-1 rounded-bl-lg cursor-pointer"
+            className="bg-main-black text-main-color-background h-full flex items-center justify-center px-4 rounded-bl-lg cursor-pointer absolute top-0 right-0"
           >
             <motion.div whileHover={{ scale: 1.2 }} transition={transition}>
               <Icon
                 icon="streamline:interface-add-1-expand-cross-buttons-button-more-remove-plus-add"
-                className="stroke-2 rotate-45 h-5 w-5"
+                className="stroke-2 rotate-45 h-3 w-3 md:h-5 md:w-5"
               />
             </motion.div>
           </div>
