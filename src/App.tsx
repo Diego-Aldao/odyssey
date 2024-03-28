@@ -80,7 +80,7 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <div className="bg-main-black w-full max-w-[1300px] rounded-md mx-auto p-1 md:p-2">
+    <div className="bg-main-black w-full max-w-[1440px] mx-auto rounded-md p-1 md:p-2">
       <DarkModeContextProvider>
         <RouterProvider router={router} />
       </DarkModeContextProvider>
